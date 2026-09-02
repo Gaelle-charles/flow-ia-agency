@@ -27,6 +27,11 @@ export const Route = createFileRoute("/services/automatisation")({
         title: "Automatisation",
         intro:
           "Vos tâches répétitives connectées, orchestrées et supprimées de votre agenda, sans une ligne de code à maintenir.",
+        description: [
+          "L'automatisation consiste à connecter vos outils entre eux (CRM, facturation, e-mails, tableurs, agenda) pour que l'information circule toute seule, au lieu d'être copiée-collée à la main.",
+          "Par exemple : un formulaire rempli sur votre site crée automatiquement le contact dans le CRM, génère le devis, envoie l'e-mail de bienvenue et notifie le bon commercial. Zéro ressaisie, zéro oubli.",
+          "Nous utilisons des plateformes no-code éprouvées et documentons chaque scénario : vos équipes restent autonomes pour les faire évoluer, et nos systèmes d'alerte vous préviennent immédiatement en cas d'erreur.",
+        ],
         tags: ["No-code", "Intégrations", "Scénarios", "Monitoring"],
         offers: [
           {
@@ -40,6 +45,29 @@ export const Route = createFileRoute("/services/automatisation")({
           {
             title: "Fiabilité",
             text: "Alertes, reprises sur erreur et documentation pour que rien ne casse en silence.",
+          },
+        ],
+        useCases: [
+          {
+            title: "Agence immobilière",
+            context:
+              "Chaque nouveau mandat déclenchait une dizaine de tâches manuelles : annonce sur les portails, mise à jour du CRM, e-mails aux acquéreurs en attente.",
+            result:
+              "Une chaîne automatisée publie les annonces, synchronise le CRM et alerte les acquéreurs correspondants en moins de 2 minutes.",
+          },
+          {
+            title: "SaaS B2B",
+            context:
+              "Les inscriptions à l'essai gratuit n'étaient jamais retranscrites dans le CRM, et l'équipe commerciale découvrait les prospects avec plusieurs jours de retard.",
+            result:
+              "Chaque inscription crée la fiche contact, notifie le commercial sur Slack et déclenche la séquence d'onboarding. Zéro lead perdu.",
+          },
+          {
+            title: "Association",
+            context:
+              "La gestion des adhésions se faisait sur des tableurs croisés à la main, avec des erreurs de facturation récurrentes.",
+            result:
+              "Paiements, relances d'échéance et attestations sont désormais générés automatiquement. 12h d'administratif économisées chaque mois.",
           },
         ],
         steps: [

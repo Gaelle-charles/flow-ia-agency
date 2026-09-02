@@ -4,8 +4,10 @@ export type ServiceContent = {
   eyebrow: string;
   title: string;
   intro: string;
+  description: string[];
   tags: string[];
   offers: { title: string; text: string }[];
+  useCases: { title: string; context: string; result: string }[];
   steps: { title: string; text: string }[];
 };
 
@@ -57,6 +59,16 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           <p className="mt-8 max-w-2xl text-sm font-bold uppercase leading-relaxed tracking-wide text-foreground sm:text-base">
             {content.intro}
           </p>
+          <div className="mt-8 grid max-w-3xl gap-4">
+            {content.description.map((d) => (
+              <p
+                key={d.slice(0, 24)}
+                className="border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground"
+              >
+                {d}
+              </p>
+            ))}
+          </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {content.tags.map((t) => (
               <span
@@ -84,6 +96,33 @@ export function ServicePage({ content }: { content: ServiceContent }) {
               </p>
             </article>
           ))}
+        </section>
+
+        <section className="mt-4 animate-fade-in rounded-3xl border border-border bg-card p-6 [animation-delay:300ms] [animation-fill-mode:backwards] sm:p-12">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+            Cas d'usage & projets
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {content.useCases.map((u, i) => (
+              <article
+                key={u.title}
+                className="animate-fade-in rounded-3xl bg-secondary p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ animationDelay: `${350 + i * 150}ms`, animationFillMode: "backwards" }}
+              >
+                <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                <h2 className="mt-2 break-words text-xl font-black uppercase tracking-tight text-foreground">
+                  {u.title}
+                </h2>
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                  {u.context}
+                </p>
+                <p className="mt-4 border-t border-border pt-4 text-xs font-bold uppercase leading-relaxed tracking-wide text-foreground">
+                  <span className="text-accent">Résultat — </span>
+                  {u.result}
+                </p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="animate-fade-in mt-4 rounded-3xl bg-secondary p-7 [animation-delay:400ms] [animation-fill-mode:backwards] sm:p-12">

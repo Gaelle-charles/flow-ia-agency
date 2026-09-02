@@ -27,6 +27,11 @@ export const Route = createFileRoute("/services/crm")({
         title: "CRM",
         intro:
           "Un CRM qui pense pour vous : qualification des leads par IA, relances automatiques et prévisions de ventes en temps réel.",
+        description: [
+          "Un CRM intelligent, c'est un outil commercial qui ne se contente plus de stocker vos contacts : il les analyse. Chaque lead reçoit un score calculé par l'IA à partir de vos historiques de vente, pour que vos équipes se concentrent sur les bons prospects.",
+          "Les relances partent automatiquement au bon moment, personnalisées selon le contexte du contact : secteur, interactions passées, signaux d'intérêt. Fini les opportunités oubliées dans un coin du pipeline.",
+          "Et côté pilotage, vos prévisions de chiffre d'affaires se mettent à jour en continu à partir des données réelles du pipeline, pour des décisions fondées sur des faits, pas sur des intuitions.",
+        ],
         tags: ["Scoring", "Pipeline", "Data", "Reporting"],
         offers: [
           {
@@ -40,6 +45,29 @@ export const Route = createFileRoute("/services/crm")({
           {
             title: "Prévisions",
             text: "Un pipeline lisible et des prévisions de chiffre fiables, mises à jour en continu.",
+          },
+        ],
+        useCases: [
+          {
+            title: "Industrie",
+            context:
+              "Un fabricant gérait 2 000 prospects dans un CRM jamais priorisé : les commerciaux traitaient les dossiers par ordre d'arrivée, pas par potentiel.",
+            result:
+              "Le scoring IA a révélé que 20% des leads généraient 70% du CA. Les ventes sur ces comptes ont progressé de 30% en un trimestre.",
+          },
+          {
+            title: "Conseil",
+            context:
+              "Les relances après rendez-vous dépendaient de la mémoire de chaque consultant. Un tiers des opportunités refroidissait sans suivi.",
+            result:
+              "Séquences de relance automatiques et personnalisées : le taux de transformation post-rendez-vous est passé de 18% à 31%.",
+          },
+          {
+            title: "Retail",
+            context:
+              "Impossible de prévoir le chiffre du trimestre : le pipeline était une liste de noms sans probabilités ni montants à jour.",
+            result:
+              "Pipeline restructuré avec prévisions IA en temps réel : les prévisions de vente sont fiables à 92% dès le premier mois.",
           },
         ],
         steps: [
