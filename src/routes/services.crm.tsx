@@ -43,10 +43,12 @@ export const Route = createFileRoute("/services/crm")({
           },
         ],
         steps: [
-          { title: "Diagnostic", text: "Analyse de votre pipeline actuel et de la qualité de vos données." },
-          { title: "Structuration", text: "Nettoyage, unification et modèle de données adapté à votre cycle." },
-          { title: "Déploiement", text: "Configuration du CRM, automatisations et formation des équipes." },
-          { title: "Pilotage", text: "Tableaux de bord et revues régulières pour affiner le scoring." },
+          { title: "Process", text: "Cartographie de vos processus actuels et identification des leviers d’IA." },
+          { title: "Audit", text: "Analyse technique et métier de vos données, outils et contraintes." },
+          { title: "Phase de cadrage", text: "Définition du périmètre, des objectifs et du plan de déploiement." },
+          { title: "Production", text: "Développement et paramétrage de la solution en itérations courtes." },
+          { title: "Livraison", text: "Mise en production, tests et validation avec garde-fous et monitoring." },
+          { title: "Formation", text: "Montée en compétence de vos équipes et transfert des bonnes pratiques." },
         ],
       }}
     />
