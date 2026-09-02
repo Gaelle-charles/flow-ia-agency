@@ -27,6 +27,11 @@ export const Route = createFileRoute("/services/agentic")({
         title: "Agentic",
         intro:
           "Des agents IA qui exécutent vos processus de bout en bout, 24h/24, connectés à vos outils et à vos données.",
+        description: [
+          "Un agent autonome est un logiciel capable de comprendre une demande, de raisonner sur vos données et d'exécuter des actions dans vos outils (CRM, messagerie, facturation, back-office) sans intervention humaine.",
+          "Concrètement, il peut lire un e-mail entrant, en extraire l'information utile, consulter vos bases de données pour vérifier un contexte, puis déclencher la bonne action : répondre au client, créer un ticket, mettre à jour une fiche ou alerter un collaborateur.",
+          "Chaque agent est encadré par des garde-fous : validation humaine sur les actions sensibles, journalisation complète de ses décisions et supervision en continu. Vous gardez le contrôle, l'agent fait le travail répétitif.",
+        ],
         tags: ["Agents", "Workflows", "RAG", "Intégrations"],
         offers: [
           {
