@@ -47,6 +47,29 @@ export const Route = createFileRoute("/services/crm")({
             text: "Un pipeline lisible et des prévisions de chiffre fiables, mises à jour en continu.",
           },
         ],
+        useCases: [
+          {
+            title: "Industrie",
+            context:
+              "Un fabricant gérait 2 000 prospects dans un CRM jamais priorisé : les commerciaux traitaient les dossiers par ordre d'arrivée, pas par potentiel.",
+            result:
+              "Le scoring IA a révélé que 20% des leads généraient 70% du CA. Les ventes sur ces comptes ont progressé de 30% en un trimestre.",
+          },
+          {
+            title: "Conseil",
+            context:
+              "Les relances après rendez-vous dépendaient de la mémoire de chaque consultant. Un tiers des opportunités refroidissait sans suivi.",
+            result:
+              "Séquences de relance automatiques et personnalisées : le taux de transformation post-rendez-vous est passé de 18% à 31%.",
+          },
+          {
+            title: "Retail",
+            context:
+              "Impossible de prévoir le chiffre du trimestre : le pipeline était une liste de noms sans probabilités ni montants à jour.",
+            result:
+              "Pipeline restructuré avec prévisions IA en temps réel : les prévisions de vente sont fiables à 92% dès le premier mois.",
+          },
+        ],
         steps: [
           { title: "Process", text: "Cartographie de vos processus actuels et identification des leviers d’IA." },
           { title: "Audit", text: "Analyse technique et métier de vos données, outils et contraintes." },

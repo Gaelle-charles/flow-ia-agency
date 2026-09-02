@@ -47,6 +47,29 @@ export const Route = createFileRoute("/services/automatisation")({
             text: "Alertes, reprises sur erreur et documentation pour que rien ne casse en silence.",
           },
         ],
+        useCases: [
+          {
+            title: "Agence immobilière",
+            context:
+              "Chaque nouveau mandat déclenchait une dizaine de tâches manuelles : annonce sur les portails, mise à jour du CRM, e-mails aux acquéreurs en attente.",
+            result:
+              "Une chaîne automatisée publie les annonces, synchronise le CRM et alerte les acquéreurs correspondants en moins de 2 minutes.",
+          },
+          {
+            title: "SaaS B2B",
+            context:
+              "Les inscriptions à l'essai gratuit n'étaient jamais retranscrites dans le CRM, et l'équipe commerciale découvrait les prospects avec plusieurs jours de retard.",
+            result:
+              "Chaque inscription crée la fiche contact, notifie le commercial sur Slack et déclenche la séquence d'onboarding. Zéro lead perdu.",
+          },
+          {
+            title: "Association",
+            context:
+              "La gestion des adhésions se faisait sur des tableurs croisés à la main, avec des erreurs de facturation récurrentes.",
+            result:
+              "Paiements, relances d'échéance et attestations sont désormais générés automatiquement. 12h d'administratif économisées chaque mois.",
+          },
+        ],
         steps: [
           { title: "Process", text: "Cartographie de vos processus actuels et identification des leviers d’IA." },
           { title: "Audit", text: "Analyse technique et métier de vos données, outils et contraintes." },
