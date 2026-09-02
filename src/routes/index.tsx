@@ -50,9 +50,9 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-secondary/30 px-3 py-4 font-sans sm:px-6 sm:py-8">
-      {/* Nav - fixed */}
-      <header className="fixed left-0 right-0 top-0 z-50 px-3 py-4 sm:px-6 sm:py-8">
-        <div className="mx-auto flex max-w-[1250px] items-center justify-between gap-4 rounded-2xl border border-border/60 bg-background/80 p-4 backdrop-blur-md sm:p-5">
+      <div className="mx-auto max-w-[1250px] rounded-3xl bg-background p-4 sm:p-8">
+        {/* Nav */}
+        <header className="flex items-center justify-between gap-4 pb-6">
           <a
             href="#top"
             className="text-xl font-black uppercase tracking-[0.35em] text-foreground"
@@ -77,10 +77,8 @@ function Index() {
             </a>
             <span className="h-2 w-2 rounded-full bg-accent" />
           </nav>
-        </div>
-      </header>
+        </header>
 
-      <div className="mx-auto max-w-[1250px] rounded-3xl bg-background p-4 pt-24 sm:p-8 sm:pt-28">
         {/* Hero */}
         <section
           id="top"
