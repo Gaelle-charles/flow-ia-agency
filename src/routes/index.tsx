@@ -129,7 +129,7 @@ function Index() {
               Processus
             </p>
             <div className="mt-auto">
-              <h2 className="text-3xl font-black uppercase tracking-tight text-foreground sm:text-4xl">
+              <h2 className="break-all text-3xl font-black uppercase tracking-tight text-foreground sm:text-4xl">
                 Automatisation
               </h2>
               <div className="mt-4 flex flex-wrap gap-2">
