@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "FLUO — Agence IA, Automatisation & CRM intelligent" },
+      { title: "FLOW — Agence IA, Automatisation & CRM intelligent" },
       {
         name: "description",
         content:
           "L'agence IA qui rend votre entreprise fluide : agents autonomes, automatisation no-code et CRM intelligent. Réponse sous 24h.",
       },
-      { property: "og:title", content: "FLUO — Agence IA" },
+      { property: "og:title", content: "FLOW — Agence IA" },
       {
         property: "og:description",
         content:
