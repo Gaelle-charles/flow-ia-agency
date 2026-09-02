@@ -5,13 +5,13 @@ import crmLaptop from "@/assets/crm-laptop.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FLUO — Agence IA : agents, automatisation, CRM" },
+      { title: "FLOW — Agence IA : agents, automatisation, CRM" },
       {
         name: "description",
         content:
-          "FLUO conçoit des agents IA autonomes, automatise vos process no-code et déploie un CRM intelligent. Parlons de votre projet.",
+          "FLOW conçoit des agents IA autonomes, automatise vos process no-code et déploie un CRM intelligent. Parlons de votre projet.",
       },
-      { property: "og:title", content: "FLUO — Agence IA" },
+      { property: "og:title", content: "FLOW — Agence IA" },
       {
         property: "og:description",
         content:
@@ -57,7 +57,7 @@ function Index() {
             href="#top"
             className="text-xl font-black uppercase tracking-[0.35em] text-foreground"
           >
-            Fluo
+            Flow
           </a>
           <nav className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest sm:gap-6">
             <span className="hidden items-center gap-2 rounded-full border border-border px-4 py-2 sm:inline-flex">
@@ -85,7 +85,7 @@ function Index() {
           className="grid gap-8 rounded-3xl border border-border bg-card p-6 sm:p-12 lg:grid-cols-[1.4fr_1fr] lg:items-center"
         >
           <h1 className="flex items-end text-[19vw] font-black uppercase leading-[0.8] tracking-tighter text-foreground lg:text-[11rem]">
-            Fluo
+            Flow
             <span className="mb-[0.12em] ml-2 inline-block h-[0.18em] w-[0.18em] bg-accent" />
           </h1>
           <div>
@@ -195,7 +195,7 @@ function Index() {
               projet<span className="text-accent">.</span>
             </h2>
             <div className="mt-8 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              <p>hello@fluo.agency</p>
+              <p>hello@flow.agency</p>
               <p className="mt-1">Réponse sous 24h</p>
             </div>
           </div>
@@ -243,7 +243,7 @@ function Index() {
         </section>
 
         <footer className="flex flex-col gap-3 px-2 py-8 font-mono text-[11px] uppercase tracking-widest text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Fluo · Agence IA</p>
+          <p>© 2026 Flow · Agence IA</p>
           <p>Agentic / Automatisation / CRM intelligent</p>
           <p>Paris · Remote</p>
         </footer>
