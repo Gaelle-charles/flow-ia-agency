@@ -27,6 +27,11 @@ export const Route = createFileRoute("/services/automatisation")({
         title: "Automatisation",
         intro:
           "Vos tâches répétitives connectées, orchestrées et supprimées de votre agenda, sans une ligne de code à maintenir.",
+        description: [
+          "L'automatisation consiste à connecter vos outils entre eux (CRM, facturation, e-mails, tableurs, agenda) pour que l'information circule toute seule, au lieu d'être copiée-collée à la main.",
+          "Par exemple : un formulaire rempli sur votre site crée automatiquement le contact dans le CRM, génère le devis, envoie l'e-mail de bienvenue et notifie le bon commercial. Zéro ressaisie, zéro oubli.",
+          "Nous utilisons des plateformes no-code éprouvées et documentons chaque scénario : vos équipes restent autonomes pour les faire évoluer, et nos systèmes d'alerte vous préviennent immédiatement en cas d'erreur.",
+        ],
         tags: ["No-code", "Intégrations", "Scénarios", "Monitoring"],
         offers: [
           {

@@ -27,6 +27,11 @@ export const Route = createFileRoute("/services/crm")({
         title: "CRM",
         intro:
           "Un CRM qui pense pour vous : qualification des leads par IA, relances automatiques et prévisions de ventes en temps réel.",
+        description: [
+          "Un CRM intelligent, c'est un outil commercial qui ne se contente plus de stocker vos contacts : il les analyse. Chaque lead reçoit un score calculé par l'IA à partir de vos historiques de vente, pour que vos équipes se concentrent sur les bons prospects.",
+          "Les relances partent automatiquement au bon moment, personnalisées selon le contexte du contact : secteur, interactions passées, signaux d'intérêt. Fini les opportunités oubliées dans un coin du pipeline.",
+          "Et côté pilotage, vos prévisions de chiffre d'affaires se mettent à jour en continu à partir des données réelles du pipeline, pour des décisions fondées sur des faits, pas sur des intuitions.",
+        ],
         tags: ["Scoring", "Pipeline", "Data", "Reporting"],
         offers: [
           {
