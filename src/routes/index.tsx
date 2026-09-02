@@ -52,7 +52,7 @@ function Index() {
     <div className="min-h-screen bg-secondary/30 px-3 py-4 font-sans sm:px-6 sm:py-8">
       <div className="mx-auto max-w-[1250px] rounded-3xl bg-background p-4 sm:p-8">
         {/* Nav */}
-        <header className="flex items-center justify-between gap-4 pb-6">
+        <header className="sticky top-0 z-50 -mx-4 -mt-4 flex items-center justify-between gap-4 border-b border-border/50 bg-background/85 px-4 py-4 backdrop-blur-xl transition-colors duration-300 sm:-mx-8 sm:-mt-8 sm:px-8">
           <a
             href="#top"
             className="text-xl font-black uppercase tracking-[0.35em] text-foreground"
