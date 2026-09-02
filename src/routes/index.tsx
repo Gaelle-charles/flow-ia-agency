@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import crmLaptop from "@/assets/crm-laptop.jpg.asset.json";
 
@@ -101,7 +101,10 @@ function Index() {
 
         {/* Services */}
         <section id="services" className="mt-4 grid gap-4 lg:grid-cols-3">
-          <article className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-card p-7">
+          <Link
+            to="/services/agentic"
+            className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-card p-7 transition-colors hover:border-accent"
+          >
             <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
               Agents autonomes
             </p>
@@ -122,9 +125,12 @@ function Index() {
                 <ArrowButton />
               </div>
             </div>
-          </article>
+          </Link>
 
-          <article className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-secondary p-7">
+          <Link
+            to="/services/automatisation"
+            className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-secondary p-7 transition-colors hover:border-accent"
+          >
             <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
               Processus
             </p>
@@ -145,9 +151,12 @@ function Index() {
                 <ArrowButton />
               </div>
             </div>
-          </article>
+          </Link>
 
-          <article className="group flex min-h-[480px] flex-col overflow-hidden rounded-3xl bg-secondary">
+          <Link
+            to="/services/crm"
+            className="group flex min-h-[480px] flex-col overflow-hidden rounded-3xl bg-secondary"
+          >
             <div className="relative">
               <img
                 src={crmLaptop.url}
@@ -175,7 +184,8 @@ function Index() {
                 <ArrowButton dark />
               </div>
             </div>
-          </article>
+          </Link>
+
         </section>
 
         {/* Contact */}

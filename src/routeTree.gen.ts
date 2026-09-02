@@ -10,33 +10,69 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesAgenticRouteImport } from './routes/services.agentic'
+import { Route as ServicesAutomatisationRouteImport } from './routes/services.automatisation'
+import { Route as ServicesCrmRouteImport } from './routes/services.crm'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAgenticRoute = ServicesAgenticRouteImport.update({
+  id: '/services/agentic',
+  path: '/services/agentic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesAutomatisationRoute = ServicesAutomatisationRouteImport.update({
+  id: '/services/automatisation',
+  path: '/services/automatisation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCrmRoute = ServicesCrmRouteImport.update({
+  id: '/services/crm',
+  path: '/services/crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services/agentic': typeof ServicesAgenticRoute
+  '/services/automatisation': typeof ServicesAutomatisationRoute
+  '/services/crm': typeof ServicesCrmRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services/agentic': typeof ServicesAgenticRoute
+  '/services/automatisation': typeof ServicesAutomatisationRoute
+  '/services/crm': typeof ServicesCrmRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services/agentic': typeof ServicesAgenticRoute
+  '/services/automatisation': typeof ServicesAutomatisationRoute
+  '/services/crm': typeof ServicesCrmRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/services/agentic' | '/services/automatisation' | '/services/crm'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/services/agentic' | '/services/automatisation' | '/services/crm'
+  id:
+    | '__root__'
+    | '/'
+    | '/services/agentic'
+    | '/services/automatisation'
+    | '/services/crm'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesAgenticRoute: typeof ServicesAgenticRoute
+  ServicesAutomatisationRoute: typeof ServicesAutomatisationRoute
+  ServicesCrmRoute: typeof ServicesCrmRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +84,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/agentic': {
+      id: '/services/agentic'
+      path: '/services/agentic'
+      fullPath: '/services/agentic'
+      preLoaderRoute: typeof ServicesAgenticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/automatisation': {
+      id: '/services/automatisation'
+      path: '/services/automatisation'
+      fullPath: '/services/automatisation'
+      preLoaderRoute: typeof ServicesAutomatisationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/crm': {
+      id: '/services/crm'
+      path: '/services/crm'
+      fullPath: '/services/crm'
+      preLoaderRoute: typeof ServicesCrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesAgenticRoute: ServicesAgenticRoute,
+  ServicesAutomatisationRoute: ServicesAutomatisationRoute,
+  ServicesCrmRoute: ServicesCrmRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
