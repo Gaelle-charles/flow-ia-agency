@@ -4,8 +4,10 @@ export type ServiceContent = {
   eyebrow: string;
   title: string;
   intro: string;
+  description: string[];
   tags: string[];
   offers: { title: string; text: string }[];
+  useCases: { title: string; context: string; result: string }[];
   steps: { title: string; text: string }[];
 };
 
@@ -57,6 +59,16 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           <p className="mt-8 max-w-2xl text-sm font-bold uppercase leading-relaxed tracking-wide text-foreground sm:text-base">
             {content.intro}
           </p>
+          <div className="mt-8 grid max-w-3xl gap-4">
+            {content.description.map((d) => (
+              <p
+                key={d.slice(0, 24)}
+                className="border-l-2 border-accent pl-4 text-sm leading-relaxed text-muted-foreground"
+              >
+                {d}
+              </p>
+            ))}
+          </div>
           <div className="mt-6 flex flex-wrap gap-2">
             {content.tags.map((t) => (
               <span
