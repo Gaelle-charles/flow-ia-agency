@@ -46,7 +46,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           </nav>
         </header>
 
-        <section className="rounded-3xl border border-border bg-card p-6 sm:p-12">
+        <section className="animate-fade-in rounded-3xl border border-border bg-card p-6 sm:p-12">
           <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
             {content.eyebrow}
           </p>
@@ -70,10 +70,11 @@ export function ServicePage({ content }: { content: ServiceContent }) {
         </section>
 
         <section className="mt-4 grid gap-4 md:grid-cols-3">
-          {content.offers.map((o) => (
+          {content.offers.map((o, i) => (
             <article
               key={o.title}
-              className="rounded-3xl border border-border bg-card p-7"
+              className="animate-fade-in rounded-3xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl"
+              style={{ animationDelay: `${200 + i * 150}ms`, animationFillMode: "backwards" }}
             >
               <h2 className="break-words text-2xl font-black uppercase tracking-tight text-foreground">
                 {o.title}
@@ -85,7 +86,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           ))}
         </section>
 
-        <section className="mt-4 rounded-3xl bg-secondary p-7 sm:p-12">
+        <section className="animate-fade-in mt-4 rounded-3xl bg-secondary p-7 [animation-delay:400ms] [animation-fill-mode:backwards] sm:p-12">
           <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
             Méthode
           </p>
@@ -113,7 +114,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           <Link
             to="/"
             hash="contact"
-            className="rounded-full bg-accent px-6 py-4 text-xs font-black uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
+            className="hover-scale rounded-full bg-accent px-6 py-4 text-xs font-black uppercase tracking-widest text-accent-foreground transition-opacity hover:opacity-90"
           >
             Nous contacter →
           </Link>

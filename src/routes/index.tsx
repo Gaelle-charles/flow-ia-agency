@@ -84,11 +84,11 @@ function Index() {
           id="top"
           className="grid gap-8 rounded-3xl border border-border bg-card p-6 sm:p-12 lg:grid-cols-[1.4fr_1fr] lg:items-center"
         >
-          <h1 className="flex items-end text-[19vw] font-black uppercase leading-[0.8] tracking-tighter text-foreground lg:text-[11rem]">
+          <h1 className="animate-fade-in flex items-end text-[19vw] font-black uppercase leading-[0.8] tracking-tighter text-foreground lg:text-[11rem]">
             Flow
-            <span className="mb-[0.12em] ml-2 inline-block h-[0.18em] w-[0.18em] bg-accent" />
+            <span className="pulse mb-[0.12em] ml-2 inline-block h-[0.18em] w-[0.18em] bg-accent" />
           </h1>
-          <div>
+          <div className="animate-fade-in [animation-delay:150ms] [animation-fill-mode:backwards]">
             <p className="text-sm font-bold uppercase leading-relaxed tracking-wide text-foreground sm:text-base">
               L'agence IA qui rend votre entreprise fluide : agents autonomes,
               automatisation et CRM intelligent. ·
@@ -103,7 +103,7 @@ function Index() {
         <section id="services" className="mt-4 grid gap-4 lg:grid-cols-3">
           <Link
             to="/services/agentic"
-            className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-card p-7 transition-colors hover:border-accent"
+            className="group flex min-h-[480px] animate-fade-in flex-col rounded-3xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl [animation-delay:200ms] [animation-fill-mode:backwards]"
           >
             <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
               Agents autonomes
@@ -129,7 +129,7 @@ function Index() {
 
           <Link
             to="/services/automatisation"
-            className="group flex min-h-[480px] flex-col rounded-3xl border border-border bg-secondary p-7 transition-colors hover:border-accent"
+            className="group flex min-h-[480px] animate-fade-in flex-col rounded-3xl border border-border bg-secondary p-7 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-xl [animation-delay:350ms] [animation-fill-mode:backwards]"
           >
             <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
               Processus
@@ -155,14 +155,14 @@ function Index() {
 
           <Link
             to="/services/crm"
-            className="group flex min-h-[480px] flex-col overflow-hidden rounded-3xl bg-secondary"
+            className="group flex min-h-[480px] animate-fade-in flex-col overflow-hidden rounded-3xl bg-secondary transition-all duration-300 hover:-translate-y-1 hover:shadow-xl [animation-delay:500ms] [animation-fill-mode:backwards]"
           >
             <div className="relative">
               <img
                 src={crmLaptop.url}
                 alt="Interface CRM affichée sur un ordinateur portable"
                 loading="lazy"
-                className="h-64 w-full object-cover grayscale"
+                className="h-64 w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
               />
               <div className="absolute inset-x-0 top-0 flex flex-wrap items-center justify-between gap-2 p-5">
                 <p className="text-[11px] font-bold uppercase tracking-widest text-foreground">
@@ -197,7 +197,7 @@ function Index() {
             <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
               Contact
             </p>
-            <h2 className="mt-6 text-5xl font-black uppercase leading-[0.85] tracking-tighter text-foreground sm:text-7xl">
+            <h2 className="animate-fade-in mt-6 text-5xl font-black uppercase leading-[0.85] tracking-tighter text-foreground sm:text-7xl">
               Parlons
               <br />
               de votre
