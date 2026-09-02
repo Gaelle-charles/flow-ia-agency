@@ -43,10 +43,12 @@ export const Route = createFileRoute("/services/agentic")({
           },
         ],
         steps: [
-          { title: "Cadrage", text: "Identification des tâches à fort volume et des données disponibles." },
-          { title: "Prototype", text: "Un agent en environnement de test sur un cas réel en 2 semaines." },
-          { title: "Déploiement", text: "Mise en production avec garde-fous, logs et validation humaine." },
-          { title: "Amélioration", text: "Suivi des performances et itérations continues sur les prompts et outils." },
+          { title: "Process", text: "Cartographie de vos processus actuels et identification des leviers d’IA." },
+          { title: "Audit", text: "Analyse technique et métier de vos données, outils et contraintes." },
+          { title: "Phase de cadrage", text: "Définition du périmètre, des objectifs et du plan de déploiement." },
+          { title: "Production", text: "Développement et paramétrage de la solution en itérations courtes." },
+          { title: "Livraison", text: "Mise en production, tests et validation avec garde-fous et monitoring." },
+          { title: "Formation", text: "Montée en compétence de vos équipes et transfert des bonnes pratiques." },
         ],
       }}
     />

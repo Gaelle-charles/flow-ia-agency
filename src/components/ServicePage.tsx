@@ -90,7 +90,7 @@ export function ServicePage({ content }: { content: ServiceContent }) {
           <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
             Méthode
           </p>
-          <ol className="mt-8 grid gap-8 md:grid-cols-4">
+          <ol className="mt-8 grid gap-8 md:grid-cols-3">
             {content.steps.map((s, i) => (
               <li key={s.title}>
                 <span className="font-mono text-xs text-accent">

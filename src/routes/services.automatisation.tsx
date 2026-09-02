@@ -43,10 +43,12 @@ export const Route = createFileRoute("/services/automatisation")({
           },
         ],
         steps: [
-          { title: "Audit", text: "Observation de vos process réels et priorisation par impact." },
-          { title: "Conception", text: "Schéma des scénarios et choix des connecteurs adaptés." },
-          { title: "Mise en place", text: "Construction, tests et bascule progressive en production." },
-          { title: "Suivi", text: "Monitoring mensuel et ajustements au fil de vos évolutions." },
+          { title: "Process", text: "Cartographie de vos processus actuels et identification des leviers d’IA." },
+          { title: "Audit", text: "Analyse technique et métier de vos données, outils et contraintes." },
+          { title: "Phase de cadrage", text: "Définition du périmètre, des objectifs et du plan de déploiement." },
+          { title: "Production", text: "Développement et paramétrage de la solution en itérations courtes." },
+          { title: "Livraison", text: "Mise en production, tests et validation avec garde-fous et monitoring." },
+          { title: "Formation", text: "Montée en compétence de vos équipes et transfert des bonnes pratiques." },
         ],
       }}
     />
