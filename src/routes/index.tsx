@@ -81,8 +81,6 @@ function Index() {
       </header>
 
       <div className="mx-auto max-w-[1250px] rounded-3xl bg-background p-4 pt-24 sm:p-8 sm:pt-28">
-        {/* Nav placeholder spacing */}
-
         {/* Hero */}
         <section
           id="top"
