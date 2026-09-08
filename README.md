@@ -1,26 +1,38 @@
-# Your Dream Landing
+# Site vitrine
 
-J'aimerais que tu fasses une landing page en similaire à l'inspiration ci joint
+Site éditorial consacré à l’ingénierie des processus, de la donnée et de l’IA. Le nom
+commercial, l’entité juridique et les éléments de positionnement stables sont centralisés
+dans `src/content/brand.config.json`.
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://flow-ia-agency.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0c07a2f5-fa90-4dd9-a24a-6bf49b7989f2).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Développement local
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Commandes de validation :
+
+```sh
+npm run typecheck
+npm test
+npm run lint
+npm run build
+npm run preview
+```
+
+Avec un serveur local déjà lancé, `npm run qa:browser` produit les diagnostics et captures
+responsive dans `docs/site-rebuild/`.
+
+Le formulaire a besoin d’une destination serveur réelle. Copier `.env.example` vers un
+fichier d’environnement local et renseigner `CONTACT_WEBHOOK_URL`. Aucune réussite n’est
+simulée lorsque cette variable est absente.
+
+## Gouvernance éditoriale
+
+Les sources éditoriales validées se trouvent dans le brand kit adjacent au dépôt. Les
+décisions de migration, claims bloqués et vérifications sont consignés dans
+`docs/site-rebuild/`.
+
+Le projet reste synchronisable avec Lovable. Ne pas réécrire l’historique Git de la branche
+principale.

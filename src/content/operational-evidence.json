@@ -1,0 +1,44 @@
+{
+  "reviewedAt": "2026-09-08",
+  "disclaimer": "Études externes, pas des résultats clients ni des gains promis.",
+  "sources": [
+    {
+      "id": "microsoft-wti-2023",
+      "label": "Microsoft · Work Trend Index 2023",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work",
+      "scope": "31 000 actifs à temps plein dans 31 marchés, interrogés en février–mars 2023. Le chiffre porte sur leur difficulté déclarée à passer trop de temps à chercher de l’information."
+    },
+    {
+      "id": "mulesoft-2025",
+      "label": "MuleSoft / Salesforce · 2025",
+      "url": "https://www.salesforce.com/news/stories/connectivity-report-announcement-2025/",
+      "scope": "Connectivity Benchmark 2025 : 1 050 responsables IT, dans neuf pays, interrogés en octobre–novembre 2024. Organisations d’au moins 1 000 salariés ; ces résultats ne décrivent pas spécifiquement les PME."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "information-search",
+      "value": "62",
+      "unit": "%",
+      "title": "L’information se cherche encore.",
+      "description": "des actifs interrogés disent passer trop de temps à chercher de l’information.",
+      "sourceId": "microsoft-wti-2023"
+    },
+    {
+      "id": "integration-friction",
+      "value": "95",
+      "unit": "%",
+      "title": "Les systèmes restent difficiles à relier.",
+      "description": "des responsables IT interrogés rencontrent des difficultés à intégrer les données entre systèmes.",
+      "sourceId": "mulesoft-2025"
+    },
+    {
+      "id": "ai-data-barrier",
+      "value": "80",
+      "unit": "%",
+      "title": "L’IA dépend de ce socle.",
+      "description": "des entreprises interrogées citent l’intégration des données comme un obstacle majeur à l’adoption de l’IA.",
+      "sourceId": "mulesoft-2025"
+    }
+  ]
+}

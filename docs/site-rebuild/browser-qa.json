@@ -1,0 +1,275 @@
+{
+  "baseUrl": "http://127.0.0.1:8080",
+  "results": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 3217
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "structuredDataCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "reducedMotionAnimationDuration": "not-present",
+      "typeScale": {
+        "hero": "76px",
+        "section": "44.64px",
+        "feature": "18.4px",
+        "body": "18px"
+      },
+      "sectionHeights": {
+        "hero": 374,
+        "model": 762,
+        "proof": 472,
+        "delivery": 584,
+        "team": 310,
+        "faq": 309,
+        "contact": 176
+      },
+      "overflowingElements": [],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "tablet": {
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "document": {
+        "clientWidth": 820,
+        "scrollWidth": 820,
+        "scrollHeight": 3511
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "structuredDataCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "reducedMotionAnimationDuration": "not-present",
+      "typeScale": {
+        "hero": "52px",
+        "section": "32px",
+        "feature": "18.4px",
+        "body": "18px"
+      },
+      "sectionHeights": {
+        "hero": 374,
+        "model": 836,
+        "proof": 495,
+        "delivery": 538,
+        "team": 310,
+        "faq": 357,
+        "contact": 163
+      },
+      "overflowingElements": [],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "scrollHeight": 4785
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "structuredDataCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "reducedMotionAnimationDuration": "not-present",
+      "typeScale": {
+        "hero": "41.6px",
+        "section": "32px",
+        "feature": "18.4px",
+        "body": "16px"
+      },
+      "sectionHeights": {
+        "hero": 452,
+        "model": 1389,
+        "proof": 774,
+        "delivery": 719,
+        "team": 397,
+        "faq": 363,
+        "contact": 245
+      },
+      "overflowingElements": [],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "routes": [
+      {
+        "route": "/",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Systèmes opérationnels intelligents | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/realisations",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Réalisations | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/cas-usage",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Cas d’usage | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/methode",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Approche | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/a-propos",
+        "status": 200,
+        "h1Count": 1,
+        "title": "À propos | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/contact",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Parler d’un problème opérationnel | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/journal",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Journal d’ingénierie | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/mentions-legales",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Mentions légales | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/confidentialite",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Confidentialité | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/services/agentic",
+        "status": 307,
+        "location": "/methode",
+        "expectedLocation": "/methode"
+      },
+      {
+        "route": "/services/automatisation",
+        "status": 307,
+        "location": "/methode",
+        "expectedLocation": "/methode"
+      },
+      {
+        "route": "/services/crm",
+        "status": 307,
+        "location": "/methode",
+        "expectedLocation": "/methode"
+      }
+    ],
+    "interactions": {
+      "keyboardSelected": "Reporting",
+      "panels": [
+        {
+          "selected": "Demande client",
+          "stages": 3,
+          "outcome": "Une demande suivie jusqu’à sa résolution.",
+          "humanControl": "L’humain garde la mainUne demande hors périmètre revient au responsable avec son contexte."
+        },
+        {
+          "selected": "Reporting",
+          "stages": 3,
+          "outcome": "Un reporting reproductible, avec des écarts expliqués.",
+          "humanControl": "L’humain garde la mainLe responsable valide les exceptions avant la diffusion du rapport."
+        },
+        {
+          "selected": "Décision métier",
+          "stages": 3,
+          "outcome": "Une décision reliée à ses sources et à sa prochaine action.",
+          "humanControl": "L’humain garde la mainLe décideur garde la main sur l’arbitrage et ses conséquences."
+        }
+      ],
+      "disclosure": {
+        "total": 6,
+        "open": 1,
+        "secondOpen": true
+      },
+      "casesFit": true,
+      "detailLayouts": [
+        {
+          "route": "realisations",
+          "width": 1440,
+          "scrollWidth": 1440,
+          "height": 1949
+        },
+        {
+          "route": "realisations",
+          "width": 390,
+          "scrollWidth": 390,
+          "height": 3027
+        },
+        {
+          "route": "methode",
+          "width": 1440,
+          "scrollWidth": 1440,
+          "height": 2722
+        },
+        {
+          "route": "methode",
+          "width": 390,
+          "scrollWidth": 390,
+          "height": 4271
+        },
+        {
+          "route": "a-propos",
+          "width": 1440,
+          "scrollWidth": 1440,
+          "height": 1589
+        },
+        {
+          "route": "a-propos",
+          "width": 390,
+          "scrollWidth": 390,
+          "height": 2477
+        }
+      ]
+    }
+  }
+}

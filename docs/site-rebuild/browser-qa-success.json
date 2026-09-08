@@ -1,0 +1,195 @@
+{
+  "baseUrl": "http://127.0.0.1:8081",
+  "results": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 14579
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": null,
+          "className": "pointer-events-none absolute -right-28 -top-28 h-96 w-96 rounded-full border border-accent/15",
+          "text": "",
+          "left": 1135,
+          "right": 1519
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "className": "pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full border border-accent/10",
+          "text": "",
+          "left": 1159,
+          "right": 1447
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "className": "absolute left-[-10000px] top-auto h-px w-px overflow-hidden",
+          "text": "Ne pas remplir ce champ",
+          "left": -10000,
+          "right": -9999
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "className": "",
+          "text": "Ne pas remplir ce champ",
+          "left": -10000,
+          "right": -9822
+        },
+        {
+          "tag": "input",
+          "id": null,
+          "className": "",
+          "text": "",
+          "left": -10000,
+          "right": -9822
+        }
+      ],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "scrollHeight": 24229
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "overflowingElements": [
+        {
+          "tag": "div",
+          "id": null,
+          "className": "pointer-events-none absolute -right-28 -top-28 h-96 w-96 rounded-full border border-accent/15",
+          "text": "",
+          "left": 97,
+          "right": 481
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "className": "pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full border border-accent/10",
+          "text": "",
+          "left": 121,
+          "right": 409
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "className": "absolute left-[-10000px] top-auto h-px w-px overflow-hidden",
+          "text": "Ne pas remplir ce champ",
+          "left": -10000,
+          "right": -9999
+        },
+        {
+          "tag": "label",
+          "id": null,
+          "className": "",
+          "text": "Ne pas remplir ce champ",
+          "left": -10000,
+          "right": -9822
+        },
+        {
+          "tag": "input",
+          "id": null,
+          "className": "",
+          "text": "",
+          "left": -10000,
+          "right": -9822
+        }
+      ],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "routes": [
+      {
+        "route": "/",
+        "status": 200
+      },
+      {
+        "route": "/realisations",
+        "status": 200
+      },
+      {
+        "route": "/cas-usage",
+        "status": 200
+      },
+      {
+        "route": "/methode",
+        "status": 200
+      },
+      {
+        "route": "/a-propos",
+        "status": 200
+      },
+      {
+        "route": "/contact",
+        "status": 200
+      },
+      {
+        "route": "/journal",
+        "status": 200
+      },
+      {
+        "route": "/mentions-legales",
+        "status": 200
+      },
+      {
+        "route": "/confidentialite",
+        "status": 200
+      },
+      {
+        "route": "/services/agentic",
+        "status": 307,
+        "location": "/cas-usage",
+        "expectedLocation": "/cas-usage"
+      },
+      {
+        "route": "/services/automatisation",
+        "status": 307,
+        "location": "/realisations",
+        "expectedLocation": "/realisations"
+      },
+      {
+        "route": "/services/crm",
+        "status": 307,
+        "location": "/cas-usage",
+        "expectedLocation": "/cas-usage"
+      }
+    ],
+    "form": {
+      "expectation": "success",
+      "observed": "success",
+      "message": "Votre demande a bien été reçue. Nous revenons vers vous après lecture du processus. Référence : D0E58037.",
+      "passed": true
+    }
+  }
+}

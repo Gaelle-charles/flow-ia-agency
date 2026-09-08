@@ -1,0 +1,184 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "results": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 4304
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "structuredDataCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "reducedMotionAnimationDuration": "not-present",
+      "typeScale": {
+        "hero": "52px",
+        "section": "37.6px",
+        "feature": "33.84px",
+        "body": "18px"
+      },
+      "sectionHeights": {
+        "hero": 627,
+        "problem": 212,
+        "proof": 726,
+        "use-cases": 284,
+        "expertises": 504,
+        "products": 173,
+        "method": 542,
+        "engagements": 208,
+        "governance": 524,
+        "founder": 221,
+        "faq": 358,
+        "contact": 358
+      },
+      "overflowingElements": [],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "scrollHeight": 7464
+      },
+      "h1Count": 1,
+      "mainCount": 1,
+      "structuredDataCount": 1,
+      "missingAltCount": 0,
+      "emptyLinks": 0,
+      "unlabelledFormControls": 0,
+      "reducedMotionEmulated": true,
+      "reducedMotionAnimationDuration": "not-present",
+      "typeScale": {
+        "hero": "36px",
+        "section": "26.4px",
+        "feature": "28px",
+        "body": "16px"
+      },
+      "sectionHeights": {
+        "hero": 955,
+        "problem": 272,
+        "proof": 1186,
+        "use-cases": 551,
+        "expertises": 944,
+        "products": 329,
+        "method": 846,
+        "engagements": 328,
+        "governance": 1044,
+        "founder": 513,
+        "faq": 422,
+        "contact": 321
+      },
+      "overflowingElements": [],
+      "firstTabTarget": {
+        "tag": "a",
+        "text": "Aller au contenu",
+        "href": "#main-content"
+      }
+    },
+    "routes": [
+      {
+        "route": "/",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Sway Ops | Ingénierie des processus, de la donnée et de l’IA",
+        "hasDescription": true
+      },
+      {
+        "route": "/realisations",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Réalisations | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/cas-usage",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Cas d’usage | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/methode",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Méthode | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/a-propos",
+        "status": 200,
+        "h1Count": 1,
+        "title": "À propos | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/contact",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Étudier un processus | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/journal",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Journal d’ingénierie | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/mentions-legales",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Mentions légales | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/confidentialite",
+        "status": 200,
+        "h1Count": 1,
+        "title": "Confidentialité | Sway Ops",
+        "hasDescription": true
+      },
+      {
+        "route": "/services/agentic",
+        "status": 307,
+        "location": "/cas-usage",
+        "expectedLocation": "/cas-usage"
+      },
+      {
+        "route": "/services/automatisation",
+        "status": 307,
+        "location": "/realisations",
+        "expectedLocation": "/realisations"
+      },
+      {
+        "route": "/services/crm",
+        "status": 307,
+        "location": "/cas-usage",
+        "expectedLocation": "/cas-usage"
+      }
+    ],
+    "form": {
+      "expectation": "error",
+      "observed": "error",
+      "message": "Le formulaire n’est pas encore relié à sa destination. Votre demande n’a pas été envoyée.",
+      "passed": true
+    }
+  }
+}

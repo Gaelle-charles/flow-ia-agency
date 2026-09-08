@@ -10,6 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as CasUsageRouteImport } from './routes/cas-usage'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as JournalRouteImport } from './routes/journal'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as MethodeRouteImport } from './routes/methode'
+import { Route as RealisationsRouteImport } from './routes/realisations'
 import { Route as ServicesAgenticRouteImport } from './routes/services.agentic'
 import { Route as ServicesAutomatisationRouteImport } from './routes/services.automatisation'
 import { Route as ServicesCrmRouteImport } from './routes/services.crm'
@@ -17,6 +25,46 @@ import { Route as ServicesCrmRouteImport } from './routes/services.crm'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasUsageRoute = CasUsageRouteImport.update({
+  id: '/cas-usage',
+  path: '/cas-usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodeRoute = MethodeRouteImport.update({
+  id: '/methode',
+  path: '/methode',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealisationsRoute = RealisationsRouteImport.update({
+  id: '/realisations',
+  path: '/realisations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesAgenticRoute = ServicesAgenticRouteImport.update({
@@ -37,12 +85,28 @@ const ServicesCrmRoute = ServicesCrmRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/cas-usage': typeof CasUsageRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/methode': typeof MethodeRoute
+  '/realisations': typeof RealisationsRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/cas-usage': typeof CasUsageRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/methode': typeof MethodeRoute
+  '/realisations': typeof RealisationsRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
@@ -50,6 +114,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/cas-usage': typeof CasUsageRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/contact': typeof ContactRoute
+  '/journal': typeof JournalRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/methode': typeof MethodeRoute
+  '/realisations': typeof RealisationsRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
@@ -57,12 +129,43 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/services/agentic' | '/services/automatisation' | '/services/crm'
+    | '/'
+    | '/a-propos'
+    | '/cas-usage'
+    | '/confidentialite'
+    | '/contact'
+    | '/journal'
+    | '/mentions-legales'
+    | '/methode'
+    | '/realisations'
+    | '/services/agentic'
+    | '/services/automatisation'
+    | '/services/crm'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services/agentic' | '/services/automatisation' | '/services/crm'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/cas-usage'
+    | '/confidentialite'
+    | '/contact'
+    | '/journal'
+    | '/mentions-legales'
+    | '/methode'
+    | '/realisations'
+    | '/services/agentic'
+    | '/services/automatisation'
+    | '/services/crm'
   id:
     | '__root__'
     | '/'
+    | '/a-propos'
+    | '/cas-usage'
+    | '/confidentialite'
+    | '/contact'
+    | '/journal'
+    | '/mentions-legales'
+    | '/methode'
+    | '/realisations'
     | '/services/agentic'
     | '/services/automatisation'
     | '/services/crm'
@@ -70,6 +173,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  CasUsageRoute: typeof CasUsageRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
+  ContactRoute: typeof ContactRoute
+  JournalRoute: typeof JournalRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  MethodeRoute: typeof MethodeRoute
+  RealisationsRoute: typeof RealisationsRoute
   ServicesAgenticRoute: typeof ServicesAgenticRoute
   ServicesAutomatisationRoute: typeof ServicesAutomatisationRoute
   ServicesCrmRoute: typeof ServicesCrmRoute
@@ -82,6 +193,62 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cas-usage': {
+      id: '/cas-usage'
+      path: '/cas-usage'
+      fullPath: '/cas-usage'
+      preLoaderRoute: typeof CasUsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methode': {
+      id: '/methode'
+      path: '/methode'
+      fullPath: '/methode'
+      preLoaderRoute: typeof MethodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realisations': {
+      id: '/realisations'
+      path: '/realisations'
+      fullPath: '/realisations'
+      preLoaderRoute: typeof RealisationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/agentic': {
@@ -110,6 +277,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  CasUsageRoute: CasUsageRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
+  ContactRoute: ContactRoute,
+  JournalRoute: JournalRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  MethodeRoute: MethodeRoute,
+  RealisationsRoute: RealisationsRoute,
   ServicesAgenticRoute: ServicesAgenticRoute,
   ServicesAutomatisationRoute: ServicesAutomatisationRoute,
   ServicesCrmRoute: ServicesCrmRoute,
