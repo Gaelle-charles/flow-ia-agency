@@ -9,10 +9,10 @@ export const navigation = [
 
 export const hero = {
   eyebrow: "Intelligent Operations",
-  title: "Des outils fragmentés aux opérations intelligentes.",
-  body: "Nous concevons des systèmes opérationnels qui comprennent le contexte, font avancer le travail et savent quand solliciter un jugement humain.",
+  title: "Nous transformons vos opérations complexes en systèmes qui fonctionnent.",
+  body: "Quand une équipe doit encore relancer, rechercher, copier-coller ou arbitrer entre plusieurs outils, nous reconstruisons une boucle de travail complète, mesurable et exploitable dans son environnement.",
   principle: "AI is only as useful as the operation it can act on.",
-  primaryCta: "Parler d’un problème opérationnel",
+  primaryCta: "Décrire une opération qui ralentit votre équipe",
   secondaryCta: "Voir un système construit",
   microcopy: "Nous partons d’une opération réelle, pas d’une technologie à placer.",
 } as const;
@@ -92,58 +92,61 @@ export const operatingLayers = [
 export const deliverySteps = [
   {
     index: "01",
+    phase: "Diagnostic",
     stage: "Embed",
-    title: "Comprendre l’opération dans son environnement réel",
-    body: "Nous travaillons avec les personnes qui vivent le workflow pour comprendre les outils, les données, les exceptions et les responsabilités.",
-    deliverable: "Carte du système réel et première boucle à construire",
+    title: "Comprendre le travail tel qu’il existe vraiment",
+    body: "Nous cartographions le déclencheur, les données, les outils, les manipulations, les décisions et les exceptions.",
+    deliverable: "Une rupture prioritaire, un périmètre clair et une mesure de départ",
   },
   {
     index: "02",
+    phase: "Pilote",
     stage: "Build",
-    title: "Construire le système, pas seulement la recommandation",
-    body: "Nous concevons et réalisons une boucle complète dans les outils et contraintes du client.",
-    deliverable: "Système fonctionnel relié aux données nécessaires",
+    title: "Construire la première boucle qui fonctionne",
+    body: "Nous réalisons la plus petite boucle complète dans les outils, les règles et les contraintes de votre environnement.",
+    deliverable: "Une boucle testée, avec ses règles, ses contrôles et ses responsabilités",
   },
   {
     index: "03",
+    phase: "Industrialisation",
     stage: "Run",
-    title: "Atteindre le fonctionnement réel",
-    body: "Nous testons, observons, corrigeons et mesurons avant de préparer l’industrialisation, le transfert ou le passage à l’échelle.",
-    deliverable: "Système exploitable, mesuré et transmissible",
+    title: "Faire durer ce qui fonctionne",
+    body: "Nous renforçons les droits, les tests, les traces, le suivi et la reprise pour préparer la transmission ou le passage à l’échelle.",
+    deliverable: "Un système mesuré, suivi et transmissible",
   },
 ] as const;
 
 export const engagements = [
   {
     index: "01",
-    title: "Cadrage d’un système opérationnel",
-    body: "Pour choisir une opération, structurer son contexte et définir la première boucle utile.",
+    title: "Diagnostic",
+    body: "Nous identifions la rupture, le workflow à traiter, le périmètre et la mesure de départ.",
     outputs: [
-      "Carte de l’opération",
-      "Points de rupture et exceptions",
-      "Périmètre du système",
-      "Critères d’acceptation",
+      "Une opération comprise",
+      "Les ruptures et exceptions prioritaires",
+      "Un premier périmètre de travail",
+      "Une preuve de résultat à viser",
     ],
   },
   {
     index: "02",
-    title: "Construction et mise en production",
-    body: "Pour construire dans l’environnement réel et atteindre un usage opérationnel observable.",
+    title: "Pilote",
+    body: "Nous construisons la plus petite boucle complète dans votre environnement réel.",
     outputs: [
-      "Context, execution et intelligence",
-      "Intégrations et contrôles",
-      "Tests en conditions réelles",
-      "Mise en production",
+      "Une boucle reliée à vos outils",
+      "Des règles et responsabilités explicites",
+      "Des contrôles et une validation humaine",
+      "Une preuve de fonctionnement",
     ],
   },
   {
     index: "03",
-    title: "Run et passage à l’échelle",
-    body: "Pour suivre le système, corriger les ruptures et préparer sa reprise ou son extension.",
+    title: "Industrialisation",
+    body: "Nous renforçons le système pour qu’il soit repris, suivi et étendu dans la durée.",
     outputs: [
-      "Mesure opérationnelle",
-      "Supervision et corrections",
-      "Documentation",
+      "Droits, sécurité et traçabilité",
+      "Tests, traces et supervision",
+      "Documentation et responsabilité claire",
       "Trajectoire d’industrialisation",
     ],
   },
@@ -196,17 +199,17 @@ export const governancePrinciples = [
 ] as const;
 
 export const crew = {
-  eyebrow: "Senior expertise, embedded by design",
-  title: "Un AI crew, du terrain à la production.",
+  eyebrow: "Notre modèle de delivery",
+  title: "Un responsable identifié, un collectif mobilisé.",
   intro:
-    "Business, produit et technologie travaillent sur le même système. Les personnes qui comprennent le problème participent à sa résolution.",
+    "Chaque mission est portée par un responsable qui garde le lien, le périmètre et le résultat.",
   responsibilities: [
     "Diagnostic opérationnel",
     "Architecture du système",
     "Construction et arbitrages",
     "Mise en production",
   ],
-  team: "Nous réunissons les expertises seniors utiles au problème : architecture de l’information, intégrations et systèmes agentiques. Chaque projet garde une responsabilité claire, jusqu’à son fonctionnement réel.",
+  team: "Autour de cette responsabilité, nous mobilisons les expertises utiles - opérations, CRM, données, intégration, automatisation, agentique, sécurité et conduite du changement - au moment où le workflow les exige.",
 } as const;
 
 export const finalCta = {

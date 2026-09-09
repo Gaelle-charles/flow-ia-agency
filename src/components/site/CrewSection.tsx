@@ -9,7 +9,7 @@ export function CrewSection() {
       <div>
         <p className="text-sm font-semibold text-accent">{crew.eyebrow}</p>
         <h2 className="type-feature-title mt-5 font-semibold text-foreground">
-          Comprendre et construire, ensemble.
+          Une responsabilité claire, les expertises utiles.
         </h2>
         <p className="mt-5 text-base leading-7 text-foreground">{crew.intro}</p>
         <p className="mt-4 text-base leading-7 text-muted-foreground">{crew.team}</p>

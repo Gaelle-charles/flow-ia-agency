@@ -12,7 +12,7 @@ export const Route = createFileRoute("/methode")({
   head: () => ({
     meta: pageMeta(
       "Approche",
-      "Embed, build, run : une approche déployée au plus près des opérations jusqu’au fonctionnement réel du système.",
+      "Diagnostic, pilote, industrialisation : une approche ancrée dans le travail réel jusqu’au fonctionnement durable du système.",
     ),
   }),
   component: MethodPage,
@@ -23,15 +23,15 @@ function MethodPage() {
     <PageShell>
       <PageIntro
         eyebrow="Approche"
-        title="De l’opération réelle au système en production."
-        body="Nous travaillons au contact du workflow, construisons dans son environnement et accompagnons le système jusqu’à son fonctionnement réel."
+        title="Une première boucle qui fonctionne dans votre environnement."
+        body="Nous partons du travail réel, construisons dans vos outils et accompagnons le système jusqu’à ce que son résultat soit observable."
       />
 
       <section className="px-1 py-14 sm:px-4 sm:py-16 lg:px-7 lg:py-20">
         <SectionHeader
-          eyebrow="Notre modèle de delivery"
-          title="Embed → Build → Run"
-          body="L’équipe est la façon dont nous déployons l’expertise. Elle n’est pas l’offre."
+          eyebrow="Notre méthode"
+          title="Diagnostic → Pilote → Industrialisation"
+          body="Trois temps - Embed, Build, Run - pour passer d’une rupture observée à un système que vos équipes peuvent suivre et reprendre."
         />
         <ol className="mt-9">
           {deliverySteps.map((item) => (
@@ -42,9 +42,9 @@ function MethodPage() {
 
       <section className="border-t border-border py-10 sm:py-12">
         <SectionHeader
-          eyebrow="Formats d’engagement"
-          title="Un engagement autour du système, jamais autour d’un profil."
-          body="Le périmètre dépend de la maturité de l’opération, mais le résultat reste un système construit, utilisé et mesuré."
+          eyebrow="Ce que nous construisons avec vous"
+          title="Un périmètre qui évolue avec la preuve."
+          body="Le résultat reste le même : une opération comprise, une boucle construite et un chemin clair pour la faire durer."
         />
         <div className="mt-9">
           {engagements.map((item) => (

@@ -171,19 +171,19 @@ test("le formulaire dépend d’une destination configurable", async () => {
   );
 });
 
-test("le crew remplace le dirigeant dans la présentation commerciale", async () => {
+test("le collectif remplace le dirigeant dans la présentation commerciale", async () => {
   const chunks = await publicSource();
   const brand = JSON.parse(
     await readFile(path.join(projectRoot, "src/content/brand.config.json"), "utf8"),
   );
-  assert.equal(brand.teamModel, "AI crew");
+  assert.equal(brand.teamModel, "Collectif d’exécution");
   assert.equal("founder" in brand, false);
   for (const { file, content } of chunks) {
     if (path.basename(file) === "legal.config.json") continue;
     assert.doesNotMatch(content, /Dorian|Labry|est dirigé par|brand\.founder/u);
   }
   const credentials = await readFile(path.join(projectRoot, "src/content/credentials.ts"), "utf8");
-  assert.match(credentials, /Certification individuelle obtenue par un membre du crew/u);
+  assert.match(credentials, /Certification individuelle obtenue par un membre du collectif/u);
   const badge = await readFile(
     path.join(projectRoot, "public/images/credentials/claude-certified-developer-foundations.png"),
   );

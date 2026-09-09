@@ -125,14 +125,14 @@ export function ProcessIntakeForm() {
       </div>
 
       <label className="block text-sm font-bold text-foreground">
-        Quelle opération ou quel workflow vous ralentit aujourd’hui ?
+        Quelle opération ralentit votre équipe aujourd’hui ?
         <Textarea
           required
           name="process"
           rows={5}
           minLength={20}
           maxLength={1800}
-          placeholder="Décrivez le déclencheur, les handoffs, les exceptions et le résultat attendu."
+          placeholder="Décrivez le déclencheur, les étapes, les outils, les exceptions et le résultat à obtenir."
           className={`${fieldClassName} min-h-28 resize-y py-4 leading-7`}
         />
       </label>
@@ -148,7 +148,7 @@ export function ProcessIntakeForm() {
       </label>
 
       <label className="block text-sm font-bold text-foreground">
-        Que se passe-t-il lorsqu’il fonctionne mal ?
+        Quelles conséquences cette situation a-t-elle aujourd’hui ?
         <Textarea
           required
           name="impact"
@@ -195,7 +195,7 @@ export function ProcessIntakeForm() {
         disabled={status.state === "submitting"}
         className="h-14 w-full rounded-full px-6 text-sm font-bold shadow-none"
       >
-        {status.state === "submitting" ? "Envoi en cours" : "Décrire le problème opérationnel"}
+        {status.state === "submitting" ? "Envoi en cours" : "Décrire cette opération"}
         {status.state === "submitting" ? (
           <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
         ) : null}

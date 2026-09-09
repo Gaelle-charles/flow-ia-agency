@@ -9,7 +9,7 @@ export const Route = createFileRoute("/cas-usage")({
   head: () => ({
     meta: pageMeta(
       "Cas d’usage",
-      "Six opérations racontées de Before à Outcome, avec contexte, exécution, intelligence et contrôle humain.",
+      "Six situations où une opération se fragmente, racontées du problème initial à la boucle à construire.",
     ),
   }),
   component: UseCasesPage,
@@ -19,9 +19,9 @@ function UseCasesPage() {
   return (
     <PageShell>
       <PageIntro
-        eyebrow="Cas d’usage"
-        title="Là où le travail se bloque."
-        body="Six situations, de l’opération fragmentée au système à construire. Ouvrez celle qui ressemble à votre quotidien."
+        eyebrow="Situations fréquentes"
+        title="Les situations où nous intervenons."
+        body="Derrière chacune, nous cherchons la rupture entre les outils, les données, les personnes et les décisions. Ouvrez celle qui ressemble à votre quotidien."
       />
       <section className="py-8 sm:py-10">
         <p className="mb-6 text-sm text-muted-foreground">

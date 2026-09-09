@@ -4,8 +4,11 @@ type Method = (typeof deliverySteps)[number];
 
 export function MethodStep({ item }: { item: Method }) {
   return (
-    <li className="grid gap-4 border-t border-border py-5 sm:grid-cols-[3rem_0.55fr_1fr] sm:items-start sm:gap-6">
-      <span className="text-sm font-semibold text-accent">{item.stage}</span>
+    <li className="grid gap-4 border-t border-border py-5 sm:grid-cols-[8rem_0.55fr_1fr] sm:items-start sm:gap-6">
+      <span className="flex flex-col text-sm font-semibold text-accent">
+        {item.phase}
+        <span className="mt-1 text-xs font-medium text-muted-foreground">{item.stage}</span>
+      </span>
       <h3 className="text-lg font-bold tracking-[-0.01em] text-foreground sm:text-xl">
         {item.title}
       </h3>

@@ -124,7 +124,7 @@ function HomePage() {
           <ol className="delivery-sequence">
             {deliverySteps.map((step) => (
               <li key={step.stage}>
-                <h3>{step.stage}</h3>
+                <h3>{step.phase}</h3>
                 <p>{step.deliverable}</p>
               </li>
             ))}
@@ -141,7 +141,7 @@ function HomePage() {
           <h2 className="home-heading">{crew.title}</h2>
           <p className="home-intro mt-5">{crew.intro}</p>
           <Link to="/a-propos" className="home-text-link mt-6 inline-flex">
-            Découvrir le crew
+            Découvrir le collectif
           </Link>
         </div>
         <CrewCredential />
@@ -158,10 +158,10 @@ function HomePage() {
       <section id="contact" className="home-contact">
         <div>
           <p className="home-eyebrow text-accent">Une opération à faire avancer</p>
-          <h2 className="home-heading">Où le travail se bloque-t-il ?</h2>
+          <h2 className="home-heading">Quelle opération ralentit votre équipe ?</h2>
         </div>
         <Link to="/contact" className="home-primary-link">
-          Parler du workflow
+          Décrire une opération
         </Link>
       </section>
     </PageShell>

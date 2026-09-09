@@ -11,7 +11,7 @@ export function CrewCredential() {
         loading="lazy"
       />
       <div>
-        <p className="home-eyebrow text-accent">Une expertise certifiée au sein du crew</p>
+        <p className="home-eyebrow text-accent">Une expertise certifiée au sein du collectif</p>
         <h3>{claudeCertification.title}</h3>
         <p className="credential-level">{claudeCertification.level}</p>
         <p className="credential-scope">{claudeCertification.scope}</p>

@@ -51,8 +51,8 @@ function LegalPage() {
             <h2 className="text-2xl font-black text-foreground">Contenus</h2>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
               Les cas d’usage illustratifs sont identifiés comme tels. Les expériences
-              professionnelles des membres du crew ne constituent pas une liste de clients de la
-              structure.
+              professionnelles des membres du collectif ne constituent pas une liste de clients de
+              la structure.
             </p>
           </section>
         </div>
