@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 
-import { hero } from "@/content/site-content";
+import { useLocalizedContent } from "@/content/localized-content";
 
 export function Hero() {
+  const { certification, hero } = useLocalizedContent();
+
   return (
     <>
       <section className="home-hero">
@@ -26,18 +28,28 @@ export function Hero() {
                 {hero.primaryCta}
               </Link>
               <a href="#model" className="home-text-link">
-                Explorer un exemple
+                {hero.secondaryCta}
               </a>
             </div>
           </div>
         </div>
+        <a
+          href="#team"
+          className="hero-certification"
+          aria-label={`${certification.title}, ${certification.level}`}
+        >
+          <img
+            src={certification.image}
+            alt={`${certification.title} — ${certification.level}`}
+            width={402}
+            height={402}
+            loading="eager"
+          />
+        </a>
       </section>
-      <div className="hero-proofbar" aria-label="Principes et repères">
+      <div className="hero-proofbar" aria-label={hero.proofLabel}>
         <p className="hero-principle">{hero.principle}</p>
         <p className="hero-system-line">Context → Execution → Intelligence</p>
-        <a href="#team" className="hero-credential">
-          Une certification Claude au sein du collectif
-        </a>
       </div>
     </>
   );

@@ -9,8 +9,8 @@ export const navigation = [
 
 export const hero = {
   eyebrow: "Intelligent Operations",
-  title: "Nous construisons des systèmes fiables.",
-  body: "Quand une équipe doit encore relancer, rechercher, copier-coller ou arbitrer entre plusieurs outils, nous reconstruisons une boucle de travail complète, mesurable et exploitable dans son environnement.",
+  title: "Accelerate your operations with systems built for AI.",
+  body: "We redesign and connect your workflows, CRM and business tools to create the foundation where automation and AI agents can operate reliably.",
   principle: "AI is only as useful as the operation it can act on.",
   primaryCta: "Parler de votre opération",
   secondaryCta: "Voir un système construit",

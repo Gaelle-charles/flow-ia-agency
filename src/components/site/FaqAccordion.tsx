@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqItems } from "@/content/faq";
+import { useLocalizedContent } from "@/content/localized-content";
 
 type FaqAccordionProps = {
   limit?: number;
@@ -12,6 +12,7 @@ type FaqAccordionProps = {
 };
 
 export function FaqAccordion({ limit, indices }: FaqAccordionProps) {
+  const { faqItems } = useLocalizedContent();
   const selectedItems = indices
     ? indices.flatMap((index) => (faqItems[index] ? [faqItems[index]] : []))
     : faqItems;

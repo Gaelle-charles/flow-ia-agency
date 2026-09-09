@@ -228,14 +228,6 @@
   font-weight: 600;
   line-height: 1.5;
 }
-.hero-credential {
-  display: inline-flex;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: var(--muted-foreground);
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
 .hero-layout {
   position: relative;
   z-index: 2;
@@ -254,6 +246,28 @@
   font-size: 1.125rem;
   line-height: 1.65;
   color: oklch(0.9 0.01 257);
+}
+.hero-certification {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: block;
+  width: clamp(6.5rem, 10vw, 9rem);
+  transition: transform 160ms ease;
+}
+.hero-certification:hover {
+  transform: translateY(-3px) rotate(1deg);
+}
+.hero-certification:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.hero-certification img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .hero-background,
 .hero-overlay {
@@ -301,20 +315,18 @@
 }
 .hero-proofbar {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 2rem;
   padding: 1.25rem clamp(1.5rem, 4.5vw, 4.5rem);
   border-bottom: 1px solid var(--border);
 }
 .hero-system-line {
+  justify-self: end;
   color: var(--accent);
   font-size: 0.8125rem;
   font-weight: 700;
   white-space: nowrap;
-}
-.hero-proofbar .hero-credential {
-  justify-self: end;
 }
 .hero-actions {
   display: flex;
@@ -818,9 +830,6 @@
   .hero-proofbar {
     grid-template-columns: 1fr auto;
   }
-  .hero-proofbar .hero-credential {
-    display: none;
-  }
 }
 
 @media (max-width: 767px) {
@@ -859,6 +868,11 @@
     gap: 1rem;
     margin-top: 1.25rem;
   }
+  .hero-certification {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 5.75rem;
+  }
   .hero-background img {
     object-position: 62% center;
   }
@@ -883,9 +897,6 @@
   }
   .hero-system-line {
     white-space: normal;
-  }
-  .hero-proofbar .hero-credential {
-    justify-self: start;
   }
   .home-section {
     padding: 3.5rem 1.25rem;

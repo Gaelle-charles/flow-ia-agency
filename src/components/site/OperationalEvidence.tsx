@@ -1,19 +1,18 @@
-import evidence from "@/content/operational-evidence.json";
+import { useLocalizedContent } from "@/content/localized-content";
 
 export function OperationalEvidence() {
+  const { component, evidence } = useLocalizedContent();
+
   return (
     <section id="evidence" className="home-evidence" aria-labelledby="evidence-heading">
       <header className="home-section-heading">
         <div>
-          <p className="home-eyebrow">Pourquoi commencer par l’opération</p>
+          <p className="home-eyebrow">{component.evidenceEyebrow}</p>
           <h2 id="evidence-heading" className="home-heading">
-            Le problème se voit dans les chiffres.
+            {component.evidenceTitle}
           </h2>
         </div>
-        <p className="home-intro">
-          Trouver l’information, relier les outils, rendre l’IA utile : le même besoin de continuité
-          opérationnelle.
-        </p>
+        <p className="home-intro">{component.evidenceIntro}</p>
       </header>
       <div className="evidence-grid">
         {evidence.metrics.map((metric) => {
@@ -37,7 +36,7 @@ export function OperationalEvidence() {
       <div className="evidence-notes">
         <p>{evidence.disclaimer}</p>
         <details>
-          <summary>Périmètre des études</summary>
+          <summary>{component.studyScope}</summary>
           <div>
             {evidence.sources.map((source) => (
               <p key={source.id}>

@@ -1,6 +1,10 @@
-import { deliverySteps } from "@/content/site-content";
-
-type Method = (typeof deliverySteps)[number];
+type Method = {
+  phase: string;
+  stage: string;
+  title: string;
+  body: string;
+  deliverable: string;
+};
 
 export function MethodStep({ item }: { item: Method }) {
   return (

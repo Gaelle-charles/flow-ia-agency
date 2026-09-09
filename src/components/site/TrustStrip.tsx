@@ -1,11 +1,10 @@
-import { trustItems } from "@/content/site-content";
+import { useLocalizedContent } from "@/content/localized-content";
 
 export function TrustStrip() {
+  const { component, trustItems } = useLocalizedContent();
+
   return (
-    <section
-      aria-label="Engagements de confiance"
-      className="border-b border-x border-border bg-card"
-    >
+    <section aria-label={component.trustAria} className="border-b border-x border-border bg-card">
       <ul className="grid grid-cols-2 lg:grid-cols-4">
         {trustItems.map((item) => (
           <li

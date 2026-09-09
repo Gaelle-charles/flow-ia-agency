@@ -1,8 +1,19 @@
-import { useCases } from "@/content/use-cases";
+import { useLocalizedContent } from "@/content/localized-content";
 
-type UseCase = (typeof useCases)[number];
+type UseCase = {
+  shortTitle: string;
+  before: string;
+  context: string;
+  execution: string;
+  intelligence: string;
+  humanControl: string;
+  outcome: string;
+  examples: readonly string[];
+};
 
 export function UseCaseCard({ item, index }: { item: UseCase; index: number }) {
+  const { useCasesPage } = useLocalizedContent();
+
   return (
     <details className="use-case-row" name="use-case" open={index === 0}>
       <summary>
@@ -32,11 +43,11 @@ export function UseCaseCard({ item, index }: { item: UseCase; index: number }) {
         </dl>
         <div className="use-case-outcome">
           <p>
-            <strong>Contrôle humain</strong>
+            <strong>{useCasesPage.humanControl}</strong>
             {item.humanControl}
           </p>
           <p>
-            <strong>Résultat visé</strong>
+            <strong>{useCasesPage.targetOutcome}</strong>
             {item.outcome}
           </p>
         </div>

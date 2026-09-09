@@ -1,6 +1,4 @@
-import { governancePrinciples } from "@/content/site-content";
-
-type Principle = (typeof governancePrinciples)[number];
+type Principle = { title: string; body: string };
 
 export function GovernancePrinciple({ item }: { item: Principle }) {
   return (

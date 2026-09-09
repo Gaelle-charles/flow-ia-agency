@@ -1,25 +1,26 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { operationExamples } from "@/content/operation-examples";
-import { operatingLayers } from "@/content/site-content";
+import { useLocalizedContent } from "@/content/localized-content";
 
 export function OperationWalkthrough() {
+  const { component, operatingLayers, operationExamples } = useLocalizedContent();
+
   return (
     <Tabs defaultValue="request" className="operation-workbench">
       <div className="operation-toolbar">
-        <TabsList aria-label="Choisir une opération" className="operation-tabs">
+        <TabsList aria-label={component.operationAria} className="operation-tabs">
           {operationExamples.map((example) => (
             <TabsTrigger key={example.id} value={example.id} className="operation-tab">
               {example.label}
             </TabsTrigger>
           ))}
         </TabsList>
-        <p className="operation-caption">Exemples illustratifs</p>
+        <p className="operation-caption">{component.illustrativeExamples}</p>
       </div>
 
       {operationExamples.map((example) => (
         <TabsContent key={example.id} value={example.id} className="operation-panel">
           <div className="operation-before">
-            <p className="operation-label">Aujourd’hui</p>
+            <p className="operation-label">{component.today}</p>
             <p>{example.before}</p>
           </div>
 
@@ -45,11 +46,11 @@ export function OperationWalkthrough() {
 
           <div className="operation-result">
             <div>
-              <p className="operation-label">Le travail avance</p>
+              <p className="operation-label">{component.workMoves}</p>
               <p className="operation-outcome">{example.outcome}</p>
             </div>
             <div>
-              <p className="operation-label">L’humain garde la main</p>
+              <p className="operation-label">{component.humanKeepsControl}</p>
               <p>{example.humanControl}</p>
             </div>
           </div>

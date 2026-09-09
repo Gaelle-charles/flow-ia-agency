@@ -1,26 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { PageIntro, PageShell } from "@/components/site/PageShell";
-import { journalEntries } from "@/content/projects";
+import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/journal")({
-  head: () => ({
-    meta: pageMeta(
-      "Journal d’ingénierie",
-      "Des pilotes et audits qui montrent comment une opération devient observable, exécutable et mesurable.",
-    ),
-  }),
+  loader: async () => ({ locale: await getInitialLocale() }),
+  head: ({ loaderData }) => {
+    const { journalPage } = getLocalizedContent(loaderData?.locale ?? "fr");
+    return { meta: pageMeta(journalPage.introTitle, journalPage.introBody) };
+  },
   component: JournalPage,
 });
 
 function JournalPage() {
+  const { journalEntries, journalPage } = useLocalizedContent();
+
   return (
     <PageShell>
       <PageIntro
-        eyebrow="Journal d’ingénierie"
-        title="Observer le système avant de lui donner plus d’autonomie."
-        body="Des retours de terrain sur les ruptures, les actions réellement exécutées et les corrections nécessaires avant de passer à l’échelle."
+        eyebrow={journalPage.introEyebrow}
+        title={journalPage.introTitle}
+        body={journalPage.introBody}
       />
 
       <section className="px-1 py-12 sm:px-4 sm:py-14 lg:px-7 lg:py-16">
@@ -50,11 +52,13 @@ function JournalPage() {
 
             <div className="mt-8 grid gap-5 lg:grid-cols-2">
               <div className="rounded-3xl border border-border bg-secondary/45 p-6">
-                <p className="text-sm font-semibold text-accent">Ce que le pilote a montré</p>
+                <p className="text-sm font-semibold text-accent">{journalPage.lesson}</p>
                 <p className="mt-5 text-base leading-7 text-foreground">{entry.lesson}</p>
               </div>
               <div className="rounded-3xl border border-border p-6">
-                <p className="text-sm font-semibold text-muted-foreground">Limite</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  {journalPage.limitation}
+                </p>
                 <p className="mt-5 text-base leading-7 text-muted-foreground">{entry.disclaimer}</p>
               </div>
             </div>

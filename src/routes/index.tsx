@@ -7,27 +7,28 @@ import { OperationWalkthrough } from "@/components/site/OperationWalkthrough";
 import { PageShell } from "@/components/site/PageShell";
 import { OperationalEvidence } from "@/components/site/OperationalEvidence";
 import brand from "@/content/brand.config.json";
-import { crew, deliverySteps, featuredCase, thesis } from "@/content/site-content";
+import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: pageMeta(
-      brand.category,
-      `${brand.shortName} conçoit les systèmes qui relient vos données, vos outils et vos équipes. CRM, automatisation et systèmes agentiques, de l’opération à la production.`,
-    ),
-  }),
+  loader: async () => ({ locale: await getInitialLocale() }),
+  head: ({ loaderData }) => {
+    const { hero } = getLocalizedContent(loaderData?.locale ?? "fr");
+    return { meta: pageMeta(hero.title, hero.body) };
+  },
   component: HomePage,
 });
 
 function OrganizationStructuredData() {
+  const { common } = useLocalizedContent();
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: brand.name,
     legalName: brand.legalName,
     identifier: brand.siren,
-    description: brand.category,
+    description: common.brandCategory,
   };
 
   return (
@@ -39,6 +40,8 @@ function OrganizationStructuredData() {
 }
 
 function HomePage() {
+  const { crew, deliverySteps, featuredCase, home, thesis } = useLocalizedContent();
+
   return (
     <PageShell>
       <OrganizationStructuredData />
@@ -52,17 +55,14 @@ function HomePage() {
       <section id="model" className="home-section home-model">
         <header className="home-section-heading">
           <div>
-            <p className="home-eyebrow">Notre expertise, en pratique</p>
+            <p className="home-eyebrow">{home.modelEyebrow}</p>
             <h2 className="home-heading">
-              Le travail entre vos outils.
+              {home.modelTitle[0]}
               <br />
-              Enfin relié.
+              {home.modelTitle[1]}
             </h2>
           </div>
-          <p className="home-intro">
-            Un email à traiter, un rapport à produire, une décision à préparer. Voici comment
-            l’opération peut avancer.
-          </p>
+          <p className="home-intro">{home.modelIntro}</p>
         </header>
 
         <OperationWalkthrough />
@@ -70,40 +70,38 @@ function HomePage() {
         <div className="home-thesis" id="thesis">
           <p>{thesis.title}</p>
           <Link to="/cas-usage" className="home-text-link">
-            Voir les six cas d’usage
+            {home.useCasesLink}
           </Link>
         </div>
       </section>
 
       <section id="proof" className="home-section home-proof">
         <div>
-          <p className="home-eyebrow text-accent">Une réalisation client</p>
+          <p className="home-eyebrow text-accent">{home.proofEyebrow}</p>
           <h2 className="home-heading">
-            Le reporting avance.
+            {home.proofTitle[0]}
             <br />
-            L’historique reste.
+            {home.proofTitle[1]}
           </h2>
           <p className="home-intro mt-5">{featuredCase.summary}</p>
           <p className="mt-5 text-sm text-muted-foreground">{featuredCase.statuses.join(" · ")}</p>
           <Link to="/realisations" className="home-text-link mt-6 inline-flex">
-            Lire la réalisation
+            {home.proofLink}
           </Link>
         </div>
 
         <article className="proof-comparison">
           <div>
-            <p className="home-eyebrow">Avant</p>
+            <p className="home-eyebrow">{home.before}</p>
             <h3>Reprendre chaque fichier.</h3>
             <p>{featuredCase.before}</p>
           </div>
           <div>
-            <p className="home-eyebrow text-accent">Le système construit</p>
-            <h3>Un moteur, toutes les périodes.</h3>
+            <p className="home-eyebrow text-accent">{home.builtSystem}</p>
+            <h3>{home.engineTitle}</h3>
             <p>{featuredCase.execution}</p>
           </div>
-          <p className="proof-control">
-            Les équipes gardent les zones manuelles et valident les exceptions.
-          </p>
+          <p className="proof-control">{home.proofControl}</p>
         </article>
       </section>
 
@@ -111,16 +109,16 @@ function HomePage() {
         <figure className="delivery-photo">
           <img
             src="/images/editorial/operations-room-v2.webp"
-            alt="Mise en scène illustrative d’un atelier de cartographie entre métier et construction technique."
+            alt={home.deliveryAlt}
             width={1586}
             height={992}
             loading="lazy"
           />
-          <figcaption>Au contact de l’opération. Illustration.</figcaption>
+          <figcaption>{home.deliveryCaption}</figcaption>
         </figure>
         <div>
-          <p className="home-eyebrow">Notre façon de livrer</p>
-          <h2 className="home-heading">Du terrain à la production.</h2>
+          <p className="home-eyebrow">{home.deliveryEyebrow}</p>
+          <h2 className="home-heading">{home.deliveryTitle}</h2>
           <ol className="delivery-sequence">
             {deliverySteps.map((step) => (
               <li key={step.stage}>
@@ -130,7 +128,7 @@ function HomePage() {
             ))}
           </ol>
           <Link to="/methode" className="home-text-link">
-            Voir l’approche et les livrables
+            {home.deliveryLink}
           </Link>
         </div>
       </section>
@@ -141,7 +139,7 @@ function HomePage() {
           <h2 className="home-heading">{crew.title}</h2>
           <p className="home-intro mt-5">{crew.intro}</p>
           <Link to="/a-propos" className="home-text-link mt-6 inline-flex">
-            Découvrir le collectif
+            {home.teamLink}
           </Link>
         </div>
         <CrewCredential />
@@ -149,19 +147,19 @@ function HomePage() {
 
       <section id="faq" className="home-section home-faq">
         <div>
-          <p className="home-eyebrow">Avant de démarrer</p>
-          <h2 className="home-heading">Les questions utiles.</h2>
+          <p className="home-eyebrow">{home.faqEyebrow}</p>
+          <h2 className="home-heading">{home.faqTitle}</h2>
         </div>
         <FaqAccordion indices={[0, 2, 3]} />
       </section>
 
       <section id="contact" className="home-contact">
         <div>
-          <p className="home-eyebrow text-accent">Une opération à faire avancer</p>
-          <h2 className="home-heading">Quelle opération ralentit votre équipe ?</h2>
+          <p className="home-eyebrow text-accent">{home.contactEyebrow}</p>
+          <h2 className="home-heading">{home.contactTitle}</h2>
         </div>
         <Link to="/contact" className="home-primary-link">
-          Décrire une opération
+          {home.contactLink}
         </Link>
       </section>
     </PageShell>

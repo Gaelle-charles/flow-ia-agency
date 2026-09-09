@@ -1,6 +1,8 @@
-import { engagements } from "@/content/site-content";
-
-type Engagement = (typeof engagements)[number];
+type Engagement = {
+  title: string;
+  body: string;
+  outputs: readonly string[];
+};
 
 export function EngagementCard({ item }: { item: Engagement }) {
   return (

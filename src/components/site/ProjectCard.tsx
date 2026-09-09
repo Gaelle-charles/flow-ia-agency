@@ -1,6 +1,12 @@
-import { publicProjects } from "@/content/projects";
-
-type Project = (typeof publicProjects)[number];
+type Project = {
+  name: string;
+  statuses: readonly string[];
+  statusLabels: readonly string[];
+  summary: string;
+  demonstrates: string;
+  url: string;
+  linkLabel: string;
+};
 
 export function ProjectCard({ project }: { project: Project }) {
   return (

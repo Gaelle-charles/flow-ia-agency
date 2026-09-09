@@ -1,12 +1,29 @@
-const flowSteps = [
-  { index: "01", label: "Context", detail: "CRM, données, historique et règles" },
-  { index: "02", label: "Execution", detail: "Workflows, intégrations et contrôles" },
-  { index: "03", label: "Intelligence", detail: "Interprétation et actions autorisées" },
-  { index: "04", label: "Human control", detail: "Validation, refus ou escalade" },
-  { index: "05", label: "Outcome", detail: "Un résultat opérationnel mesuré" },
-] as const;
+import { useI18n } from "@/lib/i18n-context";
+
+const flowSteps = {
+  fr: [
+    { index: "01", label: "Context", detail: "CRM, données, historique et règles" },
+    { index: "02", label: "Execution", detail: "Workflows, intégrations et contrôles" },
+    { index: "03", label: "Intelligence", detail: "Interprétation et actions autorisées" },
+    { index: "04", label: "Human control", detail: "Validation, refus ou escalade" },
+    { index: "05", label: "Outcome", detail: "Un résultat opérationnel mesuré" },
+  ],
+  en: [
+    { index: "01", label: "Context", detail: "CRM, data, history and rules" },
+    { index: "02", label: "Execution", detail: "Workflows, integrations and controls" },
+    { index: "03", label: "Intelligence", detail: "Interpretation and authorized actions" },
+    { index: "04", label: "Human control", detail: "Approval, rejection or escalation" },
+    { index: "05", label: "Outcome", detail: "A measured operational outcome" },
+  ],
+} as const;
 
 export function ProcessFlow({ compact = false }: { compact?: boolean }) {
+  const { locale } = useI18n();
+  const ariaLabel =
+    locale === "fr"
+      ? "Context, execution, intelligence, contrôle humain et résultat"
+      : "Context, execution, intelligence, human control and outcome";
+
   return (
     <div
       className={
@@ -19,8 +36,8 @@ export function ProcessFlow({ compact = false }: { compact?: boolean }) {
         Context → Execution → Intelligence
       </p>
 
-      <ol aria-label="Context, execution, intelligence, contrôle humain et résultat">
-        {flowSteps.map((step) => (
+      <ol aria-label={ariaLabel}>
+        {flowSteps[locale].map((step) => (
           <li key={step.label}>
             <div className="grid grid-cols-[2.4rem_1fr] gap-2.5 border-t border-border py-3 sm:grid-cols-[2.4rem_0.6fr_1fr] sm:items-center">
               <span className="text-sm font-semibold text-accent">{step.index}</span>

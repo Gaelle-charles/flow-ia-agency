@@ -1,6 +1,8 @@
-import { featuredCase } from "@/content/site-content";
+import { useLocalizedContent } from "@/content/localized-content";
 
 export function CaseStudyFeatured() {
+  const { component, featuredCase } = useLocalizedContent();
+
   return (
     <article className="rounded-[1.4rem] border border-border bg-card p-5 sm:p-8">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-14">
@@ -11,7 +13,7 @@ export function CaseStudyFeatured() {
         <div>
           <p className="text-base leading-7">{featuredCase.summary}</p>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
-            <strong className="font-semibold text-foreground">Avant : </strong>
+            <strong className="font-semibold text-foreground">{component.before}: </strong>
             {featuredCase.before}
           </p>
         </div>
@@ -32,13 +34,13 @@ export function CaseStudyFeatured() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:gap-14">
         <div>
-          <p className="text-sm font-semibold">Contrôle humain</p>
+          <p className="text-sm font-semibold">{component.humanControl}</p>
           <p className="mt-2 text-base leading-7 text-muted-foreground">
             {featuredCase.humanControl}
           </p>
         </div>
         <div>
-          <p className="text-sm font-semibold">Résultat observé</p>
+          <p className="text-sm font-semibold">{component.observedOutcome}</p>
           <p className="mt-2 text-base leading-7 text-muted-foreground">{featuredCase.outcome}</p>
         </div>
       </div>
