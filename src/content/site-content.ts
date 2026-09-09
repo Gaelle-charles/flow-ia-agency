@@ -9,10 +9,10 @@ export const navigation = [
 
 export const hero = {
   eyebrow: "Intelligent Operations",
-  title: "Nous transformons vos opérations complexes en systèmes qui fonctionnent.",
+  title: "Nous construisons des systèmes fiables.",
   body: "Quand une équipe doit encore relancer, rechercher, copier-coller ou arbitrer entre plusieurs outils, nous reconstruisons une boucle de travail complète, mesurable et exploitable dans son environnement.",
   principle: "AI is only as useful as the operation it can act on.",
-  primaryCta: "Décrire une opération qui ralentit votre équipe",
+  primaryCta: "Parler de votre opération",
   secondaryCta: "Voir un système construit",
   microcopy: "Nous partons d’une opération réelle, pas d’une technologie à placer.",
 } as const;

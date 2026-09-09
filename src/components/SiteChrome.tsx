@@ -14,7 +14,7 @@ export function SiteHeader() {
         Aller au contenu
       </a>
 
-      <header className="sticky top-2 z-50 mb-2 rounded-full border border-border bg-background/92 px-4 backdrop-blur-xl sm:px-6">
+      <header className="sticky top-2 z-50 mx-2 mb-2 rounded-full border border-border bg-background/92 px-4 backdrop-blur-xl sm:mx-3 sm:px-6">
         <div className="flex min-h-16 items-center justify-between gap-4">
           <Link
             to="/"
@@ -42,7 +42,7 @@ export function SiteHeader() {
             to="/contact"
             className="hidden min-h-11 items-center rounded-full bg-accent px-5 text-sm font-bold text-accent-foreground transition-colors hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
           >
-            Parler d’un workflow
+            Parler de votre opération
           </Link>
 
           <details className="relative lg:hidden">
@@ -67,7 +67,7 @@ export function SiteHeader() {
                 to="/contact"
                 className="mt-1 rounded-2xl bg-accent px-4 py-3 text-sm font-bold text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               >
-                Parler d’un workflow
+                Parler de votre opération
               </Link>
             </nav>
           </details>
@@ -79,7 +79,7 @@ export function SiteHeader() {
 
 export function LegalFooter() {
   return (
-    <footer className="mt-2 rounded-[1.4rem] border border-border bg-card px-5 py-8 sm:px-8 sm:py-10">
+    <footer className="border-t border-border bg-background px-5 py-8 sm:px-8 sm:py-10 lg:px-12">
       <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr_0.8fr] lg:items-end">
         <div>
           <p className="text-2xl font-black tracking-[-0.04em] text-foreground">{brand.name}</p>

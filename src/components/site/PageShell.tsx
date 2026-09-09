@@ -4,10 +4,12 @@ import { LegalFooter, SiteHeader } from "@/components/SiteChrome";
 
 export function PageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen overflow-x-clip bg-page px-3 py-3 font-sans sm:px-5 sm:py-5">
-      <div className="mx-auto max-w-[1320px] rounded-[1.75rem] bg-background p-2 sm:p-3">
+    <div className="min-h-screen overflow-x-clip bg-page font-sans">
+      <div className="mx-auto min-h-screen max-w-[1440px] bg-background">
         <SiteHeader />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="px-2 sm:px-3">
+          {children}
+        </main>
         <LegalFooter />
       </div>
     </div>
