@@ -1,7 +1,7 @@
 import { useI18n } from "@/lib/i18n-context";
 
 import { claudeCertification as certificationFr } from "./credentials";
-import { journalEntries as journalEntriesFr, publicProjects as publicProjectsFr } from "./projects";
+import { journalEntries as journalEntriesFr } from "./projects";
 
 /**
  * Every string the site renders, in both languages, mirroring the approved
@@ -385,7 +385,6 @@ const content = {
           "La réception n’a pas pu être confirmée. Votre demande n’est pas considérée comme envoyée.",
       },
     },
-    publicProjects: publicProjectsFr,
     journalEntries: journalEntriesFr,
     certification: certificationFr,
   },
@@ -761,20 +760,6 @@ const content = {
         delivery_error: "Receipt could not be confirmed. Your request is not considered sent.",
       },
     },
-    publicProjects: [
-      {
-        id: "the-pricing-library",
-        name: "The Pricing Library",
-        statuses: ["PROPRIETARY PRODUCT LIVE", "MARKET VALIDATION"],
-        statusLabels: ["Live", "Market validation"],
-        summary:
-          "A practical quantitative finance platform combining courses, exercises, calculators, simulators and pricing APIs.",
-        demonstrates:
-          "The transformation of complex technical expertise into a genuinely usable digital product.",
-        url: "https://thepricinglibrary.com",
-        linkLabel: "Explore the product",
-      },
-    ],
     journalEntries: [
       {
         id: "gen-lead-us",

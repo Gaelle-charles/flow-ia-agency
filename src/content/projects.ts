@@ -1,18 +1,3 @@
-export const publicProjects = [
-  {
-    id: "the-pricing-library",
-    name: "The Pricing Library",
-    statuses: ["PRODUIT PROPRIÉTAIRE EN LIGNE", "VALIDATION MARCHÉ"],
-    statusLabels: ["En ligne", "En validation marché"],
-    summary:
-      "Une plateforme pratique de finance quantitative combinant cours, exercices, calculateurs, simulateurs et API de pricing.",
-    demonstrates:
-      "La transformation d’une expertise technique complexe en produit numérique réellement manipulable.",
-    url: "https://thepricinglibrary.com",
-    linkLabel: "Découvrir le produit",
-  },
-] as const;
-
 export const journalEntries = [
   {
     id: "gen-lead-us",
