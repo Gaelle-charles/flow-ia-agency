@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { CrewSection } from "@/components/site/CrewSection";
-import { PageIntro, PageShell } from "@/components/site/PageShell";
-import { SectionHeader } from "@/components/site/SectionHeader";
-import brand from "@/content/brand.config.json";
+import { PageHero, PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -12,46 +9,55 @@ export const Route = createFileRoute("/a-propos")({
   loader: async () => ({ locale: await getInitialLocale() }),
   head: ({ loaderData }) => {
     const { about } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(about.introTitle, about.introBody) };
+    return { meta: pageMeta(about.title.join(" "), about.body) };
   },
   component: AboutPage,
 });
 
 function AboutPage() {
-  const { about } = useLocalizedContent();
+  const { about, certification } = useLocalizedContent();
 
   return (
     <PageShell>
-      <PageIntro eyebrow={about.introEyebrow} title={about.introTitle} body={about.introBody} />
+      <PageHero
+        eyebrow={about.eyebrow}
+        title={about.title}
+        body={about.body}
+        media={{
+          src: "/images/editorial/operations-room-v2.webp",
+          alt: about.mediaAlt,
+          label: about.mediaLabel,
+        }}
+      />
 
-      <div className="py-3">
-        <CrewSection />
-      </div>
-
-      <section className="rounded-[1.4rem] border border-border bg-card px-5 py-8 sm:p-9">
-        <SectionHeader eyebrow={about.modelEyebrow} title={about.modelTitle} />
-        <div className="mt-9 grid gap-8 border-t border-border pt-8 lg:grid-cols-3 lg:gap-10">
+      <section className="band">
+        <ul className="grid gap-8 border-t border-border pt-6 sm:grid-cols-3 sm:gap-6">
           {about.roles.map((role) => (
-            <div key={role.title} className="max-w-xl">
-              <h2 className="text-xl font-bold text-foreground">{role.title}</h2>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{role.body}</p>
-            </div>
+            <li key={role.id}>
+              <h2 className="text-sm font-bold text-accent">{role.title}</h2>
+              <p className="mt-3 max-w-[32ch] text-[0.8125rem] leading-6 text-muted-foreground">
+                {role.body}
+              </p>
+            </li>
           ))}
-        </div>
-        <div className="mt-8 border-t border-border pt-8">
-          <h2 className="text-xl font-bold text-foreground">{about.legalTitle}</h2>
-          <p className="mt-4 text-base leading-7 text-muted-foreground">
-            {brand.name} {about.legalText} {brand.legalName}, {brand.legalForm}, SIREN {brand.siren}
-            .
-          </p>
-          <a
-            href="https://annuaire-entreprises.data.gouv.fr/entreprise/943812297"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-5 inline-flex min-h-11 items-center rounded-full border border-border px-5 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            {about.publicRecord}
-          </a>
+        </ul>
+      </section>
+
+      <section className="band pt-10 sm:pt-12">
+        <div className="surface-card flex flex-wrap items-center gap-6 p-6 sm:gap-9 sm:p-8">
+          <img
+            src={certification.image}
+            alt={about.credential.alt}
+            loading="lazy"
+            decoding="async"
+            className="h-24 w-24 flex-none object-contain sm:h-28 sm:w-28"
+          />
+          <div>
+            <h2 className="display-3 max-w-[18ch] text-foreground">{about.credential.title}</h2>
+            <p className="mt-3 max-w-[38ch] text-[0.8125rem] leading-6 text-muted-foreground">
+              {about.credential.body}
+            </p>
+          </div>
         </div>
       </section>
     </PageShell>

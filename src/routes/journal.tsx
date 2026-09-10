@@ -31,10 +31,8 @@ function JournalPage() {
             key={entry.id}
             className="rounded-[1.5rem] border border-border bg-card p-5 sm:p-7 lg:p-9"
           >
-            <p className="text-sm font-semibold text-accent">{entry.statusLabels.join(" · ")}</p>
-            <h2 className="type-feature-title mt-6 max-w-4xl text-balance font-semibold text-foreground">
-              {entry.title}
-            </h2>
+            <p className="eyebrow text-accent">{entry.statusLabels.join(" · ")}</p>
+            <h2 className="display-3 mt-5 max-w-4xl text-balance text-foreground">{entry.title}</h2>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               {entry.intro}
             </p>
@@ -52,13 +50,11 @@ function JournalPage() {
 
             <div className="mt-8 grid gap-5 lg:grid-cols-2">
               <div className="rounded-3xl border border-border bg-secondary/45 p-6">
-                <p className="text-sm font-semibold text-accent">{journalPage.lesson}</p>
+                <p className="eyebrow text-accent">{journalPage.lesson}</p>
                 <p className="mt-5 text-base leading-7 text-foreground">{entry.lesson}</p>
               </div>
               <div className="rounded-3xl border border-border p-6">
-                <p className="text-sm font-semibold text-muted-foreground">
-                  {journalPage.limitation}
-                </p>
+                <p className="eyebrow text-muted-foreground">{journalPage.limitation}</p>
                 <p className="mt-5 text-base leading-7 text-muted-foreground">{entry.disclaimer}</p>
               </div>
             </div>

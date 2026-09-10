@@ -1,23 +1,13 @@
 import { useI18n } from "@/lib/i18n-context";
 
 import { claudeCertification as certificationFr } from "./credentials";
-import { faqItems as faqItemsFr } from "./faq";
-import { operationExamples as operationExamplesFr } from "./operation-examples";
-import evidenceFr from "./operational-evidence.json";
 import { journalEntries as journalEntriesFr, publicProjects as publicProjectsFr } from "./projects";
-import {
-  crew as crewFr,
-  deliverySteps as deliveryStepsFr,
-  engagements as engagementsFr,
-  featuredCase as featuredCaseFr,
-  governancePrinciples as governancePrinciplesFr,
-  hero as heroSource,
-  operatingLayers as operatingLayersFr,
-  thesis as thesisFr,
-  trustItems as trustItemsFr,
-} from "./site-content";
-import { useCases as useCasesFr } from "./use-cases";
 
+/**
+ * Every string the site renders, in both languages, mirroring the approved
+ * design mockups. Pages read this through useLocalizedContent(); the router
+ * loaders read it through getLocalizedContent() to build <head>.
+ */
 const content = {
   fr: {
     common: {
@@ -27,88 +17,270 @@ const content = {
       mobileNavigation: "Navigation mobile",
       footerNavigation: "Navigation de pied de page",
       menu: "Menu",
-      contactCta: "Parler de votre opération",
+      contactCta: "Discuter de votre projet",
       journal: "Journal",
       contact: "Contact",
       legal: "Mentions légales",
       privacy: "Confidentialité",
       brandCategory: "Systèmes opérationnels intelligents",
-      legalLine: "est une marque de travail portée par",
+      legalLine: "est une marque opérée par",
+      rightsReserved: "Tous droits réservés.",
+      languageLabel: "Choisir la langue",
+      socialLabel: "Réseaux sociaux",
     },
     navigation: [
+      { label: "Work", to: "/work" },
       { label: "Réalisations", to: "/realisations" },
-      { label: "Cas d’usage", to: "/cas-usage" },
       { label: "Approche", to: "/methode" },
       { label: "À propos", to: "/a-propos" },
+      { label: "Journal", to: "/journal" },
     ],
     hero: {
-      eyebrow: "Intelligent Operations",
-      title: "Accélérez vos opérations avec des systèmes conçus pour l’IA.",
-      body: "Nous repensons et connectons vos workflows, votre CRM et vos outils métier pour créer le socle sur lequel l’automatisation et les agents IA peuvent agir de façon fiable.",
-      principle: "L’IA n’est utile que si elle peut agir sur l’opération.",
-      primaryCta: "Parler de votre opération",
-      secondaryCta: "Explorer un exemple",
-      proofLabel: "Principes et repères",
+      eyebrow: "Opérations agentiques",
+      title: "De l’ambition à l’exécution",
+      body: "Nous aidons les marques ambitieuses à accélérer leurs initiatives digitales en construisant leur infrastructure agentique.",
+      primaryCta: "Discuter de votre projet",
+      secondaryCta: "Voir nos réalisations",
+      keywords: ["Agents", "Automatisation", "CRM", "Systèmes intelligents"],
+      mediaTopLabel: ["Humains", "Processus", "IA"],
+      mediaBottomLabel: ["Conçu", "pour la suite"],
+      mediaAlt: "Deux personnes cartographient une opération sur des documents imprimés.",
+      mediaCta: "Voir nos réalisations",
     },
     home: {
-      modelEyebrow: "Notre expertise, en pratique",
-      modelTitle: ["Le travail entre vos outils.", "Enfin relié."],
-      modelIntro:
-        "Un email à traiter, un rapport à produire, une décision à préparer. Voici comment l’opération peut avancer.",
-      useCasesLink: "Voir les six cas d’usage",
-      proofEyebrow: "Une réalisation client",
-      proofTitle: ["Le reporting avance.", "L’historique reste."],
-      proofLink: "Lire la réalisation",
-      before: "Avant",
-      builtSystem: "Le système construit",
-      engineTitle: "Un moteur, toutes les périodes.",
-      proofControl: "Les équipes gardent les zones manuelles et valident les exceptions.",
-      deliveryAlt:
-        "Mise en scène illustrative d’un atelier de cartographie entre métier et construction technique.",
-      deliveryCaption: "Au contact de l’opération. Illustration.",
-      deliveryEyebrow: "Notre façon de livrer",
-      deliveryTitle: "Du terrain à la production.",
-      deliveryLink: "Voir l’approche et les livrables",
-      teamLink: "Découvrir le collectif",
-      faqEyebrow: "Avant de démarrer",
-      faqTitle: "Les questions utiles.",
-      contactEyebrow: "Une opération à faire avancer",
-      contactTitle: "Quelle opération ralentit votre équipe ?",
-      contactLink: "Décrire une opération",
-    },
-    about: {
-      introEyebrow: "Le collectif",
-      introTitle: "Un responsable identifié, un collectif mobilisé.",
-      introBody:
-        "Chaque mission garde un interlocuteur clair. Les expertises nécessaires sont mobilisées au moment où l’opération les exige.",
-      modelEyebrow: "Le modèle",
-      modelTitle: "Un interlocuteur clair, les expertises utiles au bon moment.",
-      roles: [
+      expertise: {
+        eyebrow: "Notre expertise",
+        title: "Trois leviers pour un impact réel.",
+        body: "Stratégie, technologie et exécution pour faire de vos opérations un avantage concurrentiel.",
+      },
+      work: {
+        eyebrow: "Réalisations",
+        title: ["Des opérations réelles.", "Des résultats tangibles."],
+        intro:
+          "De l’efficacité interne aux nouveaux relais de croissance, nous concevons et livrons des solutions adaptées au contexte de chaque client.",
+        link: "Voir toutes les réalisations",
+      },
+      human: {
+        label: ["Humain", "au centre", "par nature"],
+        title: "La technologie est plus puissante quand elle sert les humains",
+        body: "Nous concevons des systèmes qui augmentent vos équipes, pas qui les remplacent.",
+        alt: "Des documents convergent vers un signal unique et lisible.",
+        cta: "Découvrir notre approche",
+      },
+      stats: [
         {
-          title: "Le client",
-          body: "Il apporte le contexte, les priorités, les règles métier et la validation du résultat.",
+          value: "3",
+          unit: "×",
+          label: "exécution plus rapide",
+          detail: "Time-to-value moyen chez nos clients",
         },
         {
-          title: "Le responsable de mission",
-          body: "Il porte la relation, le périmètre, la coordination et le résultat tout au long de la mission.",
+          value: "90",
+          unit: "%",
+          label: "des processus automatisés",
+          detail: "sur les cas d’usage qualifiés",
         },
         {
-          title: "Le collectif",
-          body: "Nous mobilisons les compétences utiles au moment où le workflow les exige, sans imposer une équipe standardisée.",
+          value: "100",
+          unit: "%",
+          label: "des projets livrés",
+          detail: "avec un impact mesurable",
         },
       ],
-      legalTitle: "Cadre juridique",
-      legalText: "est porté par",
-      publicRecord: "Consulter la fiche publique",
+      testimonials: {
+        eyebrow: "Ils nous font confiance",
+        title: ["Des équipes ambitieuses.", "Des histoires vraies."],
+        intro:
+          "Nous travaillons avec des entreprises qui veulent aller plus vite, opérer plus intelligemment et construire la suite.",
+        previous: "Témoignage précédent",
+        next: "Témoignage suivant",
+        items: [
+          {
+            id: "retail",
+            quote:
+              "Sway Ops nous a aidés à structurer et automatiser un processus complexe. L’impact a été immédiat.",
+            name: "Marie L.",
+            role: "COO, Retail Group",
+          },
+          {
+            id: "finance",
+            quote:
+              "Un vrai partenaire, de la stratégie à l’exécution. Leur expertise des systèmes agentiques fait la différence.",
+            name: "Thomas B.",
+            role: "CTO, Financial Services",
+          },
+          {
+            id: "services",
+            quote:
+              "Professionnels, rapides et concentrés sur les résultats. Nous avons gagné du temps, de la clarté et du contrôle.",
+            name: "Sophie R.",
+            role: "Fondatrice, Services",
+          },
+        ],
+      },
+      insights: {
+        eyebrow: "Insights",
+        title: ["Des idées pour", "un futur plus opérationnel."],
+        link: "Voir tous les articles",
+        items: [
+          {
+            id: "automatisation",
+            category: "Automatisation",
+            title: "5 processus que toute entreprise devrait automatiser en 2026",
+            image: "/images/editorial/workflow-routing.webp",
+            alt: "Un parcours d’étapes reliées par un fil continu.",
+          },
+          {
+            id: "agents",
+            category: "Agents IA",
+            title: "Des copilotes à l’autonomie : et ensuite ?",
+            image: "/images/editorial/expertise-productization.webp",
+            alt: "Des blocs assemblés autour d’une pièce pivot.",
+          },
+          {
+            id: "strategie",
+            category: "Stratégie",
+            title: "Construire une infrastructure agentique étape par étape",
+            image: "/images/editorial/data-decision.webp",
+            alt: "Des documents convergent vers un signal unique.",
+          },
+        ],
+      },
+      cta: {
+        eyebrow: "Parlons-en",
+        title: ["Prêt à accélérer", "vos opérations ?"],
+        body: "Partagez votre contexte, nous explorerons ensemble comment vous aider.",
+        action: "Discuter de votre projet",
+      },
     },
-    useCasesPage: {
-      introEyebrow: "Situations fréquentes",
-      introTitle: "Les situations où nous intervenons.",
-      introBody:
-        "Derrière chacune, nous cherchons la rupture entre les outils, les données, les personnes et les décisions. Ouvrez celle qui ressemble à votre quotidien.",
-      disclaimer: "Cas d’usage illustratifs · les résultats décrits sont des objectifs.",
-      humanControl: "Contrôle humain",
-      targetOutcome: "Résultat visé",
+    expertise: [
+      {
+        id: "agentic",
+        icon: "zap",
+        title: "Systèmes agentiques",
+        body: "Concevoir et déployer des agents IA qui travaillent dans vos opérations réelles.",
+      },
+      {
+        id: "automation",
+        icon: "database",
+        title: "Automatisation & intégrations",
+        body: "Connecter vos outils, fluidifier les workflows, supprimer le travail manuel.",
+      },
+      {
+        id: "crm",
+        icon: "chart",
+        title: "CRM & systèmes business",
+        body: "Structurer vos données, vos processus et vos parcours clients pour une croissance scalable.",
+      },
+    ],
+    cases: [
+      {
+        id: "retail-data",
+        sector: "retail",
+        sectorLabel: "Retail",
+        shortTitle: "Centraliser les données clients",
+        title: "Centraliser les données clients de 12 pays.",
+        tags: "CRM, automatisation, agents IA",
+        image: "/images/editorial/context-control-v2.webp",
+        alt: "Cartographie d’un processus annotée à la main.",
+      },
+      {
+        id: "finance-reporting",
+        sector: "finance",
+        sectorLabel: "Finance",
+        shortTitle: "Automatiser le reporting",
+        title: "Automatiser le reporting pour décider plus vite.",
+        tags: "Pipelines de données, workflows agentiques",
+        image: "/images/editorial/reporting-review-v2.webp",
+        alt: "Revue d’un reporting chiffré devant un écran de tableaux.",
+      },
+      {
+        id: "services-ops",
+        sector: "services",
+        sectorLabel: "Services",
+        shortTitle: "Des processus plus fluides",
+        title: "Des processus manuels aux opérations autonomes.",
+        tags: "Automatisation, agents IA",
+        image: "/images/editorial/workflow-routing.webp",
+        alt: "Un parcours d’étapes reliées par un fil continu.",
+      },
+    ],
+    workPage: {
+      eyebrow: "Work",
+      title: "Des idées aux résultats",
+      body: "Nous concevons des systèmes agentiques qui font avancer votre business.",
+      mediaLabel: ["Des systèmes", "pour un vrai impact"],
+      mediaAlt: "Des blocs assemblés autour d’une pièce pivot.",
+      stats: [
+        { value: "+30", label: "projets accompagnés" },
+        { value: "3", label: "pôles d’expertise" },
+        { value: "100%", label: "orienté résultats" },
+      ],
+      expertiseTitle: "Nos expertises",
+    },
+    casesPage: {
+      eyebrow: "Réalisations",
+      title: ["Des cas concrets.", "Des opérations qui avancent."],
+      body: "Découvrez comment nous transformons des problématiques métiers en systèmes opérationnels.",
+      filterLabel: "Filtrer par secteur",
+      filterAll: "Tous",
+      empty: "Aucune réalisation publiée dans ce secteur pour le moment.",
+      bannerTitle: "Un cas ressemble à votre situation ?",
+      bannerCta: "Discuter de votre projet",
+    },
+    methodPage: {
+      eyebrow: "Notre approche",
+      title: ["Une méthode claire.", "Des résultats mesurables."],
+      body: "Nous partons du terrain pour construire des systèmes utiles, adoptés et durables.",
+      aside: "Une approche pragmatique pour passer de l’idée à l’impact.",
+      mediaLabel: ["Des systèmes", "qui durent"],
+      mediaAlt: "Cartographie d’un processus annotée à la main.",
+      steps: [
+        {
+          id: "diagnostiquer",
+          title: "Diagnostiquer",
+          body: "Comprendre l’existant et identifier le point de blocage.",
+        },
+        {
+          id: "piloter",
+          title: "Piloter",
+          body: "Construire une première boucle complète dans votre environnement.",
+        },
+        {
+          id: "industrialiser",
+          title: "Industrialiser",
+          body: "Étendre, sécuriser et rendre autonome.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "Le collectif",
+      title: ["Un lead responsable,", "un collectif mobilisé."],
+      body: "Chaque mission est portée par une personne qui en assume la relation, le périmètre et le résultat.",
+      mediaLabel: ["Expertise", "opérationnelle", "impact durable"],
+      mediaAlt: "Deux personnes cartographient une opération sur des documents imprimés.",
+      roles: [
+        {
+          id: "client",
+          title: "Le client",
+          body: "Le contexte, les règles métier et la validation du résultat.",
+        },
+        {
+          id: "lead",
+          title: "Le lead",
+          body: "La coordination, le périmètre et l’outcome.",
+        },
+        {
+          id: "collectif",
+          title: "Le collectif",
+          body: "L’expertise mobilisée au bon moment.",
+        },
+      ],
+      credential: {
+        title: "Une expertise certifiée dans le collectif.",
+        body: "Certifications individuelles obtenues par les membres de l’équipe.",
+        alt: "Badge Claude Certified Developer — Foundations",
+      },
     },
     contactPage: {
       introEyebrow: "Premier échange",
@@ -123,40 +295,6 @@ const content = {
         "Les exceptions et le moment où le contrôle humain est nécessaire",
         "Le résultat que vous voulez rendre observable",
       ],
-    },
-    methodPage: {
-      introEyebrow: "Approche",
-      introTitle: "Une première boucle qui fonctionne dans votre environnement.",
-      introBody:
-        "Nous partons du travail réel, construisons dans vos outils et accompagnons le système jusqu’à ce que son résultat soit observable.",
-      methodEyebrow: "Notre méthode",
-      methodTitle: "Diagnostic → Pilote → Industrialisation",
-      methodBody:
-        "Trois temps — Embed, Build, Run — pour passer d’une rupture observée à un système que vos équipes peuvent suivre et reprendre.",
-      scopeEyebrow: "Ce que nous construisons avec vous",
-      scopeTitle: "Un périmètre qui évolue avec la preuve.",
-      scopeBody:
-        "Le résultat reste le même : une opération comprise, une boucle construite et un chemin clair pour la faire durer.",
-      governanceEyebrow: "Gouvernance",
-      governanceTitle: "L’autonomie se définit avant de se déployer.",
-      governanceBody:
-        "Données, permissions, validations, traces et reprise sont traitées comme des choix de produit, pas comme des détails techniques.",
-    },
-    workPage: {
-      introEyebrow: "Réalisations",
-      introTitle: "Voir les systèmes, pas seulement les technologies.",
-      introBody:
-        "Chaque réalisation montre l’opération de départ, le système construit, le contrôle humain et le résultat observé.",
-      clientEyebrow: "Réalisation client",
-      clientTitle: "Un reporting partenaire en production.",
-      productEyebrow: "Produit propriétaire",
-      productTitle: "Construire un système autour d’une expertise exigeante.",
-      productBody:
-        "Un produit propriétaire n’est pas une mission client. Il démontre notre capacité à structurer le contexte, l’exécution et l’expérience d’usage.",
-      publicationEyebrow: "Publication des résultats",
-      publicationTitle: "Des preuves documentées, publiées avec accord.",
-      publicationBody:
-        "Nous ne publions que les métriques validées et anonymisées. Les données sensibles restent confidentielles.",
     },
     journalPage: {
       introEyebrow: "Journal d’ingénierie",
@@ -201,24 +339,10 @@ const content = {
         "Aucun outil d’analytics ou traceur marketing non nécessaire n’est intégré à cette version.",
     },
     component: {
-      before: "Avant",
-      humanControl: "Contrôle humain",
-      observedOutcome: "Résultat observé",
-      crewTitle: "Une responsabilité claire, les expertises utiles.",
-      crewCta: "Parler d’une opération",
+      readCase: "Voir la réalisation",
+      readArticle: "Lire l’article",
       credentialEyebrow: "Une expertise certifiée au sein du collectif",
       credentialAlt: "Badge Claude Certified Developer — Foundations",
-      operationAria: "Choisir une opération",
-      illustrativeExamples: "Exemples illustratifs",
-      today: "Aujourd’hui",
-      workMoves: "Le travail avance",
-      humanKeepsControl: "L’humain garde la main",
-      evidenceEyebrow: "Pourquoi commencer par l’opération",
-      evidenceTitle: "Le problème se voit dans les chiffres.",
-      evidenceIntro:
-        "Trouver l’information, relier les outils, rendre l’IA utile : le même besoin de continuité opérationnelle.",
-      studyScope: "Périmètre des études",
-      trustAria: "Engagements de confiance",
     },
     form: {
       genericError: "Vérifiez les champs.",
@@ -261,20 +385,8 @@ const content = {
           "La réception n’a pas pu être confirmée. Votre demande n’est pas considérée comme envoyée.",
       },
     },
-    trustItems: trustItemsFr,
-    thesis: thesisFr,
-    operatingLayers: operatingLayersFr,
-    deliverySteps: deliveryStepsFr,
-    engagements: engagementsFr,
-    featuredCase: featuredCaseFr,
-    governancePrinciples: governancePrinciplesFr,
-    crew: crewFr,
-    faqItems: faqItemsFr,
-    useCases: useCasesFr,
     publicProjects: publicProjectsFr,
     journalEntries: journalEntriesFr,
-    operationExamples: operationExamplesFr,
-    evidence: evidenceFr,
     certification: certificationFr,
   },
   en: {
@@ -285,87 +397,270 @@ const content = {
       mobileNavigation: "Mobile navigation",
       footerNavigation: "Footer navigation",
       menu: "Menu",
-      contactCta: "Discuss your operation",
+      contactCta: "Discuss your project",
       journal: "Journal",
       contact: "Contact",
       legal: "Legal notice",
       privacy: "Privacy",
       brandCategory: "Intelligent operational systems",
-      legalLine: "is a working brand operated by",
+      legalLine: "is a brand operated by",
+      rightsReserved: "All rights reserved.",
+      languageLabel: "Choose language",
+      socialLabel: "Social networks",
     },
     navigation: [
-      { label: "Work", to: "/realisations" },
-      { label: "Use cases", to: "/cas-usage" },
+      { label: "Work", to: "/work" },
+      { label: "Use cases", to: "/realisations" },
       { label: "Approach", to: "/methode" },
       { label: "About", to: "/a-propos" },
+      { label: "Journal", to: "/journal" },
     ],
     hero: {
-      eyebrow: heroSource.eyebrow,
-      title: heroSource.title,
-      body: heroSource.body,
-      principle: heroSource.principle,
-      primaryCta: "Discuss your operation",
-      secondaryCta: "Explore an example",
-      proofLabel: "Principles and reference points",
+      eyebrow: "Agentic operations",
+      title: "From ambition to execution",
+      body: "We help leading brands accelerate their digital development initiatives by building their agentic infrastructure.",
+      primaryCta: "Discuss your project",
+      secondaryCta: "See our work",
+      keywords: ["Agents", "Automation", "CRM", "Intelligent systems"],
+      mediaTopLabel: ["People", "Processes", "AI"],
+      mediaBottomLabel: ["Built", "for what’s next"],
+      mediaAlt: "Two people mapping an operation across printed documents.",
+      mediaCta: "See our work",
     },
     home: {
-      modelEyebrow: "Our expertise, in practice",
-      modelTitle: ["The work between your tools.", "Finally connected."],
-      modelIntro:
-        "An email to process, a report to produce, a decision to prepare. Here is how the operation can move forward.",
-      useCasesLink: "See all six use cases",
-      proofEyebrow: "Client work",
-      proofTitle: ["Reporting moves forward.", "History stays intact."],
-      proofLink: "Read the case study",
-      before: "Before",
-      builtSystem: "The system we built",
-      engineTitle: "One engine, every reporting period.",
-      proofControl: "Teams retain manual areas and validate exceptions.",
-      deliveryAlt: "Illustrative workshop mapping business operations and technical delivery.",
-      deliveryCaption: "Close to the operation. Illustration.",
-      deliveryEyebrow: "How we deliver",
-      deliveryTitle: "From the field to production.",
-      deliveryLink: "See our approach and deliverables",
-      teamLink: "Meet the collective",
-      faqEyebrow: "Before we begin",
-      faqTitle: "Useful questions.",
-      contactEyebrow: "An operation to move forward",
-      contactTitle: "Which operation is slowing your team down?",
-      contactLink: "Describe an operation",
-    },
-    about: {
-      introEyebrow: "The collective",
-      introTitle: "One accountable lead, a collective mobilized.",
-      introBody:
-        "Every engagement has one clear point of contact. The right expertise is brought in when the operation requires it.",
-      modelEyebrow: "The model",
-      modelTitle: "One clear point of contact, the right expertise at the right time.",
-      roles: [
+      expertise: {
+        eyebrow: "Our expertise",
+        title: "Three levers for real impact.",
+        body: "Strategy, technology and execution to turn your operations into a competitive advantage.",
+      },
+      work: {
+        eyebrow: "Featured work",
+        title: ["Real operations.", "Tangible results."],
+        intro:
+          "From internal efficiency to new revenue streams, we design and deliver solutions tailored to each client’s context.",
+        link: "See all use cases",
+      },
+      human: {
+        label: ["Human", "centric", "by design"],
+        title: "Technology is more powerful when it serves people",
+        body: "We design systems that augment your teams, not replace them.",
+        alt: "Documents converging into a single readable signal.",
+        cta: "See our approach",
+      },
+      stats: [
         {
-          title: "The client",
-          body: "Provides the context, priorities, business rules and validation of the outcome.",
+          value: "3",
+          unit: "×",
+          label: "faster execution",
+          detail: "Average time to value for our clients",
         },
         {
-          title: "The engagement lead",
-          body: "Owns the relationship, scope, coordination and outcome throughout the engagement.",
+          value: "90",
+          unit: "%",
+          label: "of processes automated",
+          detail: "on qualified use cases",
         },
         {
-          title: "The collective",
-          body: "We mobilize the skills required by the workflow, without imposing a standardized team.",
+          value: "100",
+          unit: "%",
+          label: "projects delivered",
+          detail: "with measurable impact",
         },
       ],
-      legalTitle: "Legal structure",
-      legalText: "is operated by",
-      publicRecord: "View the public company record",
+      testimonials: {
+        eyebrow: "They trust us",
+        title: ["Ambitious teams.", "Real stories."],
+        intro:
+          "We work with companies that want to move faster, operate smarter and build what’s next.",
+        previous: "Previous testimonial",
+        next: "Next testimonial",
+        items: [
+          {
+            id: "retail",
+            quote:
+              "Sway Ops helped us structure and automate a complex process. The impact was immediate.",
+            name: "Marie L.",
+            role: "COO, Retail Group",
+          },
+          {
+            id: "finance",
+            quote:
+              "A true partner, from strategy to execution. Their expertise in agentic systems makes a real difference.",
+            name: "Thomas B.",
+            role: "CTO, Financial Services",
+          },
+          {
+            id: "services",
+            quote:
+              "Professional, fast and focused on outcomes. We gained time, clarity and control.",
+            name: "Sophie R.",
+            role: "Founder, Services",
+          },
+        ],
+      },
+      insights: {
+        eyebrow: "Insights",
+        title: ["Ideas for", "a more operational future."],
+        link: "See all articles",
+        items: [
+          {
+            id: "automatisation",
+            category: "Automation",
+            title: "5 processes every company should automate in 2026",
+            image: "/images/editorial/workflow-routing.webp",
+            alt: "A sequence of stages linked by a continuous thread.",
+          },
+          {
+            id: "agents",
+            category: "AI agents",
+            title: "From copilots to autonomy: what’s next?",
+            image: "/images/editorial/expertise-productization.webp",
+            alt: "Blocks assembled around a pivot part.",
+          },
+          {
+            id: "strategie",
+            category: "Strategy",
+            title: "Building an agentic infrastructure step by step",
+            image: "/images/editorial/data-decision.webp",
+            alt: "Documents converging into a single signal.",
+          },
+        ],
+      },
+      cta: {
+        eyebrow: "Let’s talk",
+        title: ["Ready to accelerate", "your operations?"],
+        body: "Share your context and we’ll explore how we can help.",
+        action: "Discuss your project",
+      },
     },
-    useCasesPage: {
-      introEyebrow: "Common situations",
-      introTitle: "Where we step in.",
-      introBody:
-        "In each case, we look for the break between tools, data, people and decisions. Open the situation that resembles your day-to-day work.",
-      disclaimer: "Illustrative use cases · the outcomes described are objectives.",
-      humanControl: "Human control",
-      targetOutcome: "Target outcome",
+    expertise: [
+      {
+        id: "agentic",
+        icon: "zap",
+        title: "Agentic systems",
+        body: "Design and deploy AI agents that work in your real operations.",
+      },
+      {
+        id: "automation",
+        icon: "database",
+        title: "Automation & integrations",
+        body: "Connect your tools, streamline workflows, remove manual work.",
+      },
+      {
+        id: "crm",
+        icon: "chart",
+        title: "CRM & business systems",
+        body: "Structure your data, processes and customer journeys for scalable growth.",
+      },
+    ],
+    cases: [
+      {
+        id: "retail-data",
+        sector: "retail",
+        sectorLabel: "Retail",
+        shortTitle: "Unified customer data",
+        title: "Unifying customer data across 12 countries.",
+        tags: "CRM, automation, AI agents",
+        image: "/images/editorial/context-control-v2.webp",
+        alt: "A process map annotated by hand.",
+      },
+      {
+        id: "finance-reporting",
+        sector: "finance",
+        sectorLabel: "Finance",
+        shortTitle: "Automated reporting",
+        title: "Automating reporting for faster decisions.",
+        tags: "Data pipelines, agentic workflows",
+        image: "/images/editorial/reporting-review-v2.webp",
+        alt: "A printed report reviewed in front of a screen of tables.",
+      },
+      {
+        id: "services-ops",
+        sector: "services",
+        sectorLabel: "Services",
+        shortTitle: "Smoother operations",
+        title: "From manual processes to autonomous operations.",
+        tags: "Automation, AI agents",
+        image: "/images/editorial/workflow-routing.webp",
+        alt: "A sequence of stages linked by a continuous thread.",
+      },
+    ],
+    workPage: {
+      eyebrow: "Work",
+      title: "From ideas to impact",
+      body: "We design agentic systems that move your business forward.",
+      mediaLabel: ["Systems", "for real impact"],
+      mediaAlt: "Blocks assembled around a pivot part.",
+      stats: [
+        { value: "+30", label: "projects delivered" },
+        { value: "3", label: "areas of expertise" },
+        { value: "100%", label: "outcome-driven" },
+      ],
+      expertiseTitle: "Our expertise",
+    },
+    casesPage: {
+      eyebrow: "Use cases",
+      title: ["Real use cases.", "Real outcomes."],
+      body: "See how we turn business challenges into operational systems.",
+      filterLabel: "Filter by sector",
+      filterAll: "All",
+      empty: "No published work in this sector yet.",
+      bannerTitle: "A use case similar to your situation?",
+      bannerCta: "Discuss your project",
+    },
+    methodPage: {
+      eyebrow: "Our approach",
+      title: ["A clear method.", "Measurable results."],
+      body: "We start from the real work to build useful, adopted and sustainable systems.",
+      aside: "A pragmatic approach to go from idea to impact.",
+      mediaLabel: ["Built", "to last"],
+      mediaAlt: "A process map annotated by hand.",
+      steps: [
+        {
+          id: "diagnostiquer",
+          title: "Diagnose",
+          body: "Understand the existing situation and identify the bottleneck.",
+        },
+        {
+          id: "piloter",
+          title: "Pilot",
+          body: "Build the first complete loop in your environment.",
+        },
+        {
+          id: "industrialiser",
+          title: "Industrialize",
+          body: "Extend, secure and make it autonomous.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "The collective",
+      title: ["One accountable lead,", "a collective mobilized."],
+      body: "Each project is led by one person who owns the relationship, scope and outcome.",
+      mediaLabel: ["Operational", "expertise", "lasting impact"],
+      mediaAlt: "Two people mapping an operation across printed documents.",
+      roles: [
+        {
+          id: "client",
+          title: "The client",
+          body: "Context, business rules and validation of the outcome.",
+        },
+        {
+          id: "lead",
+          title: "The lead",
+          body: "Coordination, scope and results.",
+        },
+        {
+          id: "collectif",
+          title: "The collective",
+          body: "The right expertise, at the right time.",
+        },
+      ],
+      credential: {
+        title: "Certified expertise within the collective.",
+        body: "Individual certification earned by a member of the team.",
+        alt: "Claude Certified Developer — Foundations badge",
+      },
     },
     contactPage: {
       introEyebrow: "First conversation",
@@ -381,428 +676,91 @@ const content = {
         "The outcome you want to make observable",
       ],
     },
-    methodPage: {
-      introEyebrow: "Approach",
-      introTitle: "A first working loop in your environment.",
-      introBody:
-        "We start from the real work, build within your tools and support the system until its outcome becomes observable.",
-      methodEyebrow: "Our method",
-      methodTitle: "Diagnose → Pilot → Industrialize",
-      methodBody:
-        "Three stages — Embed, Build, Run — to move from an observed break to a system your teams can monitor and take over.",
-      scopeEyebrow: "What we build with you",
-      scopeTitle: "A scope that evolves with the evidence.",
-      scopeBody:
-        "The goal stays the same: understand the operation, build the loop and create a clear path for long-term ownership.",
-      governanceEyebrow: "Governance",
-      governanceTitle: "Autonomy is defined before it is deployed.",
-      governanceBody:
-        "Data, permissions, approvals, traces and recovery are treated as product decisions, not technical details.",
-    },
-    workPage: {
-      introEyebrow: "Work",
-      introTitle: "See the systems, not just the technologies.",
-      introBody:
-        "Each project shows the initial operation, the system built, human control and the observed outcome.",
-      clientEyebrow: "Client work",
-      clientTitle: "Partner reporting in production.",
-      productEyebrow: "Proprietary product",
-      productTitle: "Building a system around demanding expertise.",
-      productBody:
-        "A proprietary product is not a client engagement. It demonstrates our ability to structure context, execution and the user experience.",
-      publicationEyebrow: "Publishing results",
-      publicationTitle: "Documented evidence, published with consent.",
-      publicationBody:
-        "We only publish validated, anonymized metrics. Sensitive data remains confidential.",
-    },
     journalPage: {
       introEyebrow: "Engineering journal",
-      introTitle: "Observe the system before giving it more autonomy.",
+      introTitle: "Observe the system before granting it more autonomy.",
       introBody:
-        "Field notes on breaks, actions actually executed and the corrections required before scaling.",
-      lesson: "What the pilot revealed",
+        "Field notes on breakdowns, the actions actually executed and the corrections required before scaling.",
+      lesson: "What the pilot showed",
       limitation: "Limitation",
     },
     legalPage: {
       introEyebrow: "Legal information",
       introTitle: "Legal notice",
       introBody:
-        "This page brings together the verified information available for this working version of the website.",
+        "This page gathers the verified information available for the working version of the site.",
       publisher: "Publisher",
       publisherBody: "is a working brand with provisional status.",
       publicationDirector: "Publication director",
       contactHosting: "Contact details and hosting",
       contactHostingBody:
-        "The legal address to display and the hosting provider’s identity must be validated before final publication. No personal address is invented or exposed in this working version.",
-      contents: "Content",
+        "The legal address to display and the identity of the hosting provider must be validated before final publication. No personal address is invented or exposed in this working version.",
+      contents: "Contents",
       contentsBody:
         "Illustrative use cases are identified as such. The professional experience of collective members does not constitute a client list for the company.",
     },
     privacyPage: {
       introEyebrow: "Privacy",
-      introTitle: "Minimize data from the first conversation.",
+      introTitle: "Limit data from the first exchange.",
       introBody:
         "The form only requests the information needed to understand a process and prepare a conversation.",
       controller: "Data controller",
       requested: "Information requested",
       requestedBody:
-        "Name, role, organization, professional email, process description, tools involved and the impact of the issue.",
+        "Name, role, organisation, professional email, process description, tools involved and the consequence of the malfunction.",
       purpose: "Purpose",
       purposeBody:
-        "Review the request, prepare the conversation and respond to the person who submitted it. Content must not include client data, sensitive documents, credentials or trade secrets.",
+        "Review the request, prepare the conversation and reply to the person who submitted it. Content must not include any client data, sensitive documents, credentials or trade secrets.",
       retention: "Form and retention",
       retentionBody:
         "The form only confirms receipt after a positive response from the configured destination. The destination, retention period and channel for exercising rights must be validated before public activation.",
-      analytics: "Analytics",
+      analytics: "Audience measurement",
       analyticsBody:
-        "No non-essential analytics tool or marketing tracker is included in this version.",
+        "No analytics tool or non-essential marketing tracker is included in this version.",
     },
     component: {
-      before: "Before",
-      humanControl: "Human control",
-      observedOutcome: "Observed outcome",
-      crewTitle: "Clear accountability, the right expertise.",
-      crewCta: "Discuss an operation",
+      readCase: "View the case",
+      readArticle: "Read the article",
       credentialEyebrow: "Certified expertise within the collective",
       credentialAlt: "Claude Certified Developer — Foundations badge",
-      operationAria: "Choose an operation",
-      illustrativeExamples: "Illustrative examples",
-      today: "Today",
-      workMoves: "The work moves forward",
-      humanKeepsControl: "Human control remains",
-      evidenceEyebrow: "Why start with the operation",
-      evidenceTitle: "The problem shows up in the numbers.",
-      evidenceIntro:
-        "Finding information, connecting tools and making AI useful all require the same operational continuity.",
-      studyScope: "Study scope",
-      trustAria: "Trust commitments",
     },
     form: {
-      genericError: "Please check the fields.",
+      genericError: "Check the fields.",
       deliveryError: "Receipt could not be confirmed. Your request is not considered sent.",
-      name: "Full name",
+      name: "First and last name",
       namePlaceholder: "Your name",
-      email: "Work email",
+      email: "Professional email",
       emailPlaceholder: "you@company.com",
       company: "Company",
-      companyPlaceholder: "Your organization",
+      companyPlaceholder: "Your organisation",
       role: "Role",
       rolePlaceholder: "Your role",
-      process: "Which operation is slowing your team down today?",
-      processPlaceholder: "Describe the trigger, steps, tools, exceptions and target outcome.",
+      process: "Which operation slows your team down today?",
+      processPlaceholder:
+        "Describe the trigger, the steps, the tools, the exceptions and the outcome you want.",
       tools: "Which tools or data are involved?",
       toolsPlaceholder: "Excel, Google Workspace, CRM, ERP, business database…",
-      impact: "What impact does this situation have today?",
-      impactPlaceholder: "Delays, errors, manual work, lack of visibility…",
+      impact: "What consequences does this situation have today?",
+      impactPlaceholder: "Delay, error, manual work, lack of visibility…",
       honeypot: "Do not fill in this field",
       consent:
-        "I agree that this information may only be used to review my request and prepare a conversation.",
+        "I agree that this information will be used only to review my request and prepare a conversation.",
       privacy:
-        "Do not send client data, accounting documents, sensitive personal information, credentials or trade secrets through this form.",
+        "Do not send any client data, accounting documents, sensitive personal information, credentials or trade secrets in this form.",
       submitting: "Sending",
       submit: "Describe this operation",
       reference: "Reference",
-      success:
-        "Your request has been received. We will get back to you after reviewing the process.",
+      success: "Your request has been received. We will get back to you after reading the process.",
       serverErrors: {
         rejected: "The request could not be verified. Reload the page and try again.",
         not_configured:
-          "The form is not connected to its destination yet. Your request was not sent.",
+          "The form is not yet connected to its destination. Your request was not sent.",
         configuration_error: "The form is temporarily unavailable. Your request was not sent.",
         delivery_failed:
           "The destination did not confirm receipt. Your request is not considered sent.",
         delivery_error: "Receipt could not be confirmed. Your request is not considered sent.",
       },
     },
-    trustItems: [
-      "Structured context",
-      "Connected execution",
-      "Targeted intelligence",
-      "Explicit human control",
-    ],
-    thesis: {
-      eyebrow: "Our thesis",
-      title: "AI is only as useful as the operation it can act on.",
-      body: "High-performing AI creates no value when context is incomplete, the workflow cannot execute or nobody knows what the system is allowed to do. We therefore start with the operation.",
-      principles: [
-        "Understand what is happening",
-        "Trigger the right action",
-        "Know when to hand over",
-      ],
-    },
-    operatingLayers: [
-      {
-        index: "01",
-        stage: "Context",
-        capability: "CRM",
-        statement: "CRM gives the operation context.",
-        body: "We structure people, data, history, statuses, responsibilities and rules so the system can understand the situation.",
-        outputs: [
-          "Information architecture",
-          "Customer and business data",
-          "History and statuses",
-          "Source of truth",
-        ],
-      },
-      {
-        index: "02",
-        stage: "Execution",
-        capability: "Automation",
-        statement: "Automation gives the operation execution.",
-        body: "We connect tools and move work through workflows, integrations, triggers, rules and explicit controls.",
-        outputs: [
-          "Workflows and integrations",
-          "Synchronizations",
-          "Business rules and controls",
-          "Documents and updates",
-        ],
-      },
-      {
-        index: "03",
-        stage: "Intelligence",
-        capability: "Agentic Systems",
-        statement: "Agentic systems add intelligence and autonomy.",
-        body: "When rules are no longer enough, the system can interpret, search, summarize, prepare a decision or choose from authorized actions.",
-        outputs: [
-          "Interpretation and research",
-          "Qualification and synthesis",
-          "Authorized actions",
-          "Escalation to a human",
-        ],
-      },
-    ],
-    deliverySteps: [
-      {
-        index: "01",
-        phase: "Diagnose",
-        stage: "Embed",
-        title: "Understand the work as it really exists",
-        body: "We map the trigger, data, tools, manipulations, decisions and exceptions.",
-        deliverable: "One priority break, a clear scope and a baseline measure",
-      },
-      {
-        index: "02",
-        phase: "Pilot",
-        stage: "Build",
-        title: "Build the first complete working loop",
-        body: "We deliver the smallest complete loop within the tools, rules and constraints of your environment.",
-        deliverable: "A tested loop with explicit rules, controls and responsibilities",
-      },
-      {
-        index: "03",
-        phase: "Industrialize",
-        stage: "Run",
-        title: "Make what works last",
-        body: "We strengthen permissions, tests, traces, monitoring and recovery to prepare handover or scaling.",
-        deliverable: "A measured, monitored and transferable system",
-      },
-    ],
-    engagements: [
-      {
-        index: "01",
-        title: "Diagnose",
-        body: "We identify the break, workflow, scope and baseline measure.",
-        outputs: [
-          "An understood operation",
-          "Priority breaks and exceptions",
-          "An initial working scope",
-          "A target outcome to prove",
-        ],
-      },
-      {
-        index: "02",
-        title: "Pilot",
-        body: "We build the smallest complete loop in your real environment.",
-        outputs: [
-          "A loop connected to your tools",
-          "Explicit rules and responsibilities",
-          "Controls and human validation",
-          "Evidence that it works",
-        ],
-      },
-      {
-        index: "03",
-        title: "Industrialize",
-        body: "We strengthen the system so it can be owned, monitored and extended over time.",
-        outputs: [
-          "Permissions, security and traceability",
-          "Tests, traces and supervision",
-          "Documentation and clear accountability",
-          "An industrialization path",
-        ],
-      },
-    ],
-    featuredCase: {
-      statuses: ["Deployed for a client", "Results under internal review"],
-      title: "Partner reporting updated without losing its history.",
-      summary:
-        "A common engine connects data to presentations, preserves manual areas and processes every period with traceability.",
-      before: "Multiple sources, separate presentations and manual checks repeated every month.",
-      context:
-        "Partners, periods, sources, charts and manual areas are identified in one structure.",
-      execution:
-        "The engine retrieves data, updates presentations and rebuilds the historical record.",
-      intelligence:
-        "No agentic layer was added: explicit rules were sufficient for this operation.",
-      humanControl: "Teams retain manual areas and review flagged cases.",
-      outcome: "A deployed, repeatable and tested loop without forcing teams into a new tool.",
-      proofNote: "Quantified results remain confidential during contractual review.",
-      disclaimer: "This technical implementation is not a measure of financial ROI.",
-    },
-    governancePrinciples: [
-      {
-        title: "Explicit human control",
-        body: "The system states what it executes, prepares, recommends or refuses, and who approves it.",
-      },
-      {
-        title: "Least privilege",
-        body: "Every component and person receives only the access they need.",
-      },
-      {
-        title: "Data minimization",
-        body: "Only data required by the operation is collected, transmitted and retained.",
-      },
-      {
-        title: "Traceability",
-        body: "Important outputs can be traced back to their sources, rules, parameters and approvals.",
-      },
-      {
-        title: "Evaluation",
-        body: "Rules and models are tested on representative situations, including failures.",
-      },
-      {
-        title: "Recovery",
-        body: "The system defines what happens when a source, API or person is unavailable.",
-      },
-    ],
-    crew: {
-      eyebrow: "Our delivery model",
-      title: "One accountable lead, a collective mobilized.",
-      intro: "Every engagement is led by one person who owns the relationship, scope and outcome.",
-      responsibilities: [
-        "Operational diagnosis",
-        "System architecture",
-        "Delivery and trade-offs",
-        "Production deployment",
-      ],
-      team: "Around that accountability, we mobilize the expertise required — operations, CRM, data, integration, automation, agentic systems, security and change management — when the workflow needs it.",
-    },
-    faqItems: [
-      {
-        question: "Do you sell artificial intelligence?",
-        answer:
-          "No. We design intelligent operational systems. AI is used only when a step requires interpretation, research, synthesis or a choice between authorized actions.",
-      },
-      {
-        question: "Do we need to replace our existing tools?",
-        answer:
-          "Usually not. We start by structuring context and connecting the systems already in use. Replacement is proposed only when a tool genuinely prevents the operation from moving forward.",
-      },
-      {
-        question: "How do CRM, automation and agentic systems work together?",
-        answer:
-          "CRM provides memory and context. Automation executes deterministic handoffs. The agentic layer handles steps that require interpretation or reasoning. They are three layers of one system, not three separate offers.",
-      },
-      {
-        question: "Can the system act on its own?",
-        answer:
-          "Only within the boundaries defined with you. It can prepare an action, execute an authorized task, request approval or hand the case to a person. Sensitive decisions retain a clearly identified owner.",
-      },
-      {
-        question: "How do you measure value?",
-        answer:
-          "We define an operational baseline: lead time, errors, production time, follow-up rate, usable records or an observable business outcome.",
-      },
-      {
-        question: "Do you work with internal IT teams?",
-        answer:
-          "Yes. We build a path that IT can challenge, integrate and take over. A pilot should not become another black box or isolated technical debt.",
-      },
-      {
-        question: "What happens after production deployment?",
-        answer:
-          "We observe the system, correct breaks and document how it works. We then prepare industrialization, handover to your teams or scaling.",
-      },
-    ],
-    useCases: [
-      {
-        id: "critical-reporting",
-        title: "Reporting depends on one person or a fragile file",
-        shortTitle: "Fragile reporting",
-        before: "Multiple sources, copy-paste work and a risk of error in every cycle.",
-        context: "Structure sources, periods, versions, owners and control rules.",
-        execution: "Collect data, check variances and produce the report.",
-        intelligence: "Interpret anomalies only when deterministic rules are insufficient.",
-        humanControl: "Require approval for exceptions and sensitive changes.",
-        outcome: "Repeatable, traceable reporting that depends less on one person.",
-        examples: ["Partner QBR", "Executive pack", "Multi-site reporting"],
-      },
-      {
-        id: "decision-data",
-        title: "Data exists but does not reach the right decision",
-        shortTitle: "Decision without context",
-        before: "Useful data is scattered and every team defends its own version.",
-        context: "Bring together sources, definitions, responsibilities and confidence levels.",
-        execution: "Calculate indicators and trigger the planned reviews or actions.",
-        intelligence: "Qualify variances, summarize the situation and prepare options.",
-        humanControl: "Leave consequential trade-offs to designated owners.",
-        outcome: "A decision connected to its data, rules and next action.",
-        examples: ["Cash management", "Cost anomalies", "Sales prioritization"],
-      },
-      {
-        id: "workflow-tools",
-        title: "A workflow crosses too many tools and people",
-        shortTitle: "Manual handoffs",
-        before: "A request moves through a form, email, spreadsheet, CRM and manual follow-ups.",
-        context: "Identify the record, status, owner and expected next step.",
-        execution: "Synchronize systems and create deterministic actions automatically.",
-        intelligence:
-          "Read or classify ambiguous requests before proposing an authorized next step.",
-        humanControl: "Hand off out-of-rule cases with their full context.",
-        outcome: "A visible workflow that moves forward without losing exceptions.",
-        examples: ["Onboarding", "Quote follow-up", "Document processing"],
-      },
-      {
-        id: "expertise-product",
-        title: "Strong expertise remains difficult to apply at scale",
-        shortTitle: "Unstructured expertise",
-        before: "The method depends on a few people and varies across tools or cases.",
-        context: "Formalize concepts, data, rules, edge cases and responsibilities.",
-        execution:
-          "Turn the method into repeatable journeys, calculations, controls and deliverables.",
-        intelligence:
-          "Support research, interpretation or preparation of a contextualized recommendation.",
-        humanControl: "Keep expert approval where judgment affects the outcome.",
-        outcome: "Expertise made accessible through a system without reducing it to a chatbot.",
-        examples: ["Financial diagnosis", "Pricing", "Business control"],
-      },
-      {
-        id: "ai-pilot",
-        title: "An AI pilot works in a demo, not in the operation",
-        shortTitle: "Blocked AI pilot",
-        before: "The model can answer, but data, permissions and actions remain unclear.",
-        context: "Define sources, record state, permissions and success criteria.",
-        execution: "Connect the pilot to real steps and log its actions.",
-        intelligence: "Restrict the system to explicitly authorized decisions or actions.",
-        humanControl: "Define approval, refusal and escalation thresholds.",
-        outcome:
-          "An evaluable system that can be industrialized, corrected or stopped based on evidence.",
-        examples: ["Document analysis", "Qualification", "Operations assistant"],
-      },
-      {
-        id: "regulated",
-        title: "A sensitive operation requires stronger control",
-        shortTitle: "Sensitive operation",
-        before:
-          "Confidential data, closed systems and responsibilities that are difficult to delegate.",
-        context: "Map access, required data and decision responsibilities.",
-        execution: "Automate only the handoffs compatible with organizational rules.",
-        intelligence: "Use models evaluated on an explicit, observable scope.",
-        humanControl: "Provide approval, traceability, least privilege and manual recovery.",
-        outcome: "A progressive path to greater autonomy without creating a black box.",
-        examples: ["Finance", "Insurance", "Public sector"],
-      },
-    ],
     publicProjects: [
       {
         id: "the-pricing-library",
@@ -838,109 +796,6 @@ const content = {
           "This pilot is not presented as an autonomous pipeline or a commercial client engagement.",
       },
     ],
-    operationExamples: [
-      {
-        id: "request",
-        label: "Client request",
-        before:
-          "An email arrives. The team must find the record, understand the request and follow up with the right person.",
-        steps: [
-          {
-            title: "Find the record",
-            body: "CRM brings together the client, history, documents and owner.",
-          },
-          {
-            title: "Move the work forward",
-            body: "The system creates the task, synchronizes status and passes on the documents.",
-          },
-          {
-            title: "Understand the request",
-            body: "An agent qualifies the message and prepares the next authorized action.",
-          },
-        ],
-        humanControl: "An out-of-scope request returns to the owner with its context.",
-        outcome: "A request tracked through to resolution.",
-      },
-      {
-        id: "reporting",
-        label: "Reporting",
-        before:
-          "Every month, the same data moves from file to file and everything must be checked again.",
-        steps: [
-          {
-            title: "Set the source of truth",
-            body: "Periods, versions and calculation rules are attached to the same reference.",
-          },
-          {
-            title: "Produce and control",
-            body: "Data is collected, variances checked and the report updated.",
-          },
-          {
-            title: "Explain a variance",
-            body: "When needed, an agent investigates possible causes of an anomaly.",
-          },
-        ],
-        humanControl: "The owner approves exceptions before the report is distributed.",
-        outcome: "Repeatable reporting with explained variances.",
-      },
-      {
-        id: "decision",
-        label: "Business decision",
-        before:
-          "The numbers exist, but every team rebuilds its analysis before a decision can be made.",
-        steps: [
-          {
-            title: "Share the context",
-            body: "Sources, indicators and confidence levels are brought together and made accessible.",
-          },
-          {
-            title: "Trigger the review",
-            body: "Crossing a threshold opens a review and gathers the required evidence.",
-          },
-          {
-            title: "Prepare the options",
-            body: "An agent summarizes the situation and documents possible actions.",
-          },
-        ],
-        humanControl: "The decision-maker retains control over the trade-off and its consequences.",
-        outcome: "A decision connected to its sources and next action.",
-      },
-    ],
-    evidence: {
-      reviewedAt: evidenceFr.reviewedAt,
-      disclaimer: "External studies, not client results or promised gains.",
-      sources: [
-        {
-          ...evidenceFr.sources[0],
-          scope:
-            "31,000 full-time workers across 31 markets, surveyed in February–March 2023. The figure covers their reported difficulty with spending too much time searching for information.",
-        },
-        {
-          ...evidenceFr.sources[1],
-          scope:
-            "2025 Connectivity Benchmark: 1,050 IT leaders across nine countries, surveyed in October–November 2024. Organizations have at least 1,000 employees; these results do not specifically describe small and medium-sized businesses.",
-        },
-      ],
-      metrics: [
-        {
-          ...evidenceFr.metrics[0],
-          title: "Information still takes too long to find.",
-          description:
-            "of surveyed workers say they spend too much time searching for information.",
-        },
-        {
-          ...evidenceFr.metrics[1],
-          title: "Systems remain difficult to connect.",
-          description: "of surveyed IT leaders report challenges integrating data across systems.",
-        },
-        {
-          ...evidenceFr.metrics[2],
-          title: "AI depends on this foundation.",
-          description:
-            "of surveyed organizations cite data integration as a major barrier to AI adoption.",
-        },
-      ],
-    },
     certification: {
       ...certificationFr,
       scope: "Individual certification earned by a member of the collective.",

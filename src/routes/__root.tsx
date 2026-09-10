@@ -124,7 +124,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { name: "twitter:card", content: "summary" },
         { name: "twitter:title", content: `${brand.name} | ${common.brandCategory}` },
         { name: "twitter:description", content: hero.body },
-        { name: "theme-color", content: "#0a0b0d" },
+        { name: "theme-color", content: "#0a0c0a" },
       ],
       links: [
         {
@@ -140,7 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap",
         },
       ],
     };

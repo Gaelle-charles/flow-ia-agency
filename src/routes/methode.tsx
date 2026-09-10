@@ -1,10 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { EngagementCard } from "@/components/site/EngagementCard";
-import { GovernancePrinciple } from "@/components/site/GovernancePrinciple";
-import { MethodStep } from "@/components/site/MethodStep";
-import { PageIntro, PageShell } from "@/components/site/PageShell";
-import { SectionHeader } from "@/components/site/SectionHeader";
+import { MediaFrame } from "@/components/site/MediaFrame";
+import { PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -13,59 +10,59 @@ export const Route = createFileRoute("/methode")({
   loader: async () => ({ locale: await getInitialLocale() }),
   head: ({ loaderData }) => {
     const { methodPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(methodPage.introTitle, methodPage.introBody) };
+    return { meta: pageMeta(methodPage.title.join(" "), methodPage.body) };
   },
   component: MethodPage,
 });
 
 function MethodPage() {
-  const { deliverySteps, engagements, governancePrinciples, methodPage } = useLocalizedContent();
+  const { methodPage } = useLocalizedContent();
 
   return (
     <PageShell>
-      <PageIntro
-        eyebrow={methodPage.introEyebrow}
-        title={methodPage.introTitle}
-        body={methodPage.introBody}
-      />
+      <section className="band grid gap-10 pb-14 pt-8 sm:pt-10 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        <div>
+          <p className="eyebrow text-accent">{methodPage.eyebrow}</p>
+          <h1 className="display-2 mt-5 text-foreground">
+            {methodPage.title.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </h1>
+          <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
+            {methodPage.body}
+          </p>
 
-      <section className="px-1 py-14 sm:px-4 sm:py-16 lg:px-7 lg:py-20">
-        <SectionHeader
-          eyebrow={methodPage.methodEyebrow}
-          title={methodPage.methodTitle}
-          body={methodPage.methodBody}
-        />
-        <ol className="mt-9">
-          {deliverySteps.map((item) => (
-            <MethodStep key={item.index} item={item} />
-          ))}
-        </ol>
-      </section>
-
-      <section className="border-t border-border py-10 sm:py-12">
-        <SectionHeader
-          eyebrow={methodPage.scopeEyebrow}
-          title={methodPage.scopeTitle}
-          body={methodPage.scopeBody}
-        />
-        <div className="mt-9">
-          {engagements.map((item) => (
-            <EngagementCard key={item.index} item={item} />
-          ))}
+          <ol className="rule-list mt-10">
+            {methodPage.steps.map((step, index) => (
+              <li key={step.id} className="flex gap-6 py-6">
+                <p className="font-mono text-[0.75rem] font-medium tracking-[0.12em] text-accent">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <div>
+                  <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
+                    {step.title}
+                  </h2>
+                  <p className="mt-2 max-w-[42ch] text-[0.8125rem] leading-6 text-muted-foreground">
+                    {step.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
-      </section>
 
-      <section className="mt-2 rounded-[1.4rem] bg-ivory px-5 py-12 text-background sm:px-8 sm:py-14 lg:px-10 lg:py-16">
-        <SectionHeader
-          eyebrow={methodPage.governanceEyebrow}
-          title={methodPage.governanceTitle}
-          body={methodPage.governanceBody}
-          inverted
-        />
-        <div className="mt-9">
-          {governancePrinciples.map((item) => (
-            <GovernancePrinciple key={item.title} item={item} />
-          ))}
+        <div className="flex flex-col gap-6">
+          <p className="max-w-[28ch] text-[0.875rem] leading-6 text-muted-foreground">
+            {methodPage.aside}
+          </p>
+          <MediaFrame
+            src="/images/editorial/context-control-v2.webp"
+            alt={methodPage.mediaAlt}
+            topRight={methodPage.mediaLabel}
+            className="aspect-[4/3]"
+          />
         </div>
       </section>
     </PageShell>

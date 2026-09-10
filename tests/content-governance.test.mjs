@@ -30,39 +30,42 @@ async function publicSource() {
   return chunks;
 }
 
-test("le nom commercial est centralisé dans la configuration", async () => {
-  const brandPath = path.join(projectRoot, "src", "content", "brand.config.json");
-  const brand = JSON.parse(await readFile(brandPath, "utf8"));
+async function readBrand() {
+  return JSON.parse(
+    await readFile(path.join(projectRoot, "src", "content", "brand.config.json"), "utf8"),
+  );
+}
+
+async function readLocalizedContent() {
+  return readFile(path.join(projectRoot, "src", "content", "localized-content.ts"), "utf8");
+}
+
+test("le nom commercial reste piloté par la configuration", async () => {
+  const brand = await readBrand();
   assert.equal(brand.name, "Sway Ops");
 
-  const occurrences = (await publicSource()).filter(
-    ({ file, content }) => file !== brandPath && content.includes(brand.name),
+  // Le chrome et les pages lisent brand.config.json ; seuls les contenus
+  // rédactionnels (citations clients) peuvent écrire le nom en toutes lettres.
+  const layoutFiles = (await publicSource()).filter(({ file }) =>
+    /src[/\\](?:components|routes)[/\\]/u.test(file),
   );
+  const occurrences = layoutFiles.filter(({ content }) => content.includes(brand.name));
   assert.deepEqual(
     occurrences.map(({ file }) => path.relative(projectRoot, file)),
     [],
-    "Le nom de marque ne doit pas être dupliqué hors de brand.config.json",
+    "Le nom de marque ne doit pas être codé en dur dans les composants ou les routes",
   );
 });
 
 test("le positionnement Intelligent Operations est la colonne vertébrale", async () => {
-  const brandPath = path.join(projectRoot, "src", "content", "brand.config.json");
-  const brand = JSON.parse(await readFile(brandPath, "utf8"));
-  const siteContent = await readFile(
-    path.join(projectRoot, "src", "content", "site-content.ts"),
-    "utf8",
-  );
+  const brand = await readBrand();
+  const content = await readLocalizedContent();
 
   assert.equal(brand.category, "Systèmes opérationnels intelligents");
   assert.equal(brand.territory, "Intelligent Operations");
   assert.equal(brand.promise, "From disconnected tools to intelligent operations.");
-  assert.match(siteContent, /AI is only as useful as the operation it can act on\./u);
-  assert.match(siteContent, /stage: "Context"/u);
-  assert.match(siteContent, /stage: "Execution"/u);
-  assert.match(siteContent, /stage: "Intelligence"/u);
-  assert.match(siteContent, /stage: "Embed"/u);
-  assert.match(siteContent, /stage: "Build"/u);
-  assert.match(siteContent, /stage: "Run"/u);
+  assert.match(content, /brandCategory: "Systèmes opérationnels intelligents"/u);
+  assert.match(content, /brandCategory: "Intelligent operational systems"/u);
 });
 
 test("les anciennes promesses et le mailto ont quitté la surface publique", async () => {
@@ -101,26 +104,11 @@ test("les métriques QBR sous gate ne sont pas publiées", async () => {
   }
 });
 
-test("les statuts du produit public sont émis comme des statuts explicites", async () => {
-  const projectSource = await readFile(
-    path.join(projectRoot, "src", "content", "projects.ts"),
-    "utf8",
-  );
-  const cardSource = await readFile(
-    path.join(projectRoot, "src", "components", "site", "ProjectCard.tsx"),
-    "utf8",
-  );
-  assert.match(
-    projectSource,
-    /statuses:\s*\["PRODUIT PROPRIÉTAIRE EN LIGNE", "VALIDATION MARCHÉ"\]/u,
-  );
-  assert.match(cardSource, /project\.statuses\.map/u);
-});
-
-test("les routes éditoriales demandées existent", async () => {
+test("les routes des maquettes existent", async () => {
   const routeFiles = [
+    "index.tsx",
+    "work.tsx",
     "realisations.tsx",
-    "cas-usage.tsx",
     "methode.tsx",
     "a-propos.tsx",
     "contact.tsx",
@@ -134,29 +122,44 @@ test("les routes éditoriales demandées existent", async () => {
     assert.equal(available.includes(route), true, `Route absente : ${route}`);
 });
 
-test("les six situations restent identifiées comme illustratives", async () => {
-  const source = await readFile(path.join(projectRoot, "src", "content", "use-cases.ts"), "utf8");
-  const ids = source.match(/\bid:\s*"/gu) ?? [];
-  assert.equal(ids.length, 6);
-  assert.match(source, /CAS D’USAGE ILLUSTRATIF/u);
-  for (const field of [
-    "before",
-    "context",
-    "execution",
-    "intelligence",
-    "humanControl",
-    "outcome",
-  ]) {
-    const occurrences = source.match(new RegExp(`\\b${field}:`, "gu")) ?? [];
-    assert.equal(occurrences.length, 6, `Champ de narration incomplet : ${field}`);
+test("la navigation des maquettes est identique dans les deux langues", async () => {
+  const content = await readLocalizedContent();
+  const navigationBlocks = content.match(/navigation: \[[\s\S]*?\n {4}\]/gu) ?? [];
+  assert.equal(navigationBlocks.length, 2, "Une navigation doit être définie par langue");
+
+  const targets = navigationBlocks.map((block) => (block.match(/to: "[^"]+"/gu) ?? []).join(","));
+  assert.deepEqual(
+    targets[0],
+    'to: "/work",to: "/realisations",to: "/methode",to: "/a-propos",to: "/journal"',
+  );
+  assert.equal(targets[0], targets[1], "FR et EN doivent pointer vers les mêmes routes");
+});
+
+test("chaque réalisation publiée porte son secteur et son périmètre", async () => {
+  const content = await readLocalizedContent();
+  const caseBlocks = content.match(/cases: \[[\s\S]*?\n {4}\]/gu) ?? [];
+  assert.equal(caseBlocks.length, 2, "Une liste de réalisations doit être définie par langue");
+
+  for (const block of caseBlocks) {
+    const ids = block.match(/\bid: "/gu) ?? [];
+    assert.ok(ids.length > 0, "Aucune réalisation publiée");
+    for (const field of ["sector", "sectorLabel", "shortTitle", "title", "tags", "image", "alt"]) {
+      const occurrences = block.match(new RegExp(`\\b${field}:`, "gu")) ?? [];
+      assert.equal(occurrences.length, ids.length, `Champ manquant sur une réalisation : ${field}`);
+    }
   }
 });
 
-test("les anciennes routes de capabilities convergent vers un même modèle", async () => {
+test("les anciennes routes convergent vers les pages des maquettes", async () => {
   for (const route of ["services.crm.tsx", "services.automatisation.tsx", "services.agentic.tsx"]) {
     const source = await readFile(path.join(projectRoot, "src", "routes", route), "utf8");
-    assert.match(source, /to: "\/methode"/u);
+    assert.match(source, /to: "\/work"/u);
   }
+  const legacyUseCases = await readFile(
+    path.join(projectRoot, "src", "routes", "cas-usage.tsx"),
+    "utf8",
+  );
+  assert.match(legacyUseCases, /to: "\/realisations"/u);
 });
 
 test("le formulaire dépend d’une destination configurable", async () => {
@@ -173,9 +176,7 @@ test("le formulaire dépend d’une destination configurable", async () => {
 
 test("le collectif remplace le dirigeant dans la présentation commerciale", async () => {
   const chunks = await publicSource();
-  const brand = JSON.parse(
-    await readFile(path.join(projectRoot, "src/content/brand.config.json"), "utf8"),
-  );
+  const brand = await readBrand();
   assert.equal(brand.teamModel, "Collectif d’exécution");
   assert.equal("founder" in brand, false);
   for (const { file, content } of chunks) {
@@ -190,23 +191,16 @@ test("le collectif remplace le dirigeant dans la présentation commerciale", asy
   assert.equal(badge.subarray(1, 4).toString(), "PNG");
 });
 
-test("les chiffres de contexte ont une source et un périmètre distincts des résultats clients", async () => {
-  const evidence = JSON.parse(
-    await readFile(path.join(projectRoot, "src/content/operational-evidence.json"), "utf8"),
-  );
-  assert.match(evidence.disclaimer, /pas des résultats clients ni des gains promis/u);
+test("chaque bloc de contenu existe dans les deux langues", async () => {
+  const content = await readLocalizedContent();
+  const [french, english] = content.split(/\n {2}en: \{/u);
+  assert.ok(english, "Le bloc anglais est introuvable");
+
+  const topLevelKeys = (block) =>
+    (block.match(/^ {4}[a-zA-Z]+:/gmu) ?? []).map((key) => key.trim());
   assert.deepEqual(
-    evidence.metrics.map(({ value }) => value),
-    ["62", "95", "80"],
-  );
-  for (const metric of evidence.metrics) {
-    const source = evidence.sources.find(({ id }) => id === metric.sourceId);
-    assert.ok(source, `Source absente : ${metric.id}`);
-    assert.equal(new URL(source.url).protocol, "https:");
-    assert.ok(source.scope.length > 50);
-  }
-  assert.match(
-    evidence.sources.find(({ id }) => id === "mulesoft-2025").scope,
-    /au moins 1 000 salariés/u,
+    topLevelKeys(french),
+    topLevelKeys(english),
+    "FR et EN doivent exposer les mêmes blocs de contenu",
   );
 });

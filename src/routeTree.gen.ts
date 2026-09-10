@@ -18,6 +18,7 @@ import { Route as JournalRouteImport } from './routes/journal'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as MethodeRouteImport } from './routes/methode'
 import { Route as RealisationsRouteImport } from './routes/realisations'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesAgenticRouteImport } from './routes/services.agentic'
 import { Route as ServicesAutomatisationRouteImport } from './routes/services.automatisation'
 import { Route as ServicesCrmRouteImport } from './routes/services.crm'
@@ -67,6 +68,11 @@ const RealisationsRoute = RealisationsRouteImport.update({
   path: '/realisations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesAgenticRoute = ServicesAgenticRouteImport.update({
   id: '/services/agentic',
   path: '/services/agentic',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/methode': typeof MethodeRoute
   '/realisations': typeof RealisationsRoute
+  '/work': typeof WorkRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/methode': typeof MethodeRoute
   '/realisations': typeof RealisationsRoute
+  '/work': typeof WorkRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/mentions-legales': typeof MentionsLegalesRoute
   '/methode': typeof MethodeRoute
   '/realisations': typeof RealisationsRoute
+  '/work': typeof WorkRoute
   '/services/agentic': typeof ServicesAgenticRoute
   '/services/automatisation': typeof ServicesAutomatisationRoute
   '/services/crm': typeof ServicesCrmRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/methode'
     | '/realisations'
+    | '/work'
     | '/services/agentic'
     | '/services/automatisation'
     | '/services/crm'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/methode'
     | '/realisations'
+    | '/work'
     | '/services/agentic'
     | '/services/automatisation'
     | '/services/crm'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/mentions-legales'
     | '/methode'
     | '/realisations'
+    | '/work'
     | '/services/agentic'
     | '/services/automatisation'
     | '/services/crm'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   MethodeRoute: typeof MethodeRoute
   RealisationsRoute: typeof RealisationsRoute
+  WorkRoute: typeof WorkRoute
   ServicesAgenticRoute: typeof ServicesAgenticRoute
   ServicesAutomatisationRoute: typeof ServicesAutomatisationRoute
   ServicesCrmRoute: typeof ServicesCrmRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealisationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/agentic': {
       id: '/services/agentic'
       path: '/services/agentic'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   MentionsLegalesRoute: MentionsLegalesRoute,
   MethodeRoute: MethodeRoute,
   RealisationsRoute: RealisationsRoute,
+  WorkRoute: WorkRoute,
   ServicesAgenticRoute: ServicesAgenticRoute,
   ServicesAutomatisationRoute: ServicesAutomatisationRoute,
   ServicesCrmRoute: ServicesCrmRoute,

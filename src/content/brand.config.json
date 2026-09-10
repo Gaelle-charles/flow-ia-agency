@@ -9,5 +9,22 @@
   "territory": "Intelligent Operations",
   "promise": "From disconnected tools to intelligent operations.",
   "tagline": "AI is only as useful as the operation it can act on.",
-  "teamModel": "Collectif d’exécution"
+  "teamModel": "Collectif d’exécution",
+  "social": [
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": ""
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "url": ""
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": ""
+    }
+  ]
 }
