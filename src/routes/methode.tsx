@@ -58,7 +58,7 @@ function MethodPage() {
             {methodPage.aside}
           </p>
           <MediaFrame
-            src="/images/editorial/context-control-v2.webp"
+            src="/images/editorial/facade-garden.webp"
             alt={methodPage.mediaAlt}
             topRight={methodPage.mediaLabel}
             className="aspect-[4/3]"

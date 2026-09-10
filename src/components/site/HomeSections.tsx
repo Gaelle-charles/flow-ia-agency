@@ -162,7 +162,7 @@ export function HumanAndStats() {
     <section className="band grid gap-3 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr]">
       <div className="relative isolate overflow-hidden rounded-[1.15rem] border border-white/10 bg-forest p-6 sm:p-8">
         <img
-          src="/images/editorial/data-decision.webp"
+          src="/images/editorial/desk-review.webp"
           alt={home.human.alt}
           loading="lazy"
           decoding="async"

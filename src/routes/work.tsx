@@ -28,7 +28,7 @@ function WorkPage() {
         body={workPage.body}
         dot
         media={{
-          src: "/images/editorial/expertise-productization.webp",
+          src: "/images/editorial/office-desk.webp",
           alt: workPage.mediaAlt,
           label: workPage.mediaLabel,
         }}
