@@ -14,8 +14,7 @@ export function HomeHero() {
     <section className="band grid gap-7 pb-4 pt-6 lg:grid-cols-[1fr_1.04fr] lg:gap-10">
       <div className="flex flex-col justify-between">
         <div>
-          <p className="eyebrow text-accent">{hero.eyebrow}</p>
-          <h1 className="display-1 display-dot mt-6 text-foreground">{hero.title}</h1>
+          <h1 className="display-1 display-dot text-foreground">{hero.title}</h1>
           <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
             {hero.body}
           </p>
@@ -32,23 +31,12 @@ export function HomeHero() {
             </Link>
           </div>
         </div>
-
-        <ul className="mt-10 flex flex-wrap items-center gap-x-2 gap-y-2 pt-2">
-          {hero.keywords.map((keyword, index) => (
-            <li key={keyword} className="eyebrow flex items-center gap-2 text-muted-foreground">
-              {index > 0 && <span aria-hidden="true">/</span>}
-              {keyword}
-            </li>
-          ))}
-        </ul>
       </div>
 
       <MediaFrame
         src="/images/editorial/operations-room-v2.webp"
         alt={hero.mediaAlt}
         className="min-h-[17rem] sm:min-h-[20rem] lg:min-h-[22rem]"
-        topLeft={hero.mediaTopLabel}
-        bottomRight={hero.mediaBottomLabel}
         action={{ to: "/realisations", label: hero.mediaCta }}
       />
     </section>
@@ -62,8 +50,7 @@ export function ExpertisePanel() {
     <section className="band pt-12 sm:pt-16">
       <div className="panel-ivory grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.75fr] lg:gap-10 lg:p-10">
         <div>
-          <p className="eyebrow">{home.expertise.eyebrow}</p>
-          <h2 className="display-2 mt-5 max-w-[15ch]">{home.expertise.title}</h2>
+          <h2 className="display-2 max-w-[15ch]">{home.expertise.title}</h2>
           <p className="mt-5 max-w-[34ch] text-[0.875rem] leading-6 text-ivory-muted">
             {home.expertise.body}
           </p>
@@ -77,12 +64,7 @@ export function ExpertisePanel() {
                 key={item.id}
                 className="flex flex-col rounded-[1.05rem] border border-white/10 bg-page p-5 text-foreground"
               >
-                <div className="flex items-center justify-between">
-                  <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
-                  <p className="eyebrow text-muted-foreground">
-                    {item.index} · {item.capability}
-                  </p>
-                </div>
+                <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
                 <h3 className="mt-5 font-display text-base font-bold leading-tight tracking-[-0.02em]">
                   {item.title}
                 </h3>
@@ -110,8 +92,7 @@ export function FeaturedWork() {
     <section className="band pt-14 sm:pt-20">
       <div className="grid gap-6 lg:grid-cols-[1.1fr_1.3fr_auto] lg:items-start lg:gap-10">
         <div>
-          <p className="eyebrow text-muted-foreground">{home.work.eyebrow}</p>
-          <h2 className="display-2 mt-4 text-foreground">
+          <h2 className="display-2 text-foreground">
             {home.work.title.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -141,10 +122,7 @@ export function FeaturedWork() {
               />
             </div>
             <div className="flex flex-1 flex-col p-5">
-              <p className="eyebrow text-muted-foreground">
-                {item.label} · {home.work.illustrative}
-              </p>
-              <div className="mt-3 flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-4">
                 <h3 className="font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.025em] text-foreground">
                   {item.before}
                 </h3>
@@ -184,15 +162,8 @@ export function HumanAndStats() {
             className="absolute inset-0 -z-10 bg-gradient-to-t from-forest via-forest/85 to-forest/45"
           />
 
-          <p className="media-label right-6 top-6 max-w-[14rem] text-right">
-            {home.human.label.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </p>
-
           <div className="flex min-h-[16rem] flex-col justify-end pt-24">
-            <p className="eyebrow text-accent">{home.human.eyebrow}</p>
-            <h2 className="display-2 mt-4 max-w-[18ch] text-foreground">{home.human.title}</h2>
+            <h2 className="display-2 max-w-[18ch] text-foreground">{home.human.title}</h2>
             <p className="mt-5 max-w-[44ch] text-[0.875rem] leading-6 text-muted-foreground">
               {home.human.body}
             </p>
@@ -207,8 +178,7 @@ export function HumanAndStats() {
         </div>
 
         <div className="surface-card flex flex-col px-6 pt-6 sm:px-8 sm:pt-7">
-          <p className="eyebrow text-muted-foreground">{evidence.eyebrow}</p>
-          <h2 className="display-3 mt-3 text-foreground">{evidence.title}</h2>
+          <h2 className="display-3 text-foreground">{evidence.title}</h2>
           <ul className="rule-list mt-2 flex flex-1 flex-col justify-center">
             {evidence.metrics.map((stat) => (
               <li key={stat.id} className="flex flex-wrap items-baseline gap-x-6 gap-y-2 py-6">
@@ -272,8 +242,7 @@ export function FaqSection() {
     <section className="band pt-14 sm:pt-20">
       <div className="grid gap-6 lg:grid-cols-[1.1fr_1.3fr_auto] lg:items-start lg:gap-10">
         <div>
-          <p className="eyebrow text-muted-foreground">{home.faq.eyebrow}</p>
-          <h2 className="display-2 mt-4 text-foreground">
+          <h2 className="display-2 text-foreground">
             {home.faq.title.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -327,8 +296,7 @@ export function DeliveryPanel() {
   return (
     <section className="band pt-14 sm:pt-20">
       <div className="panel-ivory p-6 sm:p-8 lg:p-10">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="eyebrow">{home.delivery.eyebrow}</p>
+        <div className="flex justify-end">
           <Link
             to="/methode"
             className="cta-ghost text-ivory-foreground decoration-[color:var(--ivory-border)]"
@@ -358,13 +326,8 @@ export function DeliveryPanel() {
                     decoding="async"
                     className="aspect-[16/10]"
                   />
-                  <p className="media-label left-4 top-4">
-                    <span>{item.index}</span>
-                    <span>{item.stage}</span>
-                  </p>
                 </div>
-                <p className="eyebrow mt-4 text-ivory-muted">{item.phase}</p>
-                <h3 className="mt-2 font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-ivory-foreground">
+                <h3 className="mt-4 font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-ivory-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-[0.8125rem] leading-6 text-ivory-muted">{item.body}</p>
@@ -401,8 +364,7 @@ export function ClosingCta() {
         </div>
 
         <div>
-          <p className="eyebrow text-muted-foreground">{home.cta.eyebrow}</p>
-          <h2 className="display-2 mt-4 text-foreground">
+          <h2 className="display-2 text-foreground">
             {home.cta.title.map((line) => (
               <span key={line} className="block">
                 {line}

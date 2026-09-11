@@ -21,7 +21,6 @@
 @theme inline {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Manrope", "Inter", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -152,16 +151,6 @@
 @layer components {
   /* ---- Typography -------------------------------------------------- */
 
-  /* Small mono label above every section title. */
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    line-height: 1.4;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
   .display-1,
   .display-2,
   .display-3 {
@@ -210,10 +199,6 @@
     border-radius: clamp(1rem, 1.6vw, 1.5rem);
     background: var(--color-ivory);
     color: var(--color-ivory-foreground);
-  }
-
-  .panel-ivory .eyebrow {
-    color: var(--color-ivory-muted);
   }
 
   /* ---- Controls ---------------------------------------------------- */
@@ -317,19 +302,12 @@
     pointer-events: none;
   }
 
-  /* Mono caption sitting over a media frame. */
-  .media-label {
-    position: absolute;
-    z-index: 2;
-    display: grid;
-    gap: 0.12rem;
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 500;
-    line-height: 1.35;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: oklch(1 0 0 / 82%);
+  /* Small sans label naming a field inside a card. */
+  .field-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-accent);
   }
 
   /* ---- Cards ------------------------------------------------------- */

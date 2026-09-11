@@ -21,20 +21,17 @@ function AboutPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow={about.eyebrow}
         title={about.title}
         body={about.body}
         media={{
           src: "/images/editorial/operations-room-v2.webp",
           alt: about.mediaAlt,
-          label: about.mediaLabel,
         }}
       />
 
       <section className="band">
         <div className="border-t border-border pt-6">
-          <p className="eyebrow text-muted-foreground">{about.modelEyebrow}</p>
-          <h2 className="display-3 mt-3 max-w-[30ch] text-foreground">{about.modelTitle}</h2>
+          <h2 className="display-3 max-w-[30ch] text-foreground">{about.modelTitle}</h2>
         </div>
         <ul className="mt-8 grid gap-8 sm:grid-cols-3 sm:gap-6">
           {about.roles.map((role) => (
@@ -61,10 +58,7 @@ function AboutPage() {
             className="h-24 w-24 flex-none object-contain sm:h-28 sm:w-28"
           />
           <div>
-            <p className="eyebrow text-muted-foreground">{about.credential.eyebrow}</p>
-            <h2 className="display-3 mt-3 max-w-[22ch] text-foreground">
-              {about.credential.title}
-            </h2>
+            <h2 className="display-3 max-w-[22ch] text-foreground">{about.credential.title}</h2>
             <p className="mt-3 max-w-[44ch] text-[0.8125rem] leading-6 text-muted-foreground">
               {about.credential.body}
             </p>
@@ -74,7 +68,9 @@ function AboutPage() {
 
       <section className="band pt-10 sm:pt-12">
         <div className="border-t border-border pt-6">
-          <p className="eyebrow text-muted-foreground">{about.legalTitle}</p>
+          <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
+            {about.legalTitle}
+          </h2>
           <p className="mt-3 max-w-[70ch] text-[0.875rem] leading-6 text-foreground">
             {brand.name} {about.legalText} {brand.legalName}, {brand.legalForm}, SIREN {brand.siren}
             .

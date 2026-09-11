@@ -19,11 +19,7 @@ function JournalPage() {
 
   return (
     <PageShell>
-      <PageIntro
-        eyebrow={journalPage.introEyebrow}
-        title={journalPage.introTitle}
-        body={journalPage.introBody}
-      />
+      <PageIntro title={journalPage.introTitle} body={journalPage.introBody} />
 
       <section className="px-1 py-12 sm:px-4 sm:py-14 lg:px-7 lg:py-16">
         {journalEntries.map((entry) => (
@@ -31,7 +27,9 @@ function JournalPage() {
             key={entry.id}
             className="rounded-[1.5rem] border border-border bg-card p-5 sm:p-7 lg:p-9"
           >
-            <p className="eyebrow text-accent">{entry.statusLabels.join(" · ")}</p>
+            <p className="text-[0.8125rem] font-semibold text-accent">
+              {entry.statusLabels.join(" · ")}
+            </p>
             <h2 className="display-3 mt-5 max-w-4xl text-balance text-foreground">{entry.title}</h2>
             <p className="mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
               {entry.intro}
@@ -50,11 +48,11 @@ function JournalPage() {
 
             <div className="mt-8 grid gap-5 lg:grid-cols-2">
               <div className="rounded-3xl border border-border bg-secondary/45 p-6">
-                <p className="eyebrow text-accent">{journalPage.lesson}</p>
+                <p className="field-label">{journalPage.lesson}</p>
                 <p className="mt-5 text-base leading-7 text-foreground">{entry.lesson}</p>
               </div>
               <div className="rounded-3xl border border-border p-6">
-                <p className="eyebrow text-muted-foreground">{journalPage.limitation}</p>
+                <p className="field-label text-muted-foreground">{journalPage.limitation}</p>
                 <p className="mt-5 text-base leading-7 text-muted-foreground">{entry.disclaimer}</p>
               </div>
             </div>

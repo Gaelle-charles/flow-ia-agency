@@ -14,20 +14,11 @@ export const Route = createFileRoute("/realisations")({
   component: CasesPage,
 });
 
-function SectionHeading({
-  eyebrow,
-  title,
-  intro,
-}: {
-  eyebrow: string;
-  title: readonly string[];
-  intro?: string;
-}) {
+function SectionHeading({ title, intro }: { title: readonly string[]; intro?: string }) {
   return (
     <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-10">
       <div>
-        <p className="eyebrow text-muted-foreground">{eyebrow}</p>
-        <h2 className="display-2 mt-4 text-foreground">
+        <h2 className="display-2 text-foreground">
           {title.map((line) => (
             <span key={line} className="block">
               {line}
@@ -56,14 +47,13 @@ function CasesPage() {
 
   return (
     <PageShell>
-      <PageHero eyebrow={casesPage.eyebrow} title={casesPage.title} body={casesPage.body} />
+      <PageHero title={casesPage.title} body={casesPage.body} />
 
       {/* Client work */}
       <section className="band">
         <article className="surface-card grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12 lg:p-10">
           <div>
-            <p className="eyebrow text-accent">{casesPage.clientEyebrow}</p>
-            <ul className="mt-3 flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2">
               {featuredCase.statuses.map((status) => (
                 <li
                   key={status}
@@ -84,7 +74,7 @@ function CasesPage() {
           <dl className="rule-list">
             {caseRows.map((row) => (
               <div key={row.label} className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                <dt className="eyebrow text-accent">{row.label}</dt>
+                <dt className="field-label">{row.label}</dt>
                 <dd className="text-[0.875rem] leading-6 text-foreground">{row.value}</dd>
               </div>
             ))}
@@ -94,11 +84,7 @@ function CasesPage() {
 
       {/* Illustrative operations */}
       <section className="band pt-14 sm:pt-20">
-        <SectionHeading
-          eyebrow={casesPage.examplesEyebrow}
-          title={casesPage.examplesTitle}
-          intro={casesPage.examplesIntro}
-        />
+        <SectionHeading title={casesPage.examplesTitle} intro={casesPage.examplesIntro} />
         <ul className="mt-8 grid gap-3 md:grid-cols-3">
           {examples.map((example) => (
             <li key={example.id} className="surface-card flex flex-col overflow-hidden">
@@ -112,18 +98,14 @@ function CasesPage() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <p className="eyebrow text-muted-foreground">{example.label}</p>
-                <p className="eyebrow mt-4 text-accent">{labels.before}</p>
+                <p className="field-label">{labels.before}</p>
                 <h3 className="mt-2 font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
                   {example.before}
                 </h3>
-                <p className="eyebrow mt-5 text-accent">{labels.steps}</p>
+                <p className="field-label mt-5">{labels.steps}</p>
                 <ol className="rule-list mt-1">
                   {example.steps.map((step, index) => (
                     <li key={step.title} className="flex gap-3 py-3">
-                      <span className="font-mono text-[0.6875rem] text-muted-foreground">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
                       <div>
                         <p className="text-[0.8125rem] font-semibold text-foreground">
                           {step.title}
@@ -135,7 +117,7 @@ function CasesPage() {
                     </li>
                   ))}
                 </ol>
-                <p className="eyebrow mt-4 text-accent">{labels.humanControl}</p>
+                <p className="field-label mt-4">{labels.humanControl}</p>
                 <p className="mt-1 text-[0.8125rem] leading-5 text-muted-foreground">
                   {example.humanControl}
                 </p>
@@ -150,20 +132,14 @@ function CasesPage() {
 
       {/* Common situations */}
       <section className="band pt-14 sm:pt-20">
-        <SectionHeading
-          eyebrow={casesPage.situationsEyebrow}
-          title={casesPage.situationsTitle}
-          intro={casesPage.situationsBody}
-        />
-        <p className="eyebrow mt-6 text-muted-foreground">{casesPage.situationsDisclaimer}</p>
+        <SectionHeading title={casesPage.situationsTitle} intro={casesPage.situationsBody} />
+        <p className="mt-6 text-[0.8125rem] text-muted-foreground">
+          {casesPage.situationsDisclaimer}
+        </p>
         <ul className="mt-4 grid gap-3 md:grid-cols-2">
           {cases.map((item) => (
             <li key={item.id} className="surface-card flex flex-col p-6">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="eyebrow text-muted-foreground">{item.shortTitle}</p>
-                <p className="eyebrow text-accent">{casesPage.illustrativeStatus}</p>
-              </div>
-              <h3 className="mt-3 font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.025em] text-foreground">
+              <h3 className=" font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.025em] text-foreground">
                 {item.title}
               </h3>
               <p className="mt-3 text-[0.8125rem] leading-6 text-muted-foreground">{item.before}</p>
@@ -177,7 +153,7 @@ function CasesPage() {
                   ] as const
                 ).map(([label, value]) => (
                   <div key={label}>
-                    <dt className="eyebrow text-accent">{label}</dt>
+                    <dt className="field-label">{label}</dt>
                     <dd className="mt-1 text-[0.8125rem] leading-5 text-muted-foreground">
                       {value}
                     </dd>
@@ -185,7 +161,7 @@ function CasesPage() {
                 ))}
               </dl>
               <div className="mt-5 border-t border-border pt-4">
-                <p className="eyebrow text-accent">{labels.targetOutcome}</p>
+                <p className="field-label">{labels.targetOutcome}</p>
                 <p className="mt-1 text-[0.8125rem] font-semibold leading-5 text-foreground">
                   {item.outcome}
                 </p>
@@ -201,8 +177,7 @@ function CasesPage() {
       {/* Publication + contact */}
       <section className="band grid gap-3 pt-10 sm:pt-12 lg:grid-cols-[1fr_1fr]">
         <div className="surface-card p-6 sm:p-7">
-          <p className="eyebrow text-muted-foreground">{casesPage.publicationEyebrow}</p>
-          <h2 className="mt-3 font-display text-base font-bold tracking-[-0.02em] text-foreground">
+          <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
             {casesPage.publicationTitle}
           </h2>
           <p className="mt-2 text-[0.8125rem] leading-6 text-muted-foreground">

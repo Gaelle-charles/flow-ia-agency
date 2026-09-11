@@ -20,18 +20,11 @@ function ContactPage() {
 
   return (
     <PageShell>
-      <PageIntro
-        eyebrow={contactPage.introEyebrow}
-        title={contactPage.introTitle}
-        body={contactPage.introBody}
-      />
+      <PageIntro title={contactPage.introTitle} body={contactPage.introBody} />
 
       <section className="grid gap-9 px-1 py-12 sm:px-4 sm:py-14 lg:grid-cols-[0.7fr_1.3fr] lg:px-7 lg:py-16">
         <div>
-          <p className="eyebrow text-accent">{contactPage.sectionEyebrow}</p>
-          <h2 className="display-3 mt-4 text-balance text-foreground">
-            {contactPage.sectionTitle}
-          </h2>
+          <h2 className="display-3 text-balance text-foreground">{contactPage.sectionTitle}</h2>
           <ul className="mt-6 space-y-3 text-[0.875rem] leading-6 text-muted-foreground">
             {contactPage.bullets.map((bullet) => (
               <li key={bullet} className="border-t border-border pt-3">

@@ -18,21 +18,19 @@ export function PageShell({ children }: { children: ReactNode }) {
 }
 
 type PageHeroProps = {
-  eyebrow: string;
   /** One entry per rendered line, as drawn in the mockups. */
   title: readonly string[];
   body: string;
   /** Adds the lime square that closes single-line page titles. */
   dot?: boolean;
-  media?: { src: string; alt: string; label: readonly string[] };
+  media?: { src: string; alt: string };
 };
 
-export function PageHero({ eyebrow, title, body, dot = false, media }: PageHeroProps) {
+export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
   return (
     <section className="band grid gap-8 pb-10 pt-10 sm:pt-14 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-12">
       <div>
-        <p className="eyebrow text-accent">{eyebrow}</p>
-        <h1 className="display-2 mt-5 max-w-[17ch] text-foreground">
+        <h1 className="display-2 max-w-[17ch] text-foreground">
           {title.map((line, index) => (
             <span
               key={line}
@@ -45,32 +43,16 @@ export function PageHero({ eyebrow, title, body, dot = false, media }: PageHeroP
         <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
       </div>
 
-      {media && (
-        <MediaFrame
-          src={media.src}
-          alt={media.alt}
-          topRight={media.label}
-          className="aspect-[16/9]"
-        />
-      )}
+      {media && <MediaFrame src={media.src} alt={media.alt} className="aspect-[16/9]" />}
     </section>
   );
 }
 
 /** Simple intro block for the pages the mockups do not cover (journal, legal…). */
-export function PageIntro({
-  eyebrow,
-  title,
-  body,
-}: {
-  eyebrow: string;
-  title: string;
-  body: string;
-}) {
+export function PageIntro({ title, body }: { title: string; body: string }) {
   return (
     <section className="band pb-10 pt-8 sm:pt-10">
-      <p className="eyebrow text-accent">{eyebrow}</p>
-      <h1 className="display-2 mt-5 max-w-4xl text-foreground">{title}</h1>
+      <h1 className="display-2 max-w-4xl text-foreground">{title}</h1>
       <p className="mt-5 max-w-[58ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
     </section>
   );

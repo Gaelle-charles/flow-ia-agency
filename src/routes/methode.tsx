@@ -22,8 +22,7 @@ function MethodPage() {
     <PageShell>
       <section className="band grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
         <div>
-          <p className="eyebrow text-accent">{methodPage.eyebrow}</p>
-          <h1 className="display-2 mt-5 text-foreground">
+          <h1 className="display-2 text-foreground">
             {methodPage.title.map((line) => (
               <span key={line} className="block">
                 {line}
@@ -34,16 +33,12 @@ function MethodPage() {
             {methodPage.body}
           </p>
 
-          <p className="eyebrow mt-10 text-muted-foreground">{methodPage.methodEyebrow}</p>
-          <p className="mt-2 font-display text-base font-bold tracking-[-0.02em] text-foreground">
+          <p className="mt-10 font-display text-base font-bold tracking-[-0.02em] text-foreground">
             {methodPage.methodTitle}
           </p>
           <ol className="rule-list mt-4">
             {methodPage.steps.map((step) => (
               <li key={step.id} className="flex gap-6 py-6">
-                <p className="font-mono text-[0.75rem] font-medium tracking-[0.12em] text-accent">
-                  {step.index}
-                </p>
                 <div className="flex-1">
                   <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
                     {step.title}
@@ -74,12 +69,10 @@ function MethodPage() {
           <MediaFrame
             src="/images/editorial/facade-garden.webp"
             alt={methodPage.mediaAlt}
-            topRight={methodPage.mediaLabel}
             className="aspect-[4/3]"
           />
           <div className="surface-card p-6">
-            <p className="eyebrow text-muted-foreground">{methodPage.scopeEyebrow}</p>
-            <h2 className="mt-3 font-display text-base font-bold tracking-[-0.02em] text-foreground">
+            <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
               {methodPage.scopeTitle}
             </h2>
             <p className="mt-2 text-[0.8125rem] leading-6 text-muted-foreground">
@@ -92,8 +85,7 @@ function MethodPage() {
       <section className="band pt-10 sm:pt-14">
         <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-10">
           <div>
-            <p className="eyebrow text-muted-foreground">{methodPage.governanceEyebrow}</p>
-            <h2 className="display-2 mt-4 text-foreground">{methodPage.governanceTitle}</h2>
+            <h2 className="display-2 text-foreground">{methodPage.governanceTitle}</h2>
           </div>
           <p className="max-w-[52ch] text-[0.8125rem] leading-6 text-muted-foreground">
             {methodPage.governanceBody}

@@ -21,11 +21,7 @@ function LegalPage() {
 
   return (
     <PageShell>
-      <PageIntro
-        eyebrow={legalPage.introEyebrow}
-        title={legalPage.introTitle}
-        body={legalPage.introBody}
-      />
+      <PageIntro title={legalPage.introTitle} body={legalPage.introBody} />
       <article className="mx-auto max-w-4xl px-2 py-12 sm:py-14 lg:py-16">
         <div className="space-y-10 rounded-[1.5rem] border border-border bg-card p-6 sm:p-10">
           <section>

@@ -20,11 +20,7 @@ function PrivacyPage() {
 
   return (
     <PageShell>
-      <PageIntro
-        eyebrow={privacyPage.introEyebrow}
-        title={privacyPage.introTitle}
-        body={privacyPage.introBody}
-      />
+      <PageIntro title={privacyPage.introTitle} body={privacyPage.introBody} />
       <article className="mx-auto max-w-4xl px-2 py-12 sm:py-14 lg:py-16">
         <div className="space-y-10 rounded-[1.5rem] border border-border bg-card p-6 sm:p-10">
           <section>

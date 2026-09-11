@@ -23,26 +23,21 @@ function WorkPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow={workPage.eyebrow}
         title={[workPage.title]}
         body={workPage.body}
         dot
         media={{
           src: "/images/editorial/office-desk.webp",
           alt: workPage.mediaAlt,
-          label: workPage.mediaLabel,
         }}
       />
 
       <section className="band">
-        <div className="surface-card grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.6fr_1.4fr] lg:gap-10">
-          <p className="eyebrow text-accent">{workPage.problem.eyebrow}</p>
-          <div>
-            <h2 className="display-3 max-w-[32ch] text-foreground">{workPage.problem.title}</h2>
-            <p className="mt-4 max-w-[60ch] text-[0.875rem] leading-6 text-muted-foreground">
-              {workPage.problem.body}
-            </p>
-          </div>
+        <div className="surface-card p-6 sm:p-8">
+          <h2 className="display-3 max-w-[32ch] text-foreground">{workPage.problem.title}</h2>
+          <p className="mt-4 max-w-[60ch] text-[0.875rem] leading-6 text-muted-foreground">
+            {workPage.problem.body}
+          </p>
         </div>
       </section>
 
@@ -56,18 +51,12 @@ function WorkPage() {
             const Icon = expertiseIcons[item.icon];
             return (
               <li key={item.id} className="surface-card flex flex-col p-6">
-                <div className="flex items-center justify-between">
-                  <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
-                  <p className="eyebrow text-muted-foreground">
-                    {item.index} · {item.stage}
-                  </p>
-                </div>
-                <p className="eyebrow mt-6 text-accent">{item.capability}</p>
-                <h3 className="mt-2 font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
+                <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
+                <h3 className="mt-6 font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-[0.8125rem] leading-6 text-muted-foreground">{item.body}</p>
-                <p className="eyebrow mt-6 border-t border-border pt-4 text-muted-foreground">
+                <p className="field-label mt-6 border-t border-border pt-4">
                   {workPage.outputsLabel}
                 </p>
                 <ul className="mt-2 space-y-1 text-[0.8125rem] leading-6 text-foreground">

@@ -36,7 +36,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-accent">{copy.error}</p>
+        <p className="text-xs font-bold text-accent">{copy.error}</p>
         <h1 className="mt-4 text-5xl font-black tracking-tighter text-foreground">{copy.title}</h1>
         <p className="mt-2 text-sm text-muted-foreground">{copy.body}</p>
         <div className="mt-6">
@@ -140,7 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap",
         },
       ],
     };
