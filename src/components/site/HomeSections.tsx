@@ -16,8 +16,11 @@ export function HomeHero() {
         <div>
           <p className="eyebrow text-accent">{hero.eyebrow}</p>
           <h1 className="display-1 display-dot mt-6 text-foreground">{hero.title}</h1>
-          <p className="mt-6 max-w-[42ch] text-[0.9375rem] leading-7 text-muted-foreground">
+          <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
             {hero.body}
+          </p>
+          <p className="mt-4 max-w-[46ch] font-display text-[0.9375rem] font-semibold text-foreground">
+            {hero.principle}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <Link to="/contact" className="cta-pill">
@@ -68,13 +71,18 @@ export function ExpertisePanel() {
 
         <ul className="grid gap-3 sm:grid-cols-3">
           {expertise.map((item) => {
-            const Icon = expertiseIcons[item.icon as keyof typeof expertiseIcons];
+            const Icon = expertiseIcons[item.icon];
             return (
               <li
                 key={item.id}
                 className="flex flex-col rounded-[1.05rem] border border-white/10 bg-page p-5 text-foreground"
               >
-                <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
+                <div className="flex items-center justify-between">
+                  <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
+                  <p className="eyebrow text-muted-foreground">
+                    {item.index} · {item.capability}
+                  </p>
+                </div>
                 <h3 className="mt-5 font-display text-base font-bold leading-tight tracking-[-0.02em]">
                   {item.title}
                 </h3>
@@ -96,7 +104,7 @@ export function ExpertisePanel() {
 }
 
 export function FeaturedWork() {
-  const { cases, component, home } = useLocalizedContent();
+  const { examples, home } = useLocalizedContent();
 
   return (
     <section className="band pt-14 sm:pt-20">
@@ -121,32 +129,33 @@ export function FeaturedWork() {
       </div>
 
       <ul className="mt-8 grid gap-3 md:grid-cols-3">
-        {cases.map((item) => (
-          <li key={item.id} className="surface-card overflow-hidden">
+        {examples.map((item) => (
+          <li key={item.id} className="surface-card flex flex-col overflow-hidden">
             <div className="media-frame rounded-none">
               <img
                 src={item.image}
-                alt={item.alt}
+                alt=""
                 loading="lazy"
                 decoding="async"
                 className="aspect-[16/10]"
               />
             </div>
-            <div className="p-5">
-              <p className="eyebrow text-muted-foreground">{item.sectorLabel}</p>
+            <div className="flex flex-1 flex-col p-5">
+              <p className="eyebrow text-muted-foreground">
+                {item.label} · {home.work.illustrative}
+              </p>
               <div className="mt-3 flex items-start justify-between gap-4">
                 <h3 className="font-display text-[1.0625rem] font-bold leading-snug tracking-[-0.025em] text-foreground">
-                  {item.title}
+                  {item.before}
                 </h3>
-                <Link
-                  to="/realisations"
-                  aria-label={`${component.readCase} — ${item.title}`}
-                  className="arrow-circle"
-                >
+                <Link to="/realisations" aria-label={item.outcome} className="arrow-circle">
                   <span aria-hidden="true">→</span>
                 </Link>
               </div>
-              <p className="mt-4 text-[0.75rem] text-muted-foreground">{item.tags}</p>
+              <p className="mt-4 text-[0.8125rem] leading-6 text-foreground">{item.outcome}</p>
+              <p className="mt-auto pt-4 text-[0.75rem] text-muted-foreground">
+                {item.steps.map((step) => step.title).join(" · ")}
+              </p>
             </div>
           </li>
         ))}
@@ -157,65 +166,99 @@ export function FeaturedWork() {
 
 export function HumanAndStats() {
   const { home } = useLocalizedContent();
+  const { evidence } = home;
 
   return (
-    <section className="band grid gap-3 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_1fr]">
-      <div className="relative isolate overflow-hidden rounded-[1.15rem] border border-white/10 bg-forest p-6 sm:p-8">
-        <img
-          src="/images/editorial/desk-review.webp"
-          alt={home.human.alt}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-t from-forest via-forest/85 to-forest/45"
-        />
+    <section className="band pt-14 sm:pt-20">
+      <div className="grid gap-3 lg:grid-cols-[1.05fr_1fr]">
+        <div className="relative isolate overflow-hidden rounded-[1.15rem] border border-white/10 bg-forest p-6 sm:p-8">
+          <img
+            src="/images/editorial/desk-review.webp"
+            alt={home.human.alt}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-gradient-to-t from-forest via-forest/85 to-forest/45"
+          />
 
-        <p className="media-label right-6 top-6 text-right">
-          {home.human.label.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
-        </p>
-
-        <div className="flex min-h-[16rem] flex-col justify-end pt-24">
-          <h2 className="display-2 display-dot max-w-[16ch] text-foreground">{home.human.title}</h2>
-          <p className="mt-5 max-w-[36ch] text-[0.875rem] leading-6 text-muted-foreground">
-            {home.human.body}
+          <p className="media-label right-6 top-6 max-w-[14rem] text-right">
+            {home.human.label.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
           </p>
-          <Link
-            to="/methode"
-            aria-label={home.human.cta}
-            className="arrow-circle mt-7 border-white/30"
-          >
-            <span aria-hidden="true">→</span>
-          </Link>
+
+          <div className="flex min-h-[16rem] flex-col justify-end pt-24">
+            <p className="eyebrow text-accent">{home.human.eyebrow}</p>
+            <h2 className="display-2 mt-4 max-w-[18ch] text-foreground">{home.human.title}</h2>
+            <p className="mt-5 max-w-[44ch] text-[0.875rem] leading-6 text-muted-foreground">
+              {home.human.body}
+            </p>
+            <Link
+              to="/methode"
+              aria-label={home.human.cta}
+              className="arrow-circle mt-7 border-white/30"
+            >
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+
+        <div className="surface-card flex flex-col px-6 pt-6 sm:px-8 sm:pt-7">
+          <p className="eyebrow text-muted-foreground">{evidence.eyebrow}</p>
+          <h2 className="display-3 mt-3 text-foreground">{evidence.title}</h2>
+          <ul className="rule-list mt-2 flex flex-1 flex-col justify-center">
+            {evidence.metrics.map((stat) => (
+              <li key={stat.id} className="flex flex-wrap items-baseline gap-x-6 gap-y-2 py-6">
+                <p className="font-display text-[3rem] font-extrabold leading-none tracking-[-0.05em] text-accent sm:text-[3.5rem]">
+                  {stat.value}
+                  <span className="text-[0.5em]">{stat.unit}</span>
+                </p>
+                <div className="min-w-[12rem] flex-1">
+                  <p className="text-sm font-bold text-foreground">{stat.title}</p>
+                  <p className="mt-1 text-[0.75rem] leading-5 text-muted-foreground">
+                    {stat.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <ul className="surface-card rule-list flex flex-col justify-center px-6 sm:px-8">
-        {home.stats.map((stat) => (
-          <li
-            key={stat.label}
-            className="flex flex-wrap items-baseline gap-x-6 gap-y-2 py-7 sm:py-8"
+      <details className="group mt-3 rounded-[1.15rem] border border-border px-5 py-3 text-[0.75rem] leading-6 text-muted-foreground">
+        <summary className="cursor-pointer list-none font-semibold [&::-webkit-details-marker]:hidden">
+          {evidence.disclaimer} · {evidence.studyScope}
+          <span
+            aria-hidden="true"
+            className="ml-2 inline-block transition-transform group-open:rotate-90"
           >
-            <p className="font-display text-[3.25rem] font-extrabold leading-none tracking-[-0.05em] text-accent sm:text-[3.75rem]">
-              {stat.value}
-              <span className="text-[0.5em]">{stat.unit}</span>
-            </p>
-            <div className="min-w-[12rem] flex-1">
-              <p className="text-sm font-bold text-foreground">{stat.label}</p>
-              <p className="mt-1 text-[0.75rem] leading-5 text-muted-foreground">{stat.detail}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+            →
+          </span>
+        </summary>
+        <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+          {evidence.sources.map((source) => (
+            <li key={source.id}>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="font-semibold text-foreground underline underline-offset-4"
+              >
+                {source.label}
+              </a>
+              <p className="mt-1">{source.scope}</p>
+            </li>
+          ))}
+        </ul>
+      </details>
     </section>
   );
 }
 
-export function Testimonials() {
+export function FaqSection() {
   const { home } = useLocalizedContent();
   const trackRef = useRef<HTMLUListElement>(null);
 
@@ -229,9 +272,9 @@ export function Testimonials() {
     <section className="band pt-14 sm:pt-20">
       <div className="grid gap-6 lg:grid-cols-[1.1fr_1.3fr_auto] lg:items-start lg:gap-10">
         <div>
-          <p className="eyebrow text-muted-foreground">{home.testimonials.eyebrow}</p>
+          <p className="eyebrow text-muted-foreground">{home.faq.eyebrow}</p>
           <h2 className="display-2 mt-4 text-foreground">
-            {home.testimonials.title.map((line) => (
+            {home.faq.title.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
@@ -239,13 +282,13 @@ export function Testimonials() {
           </h2>
         </div>
         <p className="max-w-[44ch] text-[0.8125rem] leading-6 text-muted-foreground lg:mt-8">
-          {home.testimonials.intro}
+          {home.faq.intro}
         </p>
         <div className="flex gap-2 lg:mt-6">
           <button
             type="button"
             onClick={() => scrollBy(-1)}
-            aria-label={home.testimonials.previous}
+            aria-label={home.faq.previous}
             className="arrow-circle"
           >
             <span aria-hidden="true">←</span>
@@ -253,7 +296,7 @@ export function Testimonials() {
           <button
             type="button"
             onClick={() => scrollBy(1)}
-            aria-label={home.testimonials.next}
+            aria-label={home.faq.next}
             className="arrow-circle"
           >
             <span aria-hidden="true">→</span>
@@ -263,17 +306,14 @@ export function Testimonials() {
 
       <ul
         ref={trackRef}
-        className="mt-8 grid auto-cols-[minmax(17rem,1fr)] grid-flow-col gap-3 overflow-x-auto pb-2 [scrollbar-width:none] md:grid-flow-row md:auto-cols-auto md:grid-cols-3 md:overflow-visible"
+        className="mt-8 grid auto-cols-[minmax(17rem,22rem)] grid-flow-col gap-3 overflow-x-auto pb-2 [scrollbar-width:none]"
       >
-        {home.testimonials.items.map((item) => (
-          <li key={item.id} className="surface-card flex flex-col p-6">
-            <blockquote className="text-[0.875rem] leading-7 text-foreground">
-              “{item.quote}”
-            </blockquote>
-            <div className="mt-auto pt-8">
-              <p className="text-sm font-bold text-foreground">{item.name}</p>
-              <p className="mt-1 text-[0.75rem] text-muted-foreground">{item.role}</p>
-            </div>
+        {home.faq.items.map((item) => (
+          <li key={item.question} className="surface-card flex flex-col p-6">
+            <h3 className="font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
+              {item.question}
+            </h3>
+            <p className="mt-4 text-[0.8125rem] leading-6 text-muted-foreground">{item.answer}</p>
           </li>
         ))}
       </ul>
@@ -281,57 +321,60 @@ export function Testimonials() {
   );
 }
 
-export function InsightsPanel() {
-  const { component, home } = useLocalizedContent();
+export function DeliveryPanel() {
+  const { home } = useLocalizedContent();
 
   return (
     <section className="band pt-14 sm:pt-20">
       <div className="panel-ivory p-6 sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="eyebrow">{home.insights.eyebrow}</p>
+          <p className="eyebrow">{home.delivery.eyebrow}</p>
           <Link
-            to="/journal"
+            to="/methode"
             className="cta-ghost text-ivory-foreground decoration-[color:var(--ivory-border)]"
           >
-            {home.insights.link}
+            {home.delivery.link}
             <span aria-hidden="true">→</span>
           </Link>
         </div>
 
         <div className="mt-7 grid gap-8 lg:grid-cols-[0.9fr_1.75fr] lg:gap-10">
           <h2 className="display-2 max-w-[16ch]">
-            {home.insights.title.map((line) => (
+            {home.delivery.title.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
             ))}
           </h2>
 
-          <ul className="grid gap-3 sm:grid-cols-3">
-            {home.insights.items.map((item) => (
-              <li key={item.id}>
-                <Link
-                  to="/journal"
-                  aria-label={`${component.readArticle} — ${item.title}`}
-                  className="group block"
-                >
-                  <div className="media-frame">
-                    <img
-                      src={item.image}
-                      alt={item.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="aspect-[16/10] transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="eyebrow mt-4 text-ivory-muted">{item.category}</p>
-                  <h3 className="mt-2 font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-ivory-foreground">
-                    {item.title}
-                  </h3>
-                </Link>
+          <ol className="grid gap-3 sm:grid-cols-3">
+            {home.delivery.items.map((item) => (
+              <li key={item.index} className="flex flex-col">
+                <div className="media-frame">
+                  <img
+                    src={item.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[16/10]"
+                  />
+                  <p className="media-label left-4 top-4">
+                    <span>{item.index}</span>
+                    <span>{item.stage}</span>
+                  </p>
+                </div>
+                <p className="eyebrow mt-4 text-ivory-muted">{item.phase}</p>
+                <h3 className="mt-2 font-display text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-ivory-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-[0.8125rem] leading-6 text-ivory-muted">{item.body}</p>
+                <p className="mt-3 border-t border-ivory-border pt-3 text-[0.75rem] leading-5 text-ivory-foreground">
+                  <span className="font-semibold">{home.delivery.deliverable} · </span>
+                  {item.deliverable}
+                </p>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
     </section>
@@ -368,14 +411,15 @@ export function ClosingCta() {
           </h2>
         </div>
 
-        <div className="flex flex-col items-start gap-6">
-          <p className="max-w-[34ch] text-[0.8125rem] leading-6 text-muted-foreground">
+        <div className="flex flex-col items-start gap-5">
+          <p className="max-w-[38ch] text-[0.8125rem] leading-6 text-muted-foreground">
             {home.cta.body}
           </p>
           <Link to="/contact" className="cta-pill">
             {home.cta.action}
             <span aria-hidden="true">→</span>
           </Link>
+          <p className="text-[0.75rem] text-muted-foreground">{home.cta.microcopy}</p>
         </div>
       </div>
     </section>

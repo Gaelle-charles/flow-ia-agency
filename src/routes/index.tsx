@@ -2,12 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import {
   ClosingCta,
+  DeliveryPanel,
   ExpertisePanel,
+  FaqSection,
   FeaturedWork,
   HomeHero,
   HumanAndStats,
-  InsightsPanel,
-  Testimonials,
 } from "@/components/site/HomeSections";
 import { PageShell } from "@/components/site/PageShell";
 import brand from "@/content/brand.config.json";
@@ -51,8 +51,8 @@ function HomePage() {
       <ExpertisePanel />
       <FeaturedWork />
       <HumanAndStats />
-      <Testimonials />
-      <InsightsPanel />
+      <FaqSection />
+      <DeliveryPanel />
       <ClosingCta />
     </PageShell>
   );

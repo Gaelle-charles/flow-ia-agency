@@ -35,33 +35,50 @@ function WorkPage() {
       />
 
       <section className="band">
-        <ul className="surface-card grid divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {workPage.stats.map((stat) => (
-            <li key={stat.label} className="px-6 py-5">
-              <p className="font-display text-[1.75rem] font-extrabold leading-none tracking-[-0.04em] text-foreground">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-[0.8125rem] text-muted-foreground">{stat.label}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="surface-card grid gap-6 p-6 sm:p-8 lg:grid-cols-[0.6fr_1.4fr] lg:gap-10">
+          <p className="eyebrow text-accent">{workPage.problem.eyebrow}</p>
+          <div>
+            <h2 className="display-3 max-w-[32ch] text-foreground">{workPage.problem.title}</h2>
+            <p className="mt-4 max-w-[60ch] text-[0.875rem] leading-6 text-muted-foreground">
+              {workPage.problem.body}
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="band pt-12 sm:pt-16">
-        <h2 className="display-3 text-foreground">{workPage.expertiseTitle}</h2>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+        <h2 className="display-3 text-foreground">{workPage.layersTitle}</h2>
+        <p className="mt-3 max-w-[64ch] text-[0.875rem] leading-6 text-muted-foreground">
+          {workPage.layersIntro}
+        </p>
+        <ol className="mt-6 grid gap-3 sm:grid-cols-3">
           {expertise.map((item) => {
-            const Icon = expertiseIcons[item.icon as keyof typeof expertiseIcons];
+            const Icon = expertiseIcons[item.icon];
             return (
               <li key={item.id} className="surface-card flex flex-col p-6">
-                <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
-                <h3 className="mt-10 font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
+                <div className="flex items-center justify-between">
+                  <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
+                  <p className="eyebrow text-muted-foreground">
+                    {item.index} · {item.stage}
+                  </p>
+                </div>
+                <p className="eyebrow mt-6 text-accent">{item.capability}</p>
+                <h3 className="mt-2 font-display text-base font-bold leading-snug tracking-[-0.02em] text-foreground">
                   {item.title}
                 </h3>
+                <p className="mt-3 text-[0.8125rem] leading-6 text-muted-foreground">{item.body}</p>
+                <p className="eyebrow mt-6 border-t border-border pt-4 text-muted-foreground">
+                  {workPage.outputsLabel}
+                </p>
+                <ul className="mt-2 space-y-1 text-[0.8125rem] leading-6 text-foreground">
+                  {item.outputs.map((output) => (
+                    <li key={output}>{output}</li>
+                  ))}
+                </ul>
               </li>
             );
           })}
-        </ul>
+        </ol>
       </section>
     </PageShell>
   );

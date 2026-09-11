@@ -135,19 +135,55 @@ test("la navigation des maquettes est identique dans les deux langues", async ()
   assert.equal(targets[0], targets[1], "FR et EN doivent pointer vers les mêmes routes");
 });
 
-test("chaque réalisation publiée porte son secteur et son périmètre", async () => {
-  const content = await readLocalizedContent();
-  const caseBlocks = content.match(/cases: \[[\s\S]*?\n {4}\]/gu) ?? [];
-  assert.equal(caseBlocks.length, 2, "Une liste de réalisations doit être définie par langue");
-
-  for (const block of caseBlocks) {
-    const ids = block.match(/\bid: "/gu) ?? [];
-    assert.ok(ids.length > 0, "Aucune réalisation publiée");
-    for (const field of ["sector", "sectorLabel", "shortTitle", "title", "tags", "image", "alt"]) {
-      const occurrences = block.match(new RegExp(`\\b${field}:`, "gu")) ?? [];
-      assert.equal(occurrences.length, ids.length, `Champ manquant sur une réalisation : ${field}`);
-    }
+test("les six situations restent identifiées comme illustratives", async () => {
+  const source = await readFile(path.join(projectRoot, "src", "content", "use-cases.ts"), "utf8");
+  const ids = source.match(/\bid:\s*"/gu) ?? [];
+  assert.equal(ids.length, 6);
+  assert.match(source, /CAS D’USAGE ILLUSTRATIF/u);
+  for (const field of [
+    "before",
+    "context",
+    "execution",
+    "intelligence",
+    "humanControl",
+    "outcome",
+  ]) {
+    const occurrences = source.match(new RegExp(`\\b${field}:`, "gu")) ?? [];
+    assert.equal(occurrences.length, 6, `Champ de narration incomplet : ${field}`);
   }
+
+  // La version anglaise expose les mêmes six situations.
+  const content = await readLocalizedContent();
+  const englishCases = content.match(/\n {4}cases: \[[\s\S]*?\n {4}\],/u)?.[0] ?? "";
+  assert.equal(
+    (englishCases.match(/\bid: "/gu) ?? []).length,
+    6,
+    "Six situations attendues en anglais",
+  );
+  assert.match(content, /illustrativeStatus: "ILLUSTRATIVE USE CASE"/u);
+});
+
+test("les chiffres de contexte ont une source et un périmètre distincts des résultats clients", async () => {
+  const evidence = JSON.parse(
+    await readFile(path.join(projectRoot, "src/content/operational-evidence.json"), "utf8"),
+  );
+  assert.match(evidence.disclaimer, /pas des résultats clients ni des gains promis/u);
+  assert.deepEqual(
+    evidence.metrics.map(({ value }) => value),
+    ["62", "95", "80"],
+  );
+  for (const metric of evidence.metrics) {
+    const source = evidence.sources.find(({ id }) => id === metric.sourceId);
+    assert.ok(source, `Source absente : ${metric.id}`);
+    assert.equal(new URL(source.url).protocol, "https:");
+    assert.ok(source.scope.length > 50);
+  }
+  const content = await readLocalizedContent();
+  assert.match(
+    content,
+    /disclaimer: evidenceFr\.disclaimer/u,
+    "L’accueil doit afficher l’avertissement des études",
+  );
 });
 
 test("les anciennes routes convergent vers les pages des maquettes", async () => {
