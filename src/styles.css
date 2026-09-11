@@ -324,6 +324,39 @@
   }
 }
 
+/* Contact form on an ivory sheet so it reads against the dark page.
+   Kept outside the cascade layers so it overrides the utility classes. */
+.contact-panel {
+  background: var(--color-ivory);
+  color: var(--color-ivory-foreground);
+}
+
+.contact-panel label,
+.contact-panel .text-foreground {
+  color: var(--color-ivory-foreground);
+}
+
+.contact-panel .text-muted-foreground {
+  color: var(--color-ivory-muted);
+}
+
+.contact-panel input,
+.contact-panel textarea {
+  border-color: var(--color-ivory-border);
+  background: white;
+  color: var(--color-ivory-foreground);
+}
+
+.contact-panel input::placeholder,
+.contact-panel textarea::placeholder {
+  color: var(--color-ivory-muted);
+}
+
+.contact-panel .bg-background\/45 {
+  border-color: var(--color-ivory-border);
+  background: oklch(1 0 0 / 55%);
+}
+
 @keyframes flow-fade-up {
   from {
     opacity: 0;

@@ -66,8 +66,7 @@ export function SiteHeader() {
               <Link
                 key={item.to}
                 to={item.to}
-                activeProps={{ className: "text-foreground" }}
-                className="text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent data-[status=active]:font-bold data-[status=active]:text-accent"
               >
                 {item.label}
               </Link>
@@ -99,7 +98,7 @@ export function SiteHeader() {
                   <Link
                     key={item.to}
                     to={item.to}
-                    className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-secondary"
+                    className="rounded-xl px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-secondary data-[status=active]:text-accent"
                   >
                     {item.label}
                   </Link>

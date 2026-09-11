@@ -31,7 +31,7 @@ const exampleImages = {
 const deliveryImages = [
   "/images/editorial/facade-garden.webp",
   "/images/editorial/forest-road.webp",
-  "/images/editorial/towers.webp",
+  "/images/editorial/operations-room-v2.webp",
 ] as const;
 
 const layerIcons = ["chart", "database", "zap"] as const;
@@ -73,13 +73,12 @@ const content = {
       eyebrow: heroSource.eyebrow,
       title: "Accélérez vos opérations avec des systèmes conçus pour l’IA",
       body: "Nous repensons et connectons vos workflows, votre CRM et vos outils métier pour créer le socle sur lequel l’automatisation et les agents IA peuvent agir de façon fiable.",
-      principle: "L’IA n’est utile que si elle peut agir sur l’opération.",
       primaryCta: "Parler de votre opération",
       secondaryCta: "Explorer un exemple",
       keywords: trustItemsFr,
       mediaTopLabel: ["Contexte", "Exécution", "Intelligence"],
       mediaBottomLabel: ["Embed", "Build", "Run"],
-      mediaAlt: "Deux personnes cartographient une opération sur des documents imprimés.",
+      mediaAlt: "Des tours de bureaux vues en contre-plongée.",
       mediaCta: "Explorer un exemple",
     },
     home: {
@@ -99,7 +98,7 @@ const content = {
       human: {
         label: thesisFr.principles,
         eyebrow: thesisFr.eyebrow,
-        title: thesisFr.title,
+        title: "Une IA ne vaut que par l’opération sur laquelle elle peut agir.",
         body: thesisFr.body,
         alt: "Une personne relit des documents à son bureau.",
         cta: "Voir l’approche",
@@ -117,7 +116,6 @@ const content = {
       faq: {
         eyebrow: "Avant de démarrer",
         title: ["Les questions utiles."],
-        intro: "Nous partons d’une opération réelle, pas d’une technologie à placer.",
         previous: "Question précédente",
         next: "Question suivante",
         items: faqItemsFr,
@@ -394,7 +392,6 @@ const content = {
       eyebrow: heroSource.eyebrow,
       title: "Accelerate your operations with systems built for AI",
       body: heroSource.body,
-      principle: heroSource.principle,
       primaryCta: "Discuss your operation",
       secondaryCta: "Explore an example",
       keywords: [
@@ -405,7 +402,7 @@ const content = {
       ],
       mediaTopLabel: ["Context", "Execution", "Intelligence"],
       mediaBottomLabel: ["Embed", "Build", "Run"],
-      mediaAlt: "Two people mapping an operation across printed documents.",
+      mediaAlt: "Office towers seen from below.",
       mediaCta: "Explore an example",
     },
     home: {
@@ -477,7 +474,6 @@ const content = {
       faq: {
         eyebrow: "Before we begin",
         title: ["Useful questions."],
-        intro: "We start from a real operation, not from a technology looking for a place.",
         previous: "Previous question",
         next: "Next question",
         items: [

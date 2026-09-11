@@ -18,9 +18,6 @@ export function HomeHero() {
           <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
             {hero.body}
           </p>
-          <p className="mt-4 max-w-[46ch] font-display text-[0.9375rem] font-semibold text-foreground">
-            {hero.principle}
-          </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <Link to="/contact" className="cta-pill">
               {hero.primaryCta}
@@ -34,7 +31,7 @@ export function HomeHero() {
       </div>
 
       <MediaFrame
-        src="/images/editorial/operations-room-v2.webp"
+        src="/images/editorial/towers.webp"
         alt={hero.mediaAlt}
         className="min-h-[17rem] sm:min-h-[20rem] lg:min-h-[22rem]"
         action={{ to: "/realisations", label: hero.mediaCta }}
@@ -68,11 +65,13 @@ export function ExpertisePanel() {
                 <h3 className="mt-5 font-display text-base font-bold leading-tight tracking-[-0.02em]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-[0.8125rem] leading-6 text-muted-foreground">{item.body}</p>
+                <p className="mb-6 mt-3 text-[0.8125rem] leading-6 text-muted-foreground">
+                  {item.body}
+                </p>
                 <Link
                   to="/work"
                   aria-label={item.title}
-                  className="arrow-circle mt-6 border-white/25"
+                  className="arrow-circle mt-auto border-white/25 pt-0"
                 >
                   <span aria-hidden="true">→</span>
                 </Link>
@@ -149,7 +148,7 @@ export function HumanAndStats() {
   return (
     <section className="band pt-14 sm:pt-20">
       <div className="grid gap-3 lg:grid-cols-[1.05fr_1fr]">
-        <div className="relative isolate overflow-hidden rounded-[1.15rem] border border-white/10 bg-forest p-6 sm:p-8">
+        <div className="relative isolate flex min-h-[22rem] flex-col overflow-hidden rounded-[1.15rem] border border-white/10 bg-forest p-6 sm:p-8">
           <img
             src="/images/editorial/desk-review.webp"
             alt={home.human.alt}
@@ -162,7 +161,7 @@ export function HumanAndStats() {
             className="absolute inset-0 -z-10 bg-gradient-to-t from-forest via-forest/85 to-forest/45"
           />
 
-          <div className="flex min-h-[16rem] flex-col justify-end pt-24">
+          <div className="mt-auto pt-24">
             <h2 className="display-2 max-w-[18ch] text-foreground">{home.human.title}</h2>
             <p className="mt-5 max-w-[44ch] text-[0.875rem] leading-6 text-muted-foreground">
               {home.human.body}
@@ -240,7 +239,7 @@ export function FaqSection() {
 
   return (
     <section className="band pt-14 sm:pt-20">
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_1.3fr_auto] lg:items-start lg:gap-10">
+      <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <h2 className="display-2 text-foreground">
             {home.faq.title.map((line) => (
@@ -250,10 +249,7 @@ export function FaqSection() {
             ))}
           </h2>
         </div>
-        <p className="max-w-[44ch] text-[0.8125rem] leading-6 text-muted-foreground lg:mt-8">
-          {home.faq.intro}
-        </p>
-        <div className="flex gap-2 lg:mt-6">
+        <div className="flex gap-2">
           <button
             type="button"
             onClick={() => scrollBy(-1)}
@@ -354,15 +350,6 @@ export function ClosingCta() {
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 top-1/2 -z-10 h-[30rem] w-[34rem] -translate-y-1/2 rounded-full bg-accent/30 blur-[100px]"
         />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-8 top-8 -z-10 flex gap-2"
-        >
-          {[0, 1, 2].map((line) => (
-            <span key={line} className="block h-28 w-[3px] -skew-x-[28deg] bg-accent/80" />
-          ))}
-        </div>
-
         <div>
           <h2 className="display-2 text-foreground">
             {home.cta.title.map((line) => (

@@ -33,7 +33,7 @@ function ContactPage() {
             ))}
           </ul>
         </div>
-        <div className="rounded-[1.5rem] border border-border bg-card p-5 sm:p-7 lg:p-8">
+        <div className="contact-panel rounded-[1.5rem] p-5 sm:p-7 lg:p-8">
           <ProcessIntakeForm />
         </div>
       </section>
