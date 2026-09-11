@@ -71,7 +71,7 @@ export function ExpertisePanel() {
                 <Link
                   to="/work"
                   aria-label={item.title}
-                  className="arrow-circle mt-auto border-white/25 pt-0"
+                  className="arrow-circle mt-auto border-white/40 pt-0 text-foreground"
                 >
                   <span aria-hidden="true">→</span>
                 </Link>
