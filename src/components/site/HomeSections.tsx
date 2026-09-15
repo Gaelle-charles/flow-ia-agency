@@ -14,7 +14,6 @@ export function HomeHero() {
     <HeroCover
       title={[hero.title]}
       body={hero.body}
-      dot
       image={{ src: "/images/editorial/towers.webp", alt: hero.mediaAlt }}
     >
       <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">

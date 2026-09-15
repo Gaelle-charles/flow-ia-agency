@@ -25,7 +25,6 @@ function WorkPage() {
       <HeroCover
         title={[workPage.title]}
         body={workPage.body}
-        dot
         image={{ src: "/images/editorial/office-desk.webp", alt: workPage.mediaAlt }}
       />
 

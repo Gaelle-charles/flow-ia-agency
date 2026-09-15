@@ -23,8 +23,6 @@ type HeroCoverProps = {
   /** One entry per rendered line. */
   title: readonly string[];
   body: string;
-  /** Adds the lime square that closes single-line page titles. */
-  dot?: boolean;
   image?: { src: string; alt: string };
   /** Anything below the body: buttons, an extra line… */
   children?: ReactNode;
@@ -36,7 +34,12 @@ type HeroCoverProps = {
  * shorter than the computed screen height (embedded previews, toolbars). Without a photo the block keeps the same
  * size and alignment on the plain dark ground.
  */
-export function HeroCover({ title, body, dot = false, image, children }: HeroCoverProps) {
+export function HeroCover({ title, body, image, children }: HeroCoverProps) {
+  // Every hero title ends on the lime square, which replaces a closing period.
+  const lines = title.map((line, index) =>
+    index === title.length - 1 ? line.replace(/\.$/u, "") : line,
+  );
+
   return (
     <section className="band hero-screen flex pb-6 pt-3">
       <div className="relative isolate flex w-full flex-1 flex-col justify-center overflow-hidden rounded-[1.15rem] border border-white/10 bg-card p-6 sm:p-10 lg:p-14">
@@ -56,11 +59,8 @@ export function HeroCover({ title, body, dot = false, image, children }: HeroCov
         )}
 
         <h1 className="display-1 relative z-10 max-w-[16ch] text-foreground">
-          {title.map((line, index) => (
-            <span
-              key={line}
-              className={`block ${dot && index === title.length - 1 ? "display-dot" : ""}`}
-            >
+          {lines.map((line, index) => (
+            <span key={line} className={`block ${index === lines.length - 1 ? "display-dot" : ""}`}>
               {line}
             </span>
           ))}
