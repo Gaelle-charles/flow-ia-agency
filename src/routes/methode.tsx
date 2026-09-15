@@ -20,8 +20,8 @@ function MethodPage() {
 
   return (
     <PageShell>
-      <section className="band grid gap-10 pb-6 pt-8 sm:pt-10 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-        <div>
+      <section className="band hero-screen grid gap-8 pb-8 pt-8 lg:grid-cols-[1.15fr_1fr] lg:items-stretch lg:gap-12">
+        <div className="flex flex-col justify-center">
           <h1 className="display-2 text-foreground">
             {methodPage.title.map((line) => (
               <span key={line} className="block">
@@ -32,53 +32,54 @@ function MethodPage() {
           <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
             {methodPage.body}
           </p>
+          <p className="mt-6 max-w-[40ch] text-[0.875rem] leading-6 text-muted-foreground">
+            {methodPage.aside}
+          </p>
+        </div>
 
-          <p className="mt-10 font-display text-base font-bold tracking-[-0.02em] text-foreground">
+        <MediaFrame
+          src="/images/editorial/facade-garden.webp"
+          alt={methodPage.mediaAlt}
+          className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
+        />
+      </section>
+
+      <section className="band grid gap-10 pt-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        <div>
+          <p className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
             {methodPage.methodTitle}
           </p>
           <ol className="rule-list mt-4">
             {methodPage.steps.map((step) => (
-              <li key={step.id} className="flex gap-6 py-6">
-                <div className="flex-1">
-                  <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
-                    {step.title}
-                  </h2>
-                  <p className="mt-2 max-w-[46ch] text-[0.8125rem] leading-6 text-muted-foreground">
-                    {step.body}
-                  </p>
-                  <ul className="mt-3 grid gap-1 text-[0.8125rem] leading-6 text-foreground sm:grid-cols-2">
-                    {step.outputs.map((output) => (
-                      <li key={output} className="flex gap-2">
-                        <span aria-hidden="true" className="text-accent">
-                          →
-                        </span>
-                        {output}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <li key={step.id} className="py-6">
+                <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
+                  {step.title}
+                </h2>
+                <p className="mt-2 max-w-[46ch] text-[0.8125rem] leading-6 text-muted-foreground">
+                  {step.body}
+                </p>
+                <ul className="mt-3 grid gap-1 text-[0.8125rem] leading-6 text-foreground sm:grid-cols-2">
+                  {step.outputs.map((output) => (
+                    <li key={output} className="flex gap-2">
+                      <span aria-hidden="true" className="text-accent">
+                        →
+                      </span>
+                      {output}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ol>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <p className="max-w-[32ch] text-[0.875rem] leading-6 text-muted-foreground">
-            {methodPage.aside}
+        <div className="surface-card self-start p-6">
+          <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
+            {methodPage.scopeTitle}
+          </h2>
+          <p className="mt-2 text-[0.8125rem] leading-6 text-muted-foreground">
+            {methodPage.scopeBody}
           </p>
-          <MediaFrame
-            src="/images/editorial/facade-garden.webp"
-            alt={methodPage.mediaAlt}
-            className="aspect-[4/3]"
-          />
-          <div className="surface-card p-6">
-            <h2 className="font-display text-base font-bold tracking-[-0.02em] text-foreground">
-              {methodPage.scopeTitle}
-            </h2>
-            <p className="mt-2 text-[0.8125rem] leading-6 text-muted-foreground">
-              {methodPage.scopeBody}
-            </p>
-          </div>
         </div>
       </section>
 

@@ -201,6 +201,11 @@
     color: var(--color-ivory-foreground);
   }
 
+  /* A hero fills the screen under the 4.25rem sticky header. */
+  .hero-screen {
+    min-height: calc(100svh - 4.25rem);
+  }
+
   /* ---- Controls ---------------------------------------------------- */
 
   .cta-pill {

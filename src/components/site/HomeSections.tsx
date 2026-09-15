@@ -11,8 +11,8 @@ export function HomeHero() {
   const { hero } = useLocalizedContent();
 
   return (
-    <section className="band grid gap-7 pb-4 pt-6 lg:grid-cols-[1fr_1.04fr] lg:gap-10">
-      <div className="flex flex-col justify-between">
+    <section className="band hero-screen grid gap-7 pb-8 pt-6 lg:grid-cols-[1fr_1.04fr] lg:items-stretch lg:gap-10 lg:pb-6">
+      <div className="flex flex-col justify-center">
         <div>
           <h1 className="display-1 display-dot text-foreground">{hero.title}</h1>
           <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
@@ -33,7 +33,7 @@ export function HomeHero() {
       <MediaFrame
         src="/images/editorial/towers.webp"
         alt={hero.mediaAlt}
-        className="min-h-[17rem] sm:min-h-[20rem] lg:min-h-[22rem]"
+        className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
         action={{ to: "/realisations", label: hero.mediaCta }}
       />
     </section>

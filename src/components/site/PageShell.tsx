@@ -28,8 +28,8 @@ type PageHeroProps = {
 
 export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
   return (
-    <section className="band grid gap-8 pb-10 pt-10 sm:pt-14 lg:grid-cols-[1.15fr_1fr] lg:items-start lg:gap-12">
-      <div>
+    <section className="band hero-screen grid gap-8 pb-10 pt-8 lg:grid-cols-[1.15fr_1fr] lg:items-stretch lg:gap-12 lg:pb-8">
+      <div className="flex flex-col justify-center">
         <h1 className="display-2 max-w-[17ch] text-foreground">
           {title.map((line, index) => (
             <span
@@ -43,7 +43,13 @@ export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
         <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
       </div>
 
-      {media && <MediaFrame src={media.src} alt={media.alt} className="aspect-[16/9]" />}
+      {media && (
+        <MediaFrame
+          src={media.src}
+          alt={media.alt}
+          className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
+        />
+      )}
     </section>
   );
 }
@@ -51,7 +57,7 @@ export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
 /** Simple intro block for the pages the mockups do not cover (journal, legal…). */
 export function PageIntro({ title, body }: { title: string; body: string }) {
   return (
-    <section className="band pb-10 pt-8 sm:pt-10">
+    <section className="band hero-screen flex flex-col justify-center pb-10 pt-8">
       <h1 className="display-2 max-w-4xl text-foreground">{title}</h1>
       <p className="mt-5 max-w-[58ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
     </section>
