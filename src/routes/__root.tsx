@@ -126,6 +126,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { name: "twitter:description", content: hero.body },
         { name: "theme-color", content: "#0a0c0a" },
       ],
+      scripts: [
+        {
+          children:
+            'document.documentElement.classList.add("reveal-ready");window.__revealFallback=setTimeout(function(){document.documentElement.classList.add("reveal-done")},2500);',
+        },
+      ],
       links: [
         {
           rel: "stylesheet",

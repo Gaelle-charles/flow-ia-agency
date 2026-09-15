@@ -2,8 +2,11 @@ import type { ReactNode } from "react";
 
 import { LegalFooter, SiteHeader } from "@/components/SiteChrome";
 import { MediaFrame } from "@/components/site/MediaFrame";
+import { useScrollReveal } from "@/lib/use-scroll-reveal";
 
 export function PageShell({ children }: { children: ReactNode }) {
+  useScrollReveal();
+
   return (
     <div className="min-h-screen overflow-x-clip bg-page font-sans">
       <div className="mx-auto flex min-h-screen max-w-[1360px] flex-col">

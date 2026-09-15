@@ -362,6 +362,35 @@
   background: oklch(1 0 0 / 55%);
 }
 
+/* Scroll reveal: blocks fade and rise as they enter the viewport.
+   Only active once the inline head script flags <html>, so the page
+   never depends on JavaScript to be readable. */
+.reveal-ready main section,
+.reveal-ready main section :is(ul, ol) > li {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-ready main section.is-revealed,
+.reveal-ready main section :is(ul, ol) > li.is-revealed,
+.reveal-done main section,
+.reveal-done main section :is(ul, ol) > li {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready main section,
+  .reveal-ready main section :is(ul, ol) > li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @keyframes flow-fade-up {
   from {
     opacity: 0;
