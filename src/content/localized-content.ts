@@ -168,6 +168,7 @@ const content = {
       eyebrow: "Réalisations",
       title: ["Voir les systèmes,", "pas seulement les technologies."],
       body: "Chaque réalisation montre l’opération de départ, le système construit, le contrôle humain et le résultat observé.",
+      mediaAlt: "Plusieurs mains examinent des graphiques imprimés.",
       clientEyebrow: "Réalisation client",
       featuredCase: featuredCaseFr,
       labels: {
@@ -259,6 +260,7 @@ const content = {
     },
     contactPage: {
       introEyebrow: "Premier échange",
+      introAlt: "Une route sinueuse traverse une forêt, vue du ciel.",
       introTitle: "Décrivez une opération qui ralentit votre équipe.",
       introBody:
         "Nous regarderons ce qui se passe réellement : les étapes, les outils, les personnes, les décisions, les exceptions et les conséquences. Si le sujet s’y prête, nous définirons un premier périmètre et une preuve de résultat.",
@@ -273,6 +275,7 @@ const content = {
     },
     journalPage: {
       introEyebrow: "Journal d’ingénierie",
+      introAlt: "Une personne concentrée travaille sur son ordinateur portable.",
       introTitle: "Observer le système avant de lui donner plus d’autonomie.",
       introBody:
         "Des retours de terrain sur les ruptures, les actions réellement exécutées et les corrections nécessaires avant de passer à l’échelle.",
@@ -695,6 +698,7 @@ const content = {
       eyebrow: "Work",
       title: ["See the systems,", "not just the technologies."],
       body: "Each project shows the initial operation, the system built, human control and the observed outcome.",
+      mediaAlt: "Several hands reviewing printed charts.",
       clientEyebrow: "Client work",
       featuredCase: {
         statuses: ["Deployed for a client", "Results under internal review"],
@@ -947,6 +951,7 @@ const content = {
     },
     contactPage: {
       introEyebrow: "First conversation",
+      introAlt: "A winding road through a forest, seen from above.",
       introTitle: "Describe an operation that slows your team down.",
       introBody:
         "We will examine what really happens: the steps, tools, people, decisions, exceptions and consequences. If the topic is a fit, we will define an initial scope and a measurable outcome.",
@@ -961,6 +966,7 @@ const content = {
     },
     journalPage: {
       introEyebrow: "Engineering journal",
+      introAlt: "A focused person working on a laptop.",
       introTitle: "Observe the system before granting it more autonomy.",
       introBody:
         "Field notes on breakdowns, the actions actually executed and the corrections required before scaling.",

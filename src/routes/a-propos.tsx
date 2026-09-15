@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageHero, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import brand from "@/content/brand.config.json";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
@@ -20,13 +20,10 @@ function AboutPage() {
 
   return (
     <PageShell>
-      <PageHero
+      <HeroCover
         title={about.title}
         body={about.body}
-        media={{
-          src: "/images/editorial/operations-room-v2.webp",
-          alt: about.mediaAlt,
-        }}
+        image={{ src: "/images/editorial/operations-room-v2.webp", alt: about.mediaAlt }}
       />
 
       <section className="band">

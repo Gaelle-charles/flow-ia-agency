@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, Database, Zap } from "lucide-react";
 
-import { PageHero, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -22,14 +22,11 @@ function WorkPage() {
 
   return (
     <PageShell>
-      <PageHero
+      <HeroCover
         title={[workPage.title]}
         body={workPage.body}
         dot
-        media={{
-          src: "/images/editorial/office-desk.webp",
-          alt: workPage.mediaAlt,
-        }}
+        image={{ src: "/images/editorial/office-desk.webp", alt: workPage.mediaAlt }}
       />
 
       <section className="band">

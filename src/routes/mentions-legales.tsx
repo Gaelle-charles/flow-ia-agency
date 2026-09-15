@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageIntro, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import brand from "@/content/brand.config.json";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import legal from "@/content/legal.config.json";
@@ -21,7 +21,7 @@ function LegalPage() {
 
   return (
     <PageShell>
-      <PageIntro title={legalPage.introTitle} body={legalPage.introBody} />
+      <HeroCover title={[legalPage.introTitle]} body={legalPage.introBody} />
       <article className="mx-auto max-w-4xl px-2 py-12 sm:py-14 lg:py-16">
         <div className="space-y-10 rounded-[1.5rem] border border-border bg-card p-6 sm:p-10">
           <section>

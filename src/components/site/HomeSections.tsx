@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BarChart3, Database, Zap } from "lucide-react";
 import { useRef } from "react";
 
-import { MediaFrame } from "@/components/site/MediaFrame";
+import { HeroCover } from "@/components/site/PageShell";
 import { useLocalizedContent } from "@/content/localized-content";
 
 const expertiseIcons = { zap: Zap, database: Database, chart: BarChart3 } as const;
@@ -11,32 +11,22 @@ export function HomeHero() {
   const { hero } = useLocalizedContent();
 
   return (
-    <section className="band hero-screen grid gap-7 pb-8 pt-6 lg:grid-cols-[1fr_1.04fr] lg:items-stretch lg:gap-10 lg:pb-6">
-      <div className="flex flex-col justify-center">
-        <div>
-          <h1 className="display-1 display-dot text-foreground">{hero.title}</h1>
-          <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
-            {hero.body}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <Link to="/contact" className="cta-pill">
-              {hero.primaryCta}
-              <span aria-hidden="true">→</span>
-            </Link>
-            <Link to="/realisations" className="cta-ghost text-foreground">
-              {hero.secondaryCta}
-            </Link>
-          </div>
-        </div>
+    <HeroCover
+      title={[hero.title]}
+      body={hero.body}
+      dot
+      image={{ src: "/images/editorial/towers.webp", alt: hero.mediaAlt }}
+    >
+      <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+        <Link to="/contact" className="cta-pill">
+          {hero.primaryCta}
+          <span aria-hidden="true">→</span>
+        </Link>
+        <Link to="/realisations" className="cta-ghost text-foreground">
+          {hero.secondaryCta}
+        </Link>
       </div>
-
-      <MediaFrame
-        src="/images/editorial/towers.webp"
-        alt={hero.mediaAlt}
-        className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
-        action={{ to: "/realisations", label: hero.mediaCta }}
-      />
-    </section>
+    </HeroCover>
   );
 }
 

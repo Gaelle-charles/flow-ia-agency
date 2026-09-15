@@ -8,8 +8,8 @@ declare global {
 }
 
 const REVEAL_SELECTOR = "main section, main section :is(ul, ol) > li";
-const STAGGER_MS = 70;
-const MAX_STAGGER_MS = 420;
+const STAGGER_MS = 110;
+const MAX_STAGGER_MS = 660;
 
 /**
  * Reveals sections and list items as they scroll into view. The CSS keeps
@@ -36,7 +36,7 @@ export function useScrollReveal() {
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
     );
 
     for (const target of targets) {

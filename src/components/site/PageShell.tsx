@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 import { LegalFooter, SiteHeader } from "@/components/SiteChrome";
-import { MediaFrame } from "@/components/site/MediaFrame";
 import { useScrollReveal } from "@/lib/use-scroll-reveal";
 
 export function PageShell({ children }: { children: ReactNode }) {
@@ -20,20 +19,42 @@ export function PageShell({ children }: { children: ReactNode }) {
   );
 }
 
-type PageHeroProps = {
-  /** One entry per rendered line, as drawn in the mockups. */
+type HeroCoverProps = {
+  /** One entry per rendered line. */
   title: readonly string[];
   body: string;
   /** Adds the lime square that closes single-line page titles. */
   dot?: boolean;
-  media?: { src: string; alt: string };
+  image?: { src: string; alt: string };
+  /** Anything below the body: buttons, an extra line… */
+  children?: ReactNode;
 };
 
-export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
+/**
+ * Screen-high hero: the photo fills the whole block and the copy sits over
+ * it, anchored to the bottom-left. Without a photo the block keeps the same
+ * size and alignment on the plain dark ground.
+ */
+export function HeroCover({ title, body, dot = false, image, children }: HeroCoverProps) {
   return (
-    <section className="band hero-screen grid gap-8 pb-10 pt-8 lg:grid-cols-[1.15fr_1fr] lg:items-stretch lg:gap-12 lg:pb-8">
-      <div className="flex flex-col justify-center">
-        <h1 className="display-2 max-w-[17ch] text-foreground">
+    <section className="band hero-screen flex pb-6 pt-3">
+      <div className="relative isolate flex w-full flex-1 flex-col justify-end overflow-hidden rounded-[1.15rem] border border-white/10 bg-card p-6 sm:p-10 lg:p-14">
+        {image && (
+          <>
+            <img
+              src={image.src}
+              alt={image.alt}
+              decoding="async"
+              className="absolute inset-0 -z-20 h-full w-full object-cover"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 bg-gradient-to-t from-page/95 via-page/60 to-page/15"
+            />
+          </>
+        )}
+
+        <h1 className="display-1 max-w-[16ch] text-foreground">
           {title.map((line, index) => (
             <span
               key={line}
@@ -43,26 +64,11 @@ export function PageHero({ title, body, dot = false, media }: PageHeroProps) {
             </span>
           ))}
         </h1>
-        <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
+        <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-7 text-foreground/85 sm:text-base">
+          {body}
+        </p>
+        {children}
       </div>
-
-      {media && (
-        <MediaFrame
-          src={media.src}
-          alt={media.alt}
-          className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
-        />
-      )}
-    </section>
-  );
-}
-
-/** Simple intro block for the pages the mockups do not cover (journal, legal…). */
-export function PageIntro({ title, body }: { title: string; body: string }) {
-  return (
-    <section className="band hero-screen flex flex-col justify-center pb-10 pt-8">
-      <h1 className="display-2 max-w-4xl text-foreground">{title}</h1>
-      <p className="mt-5 max-w-[58ch] text-[0.9375rem] leading-7 text-muted-foreground">{body}</p>
     </section>
   );
 }

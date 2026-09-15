@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { PageHero, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -47,7 +47,11 @@ function CasesPage() {
 
   return (
     <PageShell>
-      <PageHero title={casesPage.title} body={casesPage.body} />
+      <HeroCover
+        title={casesPage.title}
+        body={casesPage.body}
+        image={{ src: "/images/editorial/chart-review.webp", alt: casesPage.mediaAlt }}
+      />
 
       {/* Client work */}
       <section className="band">

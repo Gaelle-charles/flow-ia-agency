@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageIntro, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { ProcessIntakeForm } from "@/components/site/ProcessIntakeForm";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
@@ -20,7 +20,11 @@ function ContactPage() {
 
   return (
     <PageShell>
-      <PageIntro title={contactPage.introTitle} body={contactPage.introBody} />
+      <HeroCover
+        title={[contactPage.introTitle]}
+        body={contactPage.introBody}
+        image={{ src: "/images/editorial/forest-road.webp", alt: contactPage.introAlt }}
+      />
 
       <section className="grid gap-9 px-1 py-12 sm:px-4 sm:py-14 lg:grid-cols-[0.7fr_1.3fr] lg:px-7 lg:py-16">
         <div>

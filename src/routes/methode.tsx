@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { MediaFrame } from "@/components/site/MediaFrame";
-import { PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -20,29 +19,15 @@ function MethodPage() {
 
   return (
     <PageShell>
-      <section className="band hero-screen grid gap-8 pb-8 pt-8 lg:grid-cols-[1.15fr_1fr] lg:items-stretch lg:gap-12">
-        <div className="flex flex-col justify-center">
-          <h1 className="display-2 text-foreground">
-            {methodPage.title.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-5 max-w-[46ch] text-[0.9375rem] leading-7 text-muted-foreground">
-            {methodPage.body}
-          </p>
-          <p className="mt-6 max-w-[40ch] text-[0.875rem] leading-6 text-muted-foreground">
-            {methodPage.aside}
-          </p>
-        </div>
-
-        <MediaFrame
-          src="/images/editorial/facade-garden.webp"
-          alt={methodPage.mediaAlt}
-          className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
-        />
-      </section>
+      <HeroCover
+        title={methodPage.title}
+        body={methodPage.body}
+        image={{ src: "/images/editorial/facade-garden.webp", alt: methodPage.mediaAlt }}
+      >
+        <p className="mt-4 max-w-[52ch] text-[0.875rem] leading-6 text-foreground/70">
+          {methodPage.aside}
+        </p>
+      </HeroCover>
 
       <section className="band grid gap-10 pt-6 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
         <div>

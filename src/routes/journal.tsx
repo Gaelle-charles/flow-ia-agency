@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageIntro, PageShell } from "@/components/site/PageShell";
+import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
 import { pageMeta } from "@/lib/seo";
@@ -19,7 +19,11 @@ function JournalPage() {
 
   return (
     <PageShell>
-      <PageIntro title={journalPage.introTitle} body={journalPage.introBody} />
+      <HeroCover
+        title={[journalPage.introTitle]}
+        body={journalPage.introBody}
+        image={{ src: "/images/editorial/laptop-focus.webp", alt: journalPage.introAlt }}
+      />
 
       <section className="px-1 py-12 sm:px-4 sm:py-14 lg:px-7 lg:py-16">
         {journalEntries.map((entry) => (
