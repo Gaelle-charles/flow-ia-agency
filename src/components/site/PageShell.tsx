@@ -32,13 +32,14 @@ type HeroCoverProps = {
 
 /**
  * Screen-high hero: the photo fills the whole block and the copy sits over
- * it, anchored to the bottom-left. Without a photo the block keeps the same
+ * it, centred vertically so it stays in view even when the visible area is
+ * shorter than the computed screen height (embedded previews, toolbars). Without a photo the block keeps the same
  * size and alignment on the plain dark ground.
  */
 export function HeroCover({ title, body, dot = false, image, children }: HeroCoverProps) {
   return (
     <section className="band hero-screen flex pb-6 pt-3">
-      <div className="relative isolate flex w-full flex-1 flex-col justify-end overflow-hidden rounded-[1.15rem] border border-white/10 bg-card p-6 sm:p-10 lg:p-14">
+      <div className="relative isolate flex w-full flex-1 flex-col justify-center overflow-hidden rounded-[1.15rem] border border-white/10 bg-card p-6 sm:p-10 lg:p-14">
         {image && (
           <>
             <img
@@ -49,12 +50,12 @@ export function HeroCover({ title, body, dot = false, image, children }: HeroCov
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0 -z-10 bg-gradient-to-t from-page/95 via-page/60 to-page/15"
+              className="absolute inset-0 -z-10 bg-gradient-to-r from-page/90 via-page/60 to-page/25"
             />
           </>
         )}
 
-        <h1 className="display-1 max-w-[16ch] text-foreground">
+        <h1 className="display-1 relative z-10 max-w-[16ch] text-foreground">
           {title.map((line, index) => (
             <span
               key={line}
@@ -64,7 +65,7 @@ export function HeroCover({ title, body, dot = false, image, children }: HeroCov
             </span>
           ))}
         </h1>
-        <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-7 text-foreground/85 sm:text-base">
+        <p className="relative z-10 mt-6 max-w-[52ch] text-[0.9375rem] leading-7 text-foreground/85 sm:text-base">
           {body}
         </p>
         {children}
