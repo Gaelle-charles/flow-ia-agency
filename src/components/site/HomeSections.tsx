@@ -29,7 +29,7 @@ export function HomeHero() {
       <Link
         to="/a-propos"
         aria-label={about.credential.title}
-        className="absolute bottom-5 right-5 z-10 w-20 transition-transform hover:-translate-y-1 sm:bottom-8 sm:right-8 sm:w-24 lg:w-28"
+        className="absolute right-5 top-5 z-10 w-20 transition-transform hover:-translate-y-1 sm:right-8 sm:top-8 sm:w-24 lg:w-28"
       >
         <img
           src={certification.image}
