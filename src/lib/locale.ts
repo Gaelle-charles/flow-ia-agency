@@ -1,6 +1,8 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getCookie, getRequestHeader } from "@tanstack/react-start/server";
 
+import { localeFromAcceptLanguage } from "./locale-preference";
+
 export const locales = ["fr", "en"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -14,6 +16,5 @@ export const getInitialLocale = createServerFn({ method: "GET" }).handler((): Lo
   const savedLocale = getCookie(localeCookieName);
   if (isLocale(savedLocale)) return savedLocale;
 
-  const acceptedLanguages = getRequestHeader("accept-language")?.toLowerCase() ?? "";
-  return acceptedLanguages.startsWith("en") ? "en" : "fr";
+  return localeFromAcceptLanguage(getRequestHeader("accept-language"));
 });
