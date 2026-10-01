@@ -42,7 +42,8 @@ async function readLocalizedContent() {
 
 test("le nom commercial reste piloté par la configuration", async () => {
   const brand = await readBrand();
-  assert.equal(brand.name, "caraaios");
+  assert.equal(brand.name, "Caraaios");
+  assert.equal(brand.shortName, "Caraaios");
 
   // Le chrome et les pages lisent brand.config.json ; seuls les contenus
   // rédactionnels (citations clients) peuvent écrire le nom en toutes lettres.
@@ -239,8 +240,9 @@ test("les reconnaissances emploient les intitulés officiels sans qualifier de n
   assert.match(credentials, /openai\.com\/business\/partners/u);
   assert.match(credentials, /credly\.com\/badges/u);
   assert.match(partnerBadge, /<svg\b/u);
-  assert.match(localized, /caraaios est OpenAI Select Partner/u);
-  assert.match(localized, /caraaios is an OpenAI Select Partner/u);
+  assert.match(localized, /Caraaios est OpenAI Select Partner/u);
+  assert.match(localized, /Caraaios is an OpenAI Select Partner/u);
+  assert.doesNotMatch(localized, /\bcaraaios\b/u);
   assert.match(localized, /serveurs MCP/u);
   assert.match(localized, /MCP servers/u);
   assert.doesNotMatch(

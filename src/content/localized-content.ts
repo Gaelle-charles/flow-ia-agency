@@ -257,13 +257,13 @@ const content = {
         eyebrow: "Reconnaissances et engagements",
         title: "Des expertises reconnues, une méthode vérifiable.",
         intro:
-          "caraaios est OpenAI Select Partner. La certification Claude Certified Developer — Foundations atteste de compétences techniques appliquées à nos prestations. Voici ce que ces reconnaissances signifient pour les solutions que nous livrons.",
+          "Caraaios est OpenAI Select Partner. La certification Claude Certified Developer — Foundations atteste de compétences techniques appliquées à nos prestations. Voici ce que ces reconnaissances signifient pour les solutions que nous livrons.",
         homeLinkLabel: "Découvrir nos reconnaissances et nos engagements",
         partnerLabel: "Partenariat OpenAI",
         partnerTitle: openAiPartner.title,
         partnerAlt: "Badge officiel OpenAI Select Partner",
         partnerBody:
-          "caraaios est OpenAI Select Partner et fait partie de l’OpenAI Partner Network. Nous travaillons avec OpenAI pour aider les organisations à concevoir, déployer et faire évoluer des solutions d’IA de manière responsable et efficace.",
+          "Caraaios est OpenAI Select Partner et fait partie de l’OpenAI Partner Network. Nous travaillons avec OpenAI pour aider les organisations à concevoir, déployer et faire évoluer des solutions d’IA de manière responsable et efficace.",
         partnerLink: "Découvrir l’OpenAI Partner Network",
         certificationLabel: "Certification technique",
         certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
@@ -982,13 +982,13 @@ const content = {
         eyebrow: "Credentials and commitments",
         title: "Recognized expertise, a verifiable way of working.",
         intro:
-          "caraaios is an OpenAI Select Partner. The Claude Certified Developer — Foundations certification attests to technical skills applied in our work. Here is what these credentials mean for the solutions we deliver.",
+          "Caraaios is an OpenAI Select Partner. The Claude Certified Developer — Foundations certification attests to technical skills applied in our work. Here is what these credentials mean for the solutions we deliver.",
         homeLinkLabel: "Explore our credentials and commitments",
         partnerLabel: "OpenAI partnership",
         partnerTitle: openAiPartner.title,
         partnerAlt: "Official OpenAI Select Partner badge",
         partnerBody:
-          "caraaios is an OpenAI Select Partner and part of the OpenAI Partner Network. We work with OpenAI to help organizations build, deploy and scale AI solutions responsibly and effectively.",
+          "Caraaios is an OpenAI Select Partner and part of the OpenAI Partner Network. We work with OpenAI to help organizations build, deploy and scale AI solutions responsibly and effectively.",
         partnerLink: "Explore the OpenAI Partner Network",
         certificationLabel: "Technical certification",
         certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
