@@ -30,6 +30,8 @@ function OrganizationStructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: brand.name,
+    url: brand.siteUrl,
+    logo: `${brand.siteUrl}/images/brand/mark.png`,
     legalName: brand.legalName,
     identifier: brand.siren,
     description: common.brandCategory,

@@ -54,11 +54,22 @@ export function SiteHeader() {
           <Link
             to="/"
             aria-label={`${brand.name}, ${common.homeLabel}`}
-            className="shrink-0 rounded-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="flex shrink-0 items-center rounded-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
-            <span className="font-display text-[1.0625rem] font-extrabold tracking-[-0.04em]">
-              {brand.name}
-            </span>
+            <img
+              src="/images/brand/mark.png"
+              alt=""
+              width="40"
+              height="40"
+              className="h-10 w-10 rounded-xl xl:hidden"
+            />
+            <img
+              src="/images/brand/wordmark-reverse.png"
+              alt=""
+              width="240"
+              height="67"
+              className="hidden h-auto w-60 mix-blend-screen xl:block"
+            />
           </Link>
 
           <nav aria-label={common.mainNavigation} className="hidden items-center gap-7 lg:flex">
@@ -125,10 +136,13 @@ export function LegalFooter() {
     <footer className="band pb-8 pt-14 sm:pt-16">
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1.9fr]">
         <div>
-          <p className="font-display text-xl font-extrabold tracking-[-0.04em] text-foreground">
-            {brand.name}
-          </p>
-          <p className="mt-2 text-[0.8125rem] text-muted-foreground">{common.brandCategory}</p>
+          <img
+            src="/images/brand/wordmark-reverse.png"
+            alt={brand.name}
+            width="240"
+            height="67"
+            className="h-auto w-60 mix-blend-screen"
+          />
         </div>
 
         <nav

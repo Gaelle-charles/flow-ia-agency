@@ -42,7 +42,7 @@ async function readLocalizedContent() {
 
 test("le nom commercial reste piloté par la configuration", async () => {
   const brand = await readBrand();
-  assert.equal(brand.name, "Sway Ops");
+  assert.equal(brand.name, "caraaios");
 
   // Le chrome et les pages lisent brand.config.json ; seuls les contenus
   // rédactionnels (citations clients) peuvent écrire le nom en toutes lettres.

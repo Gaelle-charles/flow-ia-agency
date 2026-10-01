@@ -121,9 +121,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           content: hero.body,
         },
         { property: "og:type", content: "website" },
-        { name: "twitter:card", content: "summary" },
+        {
+          property: "og:image",
+          content: `${brand.siteUrl}/images/brand/social-banner.png`,
+        },
+        { property: "og:image:width", content: "2056" },
+        { property: "og:image:height", content: "765" },
+        { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: `${brand.name} | ${common.brandCategory}` },
         { name: "twitter:description", content: hero.body },
+        {
+          name: "twitter:image",
+          content: `${brand.siteUrl}/images/brand/social-banner.png`,
+        },
         { name: "theme-color", content: "#0a0c0a" },
       ],
       scripts: [
@@ -137,7 +147,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: appCss,
         },
-        { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+        { rel: "icon", href: "/images/brand/mark.png", type: "image/png" },
+        { rel: "apple-touch-icon", href: "/images/brand/mark.png" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         {
           rel: "preconnect",
