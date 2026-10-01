@@ -16,7 +16,8 @@ export const Route = createFileRoute("/a-propos")({
 });
 
 function AboutPage() {
-  const { about, certification } = useLocalizedContent();
+  const { about, certification, partner } = useLocalizedContent();
+  const { recognitions } = about;
 
   return (
     <PageShell>
@@ -45,21 +46,104 @@ function AboutPage() {
         </p>
       </section>
 
-      <section className="band pt-10 sm:pt-12">
-        <div className="surface-card flex flex-wrap items-center gap-6 p-6 sm:gap-9 sm:p-8">
-          <img
-            src={certification.image}
-            alt={about.credential.alt}
-            loading="lazy"
-            decoding="async"
-            className="h-24 w-24 flex-none object-contain sm:h-28 sm:w-28"
-          />
-          <div>
-            <h2 className="display-3 max-w-[22ch] text-foreground">{about.credential.title}</h2>
-            <p className="mt-3 max-w-[44ch] text-[0.8125rem] leading-6 text-muted-foreground">
-              {about.credential.body}
+      <section className="band pt-10 sm:pt-12" aria-labelledby="recognitions-title">
+        <div className="border-t border-border pt-6">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+            {recognitions.eyebrow}
+          </p>
+          <h2
+            id="recognitions-title"
+            className="display-2 mt-4 max-w-[22ch] scroll-mt-24 text-foreground"
+          >
+            {recognitions.title}
+          </h2>
+          <p className="mt-5 max-w-[75ch] text-[0.875rem] leading-7 text-muted-foreground">
+            {recognitions.intro}
+          </p>
+        </div>
+
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          <article className="surface-card flex flex-col p-6 sm:p-8">
+            <div className="flex min-h-40 items-center">
+              <img
+                src={partner.image}
+                alt={recognitions.partnerAlt}
+                width={375}
+                height={177}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full max-w-[280px]"
+              />
+            </div>
+            <p className="mt-5 text-xs font-bold uppercase tracking-[0.13em] text-accent">
+              {recognitions.partnerLabel}
             </p>
-          </div>
+            <h3 className="mt-3 font-display text-2xl font-bold text-foreground">
+              {recognitions.partnerTitle}
+            </h3>
+            <p className="mt-4 max-w-[60ch] text-[0.875rem] leading-7 text-muted-foreground">
+              {recognitions.partnerBody}
+            </p>
+            <a
+              href={partner.programUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="cta-ghost mt-6 self-start text-foreground"
+            >
+              {recognitions.partnerLink}
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article className="surface-card flex flex-col p-6 sm:p-8">
+            <div className="flex min-h-40 items-center">
+              <img
+                src={certification.image}
+                alt={about.credential.alt}
+                width={402}
+                height={402}
+                loading="lazy"
+                decoding="async"
+                className="h-32 w-32 object-contain"
+              />
+            </div>
+            <p className="mt-5 text-xs font-bold uppercase tracking-[0.13em] text-accent">
+              {recognitions.certificationLabel}
+            </p>
+            <h3 className="mt-3 font-display text-2xl font-bold text-foreground">
+              {recognitions.certificationTitle}
+            </h3>
+            <p className="mt-4 max-w-[60ch] text-[0.875rem] leading-7 text-muted-foreground">
+              {recognitions.certificationBody}
+            </p>
+            <a
+              href={certification.verificationUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="cta-ghost mt-6 self-start text-foreground"
+            >
+              {recognitions.certificationLink}
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+
+        <div className="mt-12 border-t border-border pt-6">
+          <h3 className="display-3 max-w-[28ch] text-foreground">
+            {recognitions.commitmentsTitle}
+          </h3>
+          <ul className="mt-7 grid gap-6 md:grid-cols-3">
+            {recognitions.commitments.map((commitment) => (
+              <li key={commitment.title}>
+                <h4 className="font-display text-base font-bold text-foreground">
+                  {commitment.title}
+                </h4>
+                <p className="mt-3 text-[0.8125rem] leading-6 text-muted-foreground">
+                  {commitment.body}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

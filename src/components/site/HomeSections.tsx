@@ -8,7 +8,7 @@ import { useLocalizedContent } from "@/content/localized-content";
 const expertiseIcons = { zap: Zap, database: Database, chart: BarChart3 } as const;
 
 export function HomeHero() {
-  const { about, certification, hero } = useLocalizedContent();
+  const { about, certification, hero, partner } = useLocalizedContent();
 
   return (
     <HeroCover
@@ -28,15 +28,22 @@ export function HomeHero() {
 
       <Link
         to="/a-propos"
-        aria-label={about.credential.title}
-        className="absolute right-5 top-5 z-10 w-20 transition-transform hover:-translate-y-1 sm:right-8 sm:top-8 sm:w-24 lg:w-28"
+        aria-label={about.recognitions.homeLinkLabel}
+        className="absolute right-5 top-5 z-10 flex items-center gap-2 transition-transform hover:-translate-y-1 sm:right-8 sm:top-8 sm:gap-3"
       >
+        <img
+          src={partner.image}
+          alt={about.recognitions.partnerAlt}
+          width={375}
+          height={177}
+          className="h-auto w-32 drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:w-40 lg:w-44"
+        />
         <img
           src={certification.image}
           alt={about.credential.alt}
           width={402}
           height={402}
-          className="h-auto w-full drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+          className="h-auto w-16 drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:w-20 lg:w-24"
         />
       </Link>
     </HeroCover>

@@ -227,6 +227,27 @@ test("le collectif remplace le dirigeant dans la présentation commerciale", asy
   assert.equal(badge.subarray(1, 4).toString(), "PNG");
 });
 
+test("les reconnaissances distinguent le partenariat de la certification individuelle", async () => {
+  const credentials = await readFile(path.join(projectRoot, "src/content/credentials.ts"), "utf8");
+  const localized = await readLocalizedContent();
+  const partnerBadge = await readFile(
+    path.join(projectRoot, "public/images/credentials/openai-select-partner.svg"),
+    "utf8",
+  );
+
+  assert.match(credentials, /OpenAI Select Partner/u);
+  assert.match(credentials, /openai\.com\/business\/partners/u);
+  assert.match(credentials, /credly\.com\/badges/u);
+  assert.match(partnerBadge, /<svg\b/u);
+  assert.match(localized, /statut OpenAI Select Partner concerne caraaios en tant qu’entreprise/u);
+  assert.match(
+    localized,
+    /certification Claude Certified Developer — Foundations est détenue par un membre/u,
+  );
+  assert.match(localized, /OpenAI Select Partner is a company-level status/u);
+  assert.match(localized, /certification held by a member of our collective/u);
+});
+
 test("chaque bloc de contenu existe dans les deux langues", async () => {
   const content = await readLocalizedContent();
   const [french, english] = content.split(/\n {2}en: \{/u);

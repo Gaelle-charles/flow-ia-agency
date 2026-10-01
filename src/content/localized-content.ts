@@ -1,6 +1,6 @@
 import { useI18n } from "@/lib/i18n-context";
 
-import { claudeCertification as certificationFr } from "./credentials";
+import { claudeCertification as certificationFr, openAiPartner } from "./credentials";
 import { faqItems as faqItemsFr } from "./faq";
 import { operationExamples as operationExamplesFr } from "./operation-examples";
 import evidenceFr from "./operational-evidence.json";
@@ -253,6 +253,39 @@ const content = {
         body: certificationFr.scope,
         alt: "Badge Claude Certified Developer — Foundations",
       },
+      recognitions: {
+        eyebrow: "Reconnaissances et engagements",
+        title: "Des expertises reconnues, une méthode vérifiable.",
+        intro:
+          "Le statut OpenAI Select Partner concerne caraaios en tant qu’entreprise. La certification Claude Certified Developer — Foundations est détenue par un membre du collectif. Ces repères éclairent notre façon de travailler avec vous.",
+        homeLinkLabel: "Découvrir nos reconnaissances et nos engagements",
+        partnerLabel: "Statut de l’entreprise",
+        partnerTitle: openAiPartner.title,
+        partnerAlt: "Badge officiel OpenAI Select Partner",
+        partnerBody:
+          "caraaios fait partie de l’OpenAI Partner Network au niveau Select. Ce programme réunit des organisations qui construisent et déploient des solutions d’IA avec OpenAI. Pour votre projet, nous relions ces capacités à une opération, à des contrôles et à un résultat à mesurer.",
+        partnerLink: "Découvrir l’OpenAI Partner Network",
+        certificationLabel: "Certification individuelle",
+        certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
+        certificationBody:
+          "Un membre du collectif a réussi l’examen supervisé d’Anthropic. Cette certification porte sur le développement et l’intégration d’applications et d’agents avec Claude, notamment l’API, les outils, l’évaluation et la sécurité.",
+        certificationLink: "Vérifier le badge sur Credly",
+        commitmentsTitle: "Ce que nous nous engageons à faire avec vous",
+        commitments: [
+          {
+            title: "Partir de votre opération",
+            body: "Comprendre le travail réel, définir un périmètre clair et convenir d’une mesure de départ avant de choisir les outils.",
+          },
+          {
+            title: "Encadrer chaque automatisation",
+            body: "Limiter les données et les accès, prévoir les validations humaines et tester les situations normales comme les échecs.",
+          },
+          {
+            title: "Rendre le résultat transmissible",
+            body: "Documenter les règles, les traces et les responsabilités pour que votre équipe puisse suivre et reprendre le système.",
+          },
+        ],
+      },
       legalTitle: "Cadre juridique",
       legalText: "est porté par",
       publicRecord: "Consulter la fiche publique",
@@ -363,6 +396,7 @@ const content = {
       },
     },
     journalEntries: journalEntriesFr,
+    partner: openAiPartner,
     certification: certificationFr,
   },
   en: {
@@ -944,6 +978,39 @@ const content = {
         body: "Individual certification earned by a member of the collective.",
         alt: "Claude Certified Developer — Foundations badge",
       },
+      recognitions: {
+        eyebrow: "Credentials and commitments",
+        title: "Recognized expertise, a verifiable way of working.",
+        intro:
+          "OpenAI Select Partner is a company-level status held by caraaios. Claude Certified Developer — Foundations is a certification held by a member of our collective. These credentials inform how we work with you.",
+        homeLinkLabel: "Explore our credentials and commitments",
+        partnerLabel: "Company-level status",
+        partnerTitle: openAiPartner.title,
+        partnerAlt: "Official OpenAI Select Partner badge",
+        partnerBody:
+          "caraaios is part of the OpenAI Partner Network at the Select tier. The program brings together organizations that build and deploy AI solutions with OpenAI. For your project, we connect those capabilities to a real operation, clear controls and an outcome to measure.",
+        partnerLink: "Explore the OpenAI Partner Network",
+        certificationLabel: "Individual certification",
+        certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
+        certificationBody:
+          "A member of our collective passed Anthropic’s proctored exam. This certification covers building and integrating applications and agents with Claude, including the API, tools, evaluation and security.",
+        certificationLink: "Verify the badge on Credly",
+        commitmentsTitle: "What we commit to doing with you",
+        commitments: [
+          {
+            title: "Start with your operation",
+            body: "Understand the real work, define a clear scope and agree on a baseline before choosing tools.",
+          },
+          {
+            title: "Govern every automation",
+            body: "Limit data and access, define human approvals, and test both normal cases and failures.",
+          },
+          {
+            title: "Make the result transferable",
+            body: "Document rules, traces and responsibilities so your team can monitor and take ownership of the system.",
+          },
+        ],
+      },
       legalTitle: "Legal structure",
       legalText: "is operated by",
       publicRecord: "View the public company record",
@@ -1070,6 +1137,7 @@ const content = {
           "This pilot is not presented as an autonomous pipeline or a commercial client engagement.",
       },
     ],
+    partner: openAiPartner,
     certification: {
       ...certificationFr,
       scope: "Individual certification earned by a member of the collective.",
