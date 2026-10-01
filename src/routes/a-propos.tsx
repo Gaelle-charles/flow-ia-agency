@@ -88,7 +88,7 @@ function AboutPage() {
               href={partner.programUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="cta-ghost mt-6 self-start text-foreground"
+              className="cta-ghost mt-auto self-start pt-6 text-foreground"
             >
               {recognitions.partnerLink}
               <span aria-hidden="true">→</span>
@@ -120,7 +120,7 @@ function AboutPage() {
               href={certification.verificationUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="cta-ghost mt-6 self-start text-foreground"
+              className="cta-ghost mt-auto self-start pt-6 text-foreground"
             >
               {recognitions.certificationLink}
               <span aria-hidden="true">→</span>

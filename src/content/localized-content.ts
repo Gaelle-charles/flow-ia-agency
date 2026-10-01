@@ -248,7 +248,7 @@ const content = {
       ],
       team: crewFr.team,
       credential: {
-        eyebrow: "Une expertise certifiée au sein du collectif",
+        eyebrow: "Certification technique",
         title: `${certificationFr.title} — ${certificationFr.level}`,
         body: certificationFr.scope,
         alt: "Badge Claude Certified Developer — Foundations",
@@ -257,18 +257,18 @@ const content = {
         eyebrow: "Reconnaissances et engagements",
         title: "Des expertises reconnues, une méthode vérifiable.",
         intro:
-          "Le statut OpenAI Select Partner concerne caraaios en tant qu’entreprise. La certification Claude Certified Developer — Foundations est détenue par un membre du collectif. Ces repères éclairent notre façon de travailler avec vous.",
+          "caraaios est OpenAI Select Partner. La certification Claude Certified Developer — Foundations atteste de compétences techniques appliquées à nos prestations. Voici ce que ces reconnaissances signifient pour les solutions que nous livrons.",
         homeLinkLabel: "Découvrir nos reconnaissances et nos engagements",
-        partnerLabel: "Statut de l’entreprise",
+        partnerLabel: "Partenariat OpenAI",
         partnerTitle: openAiPartner.title,
         partnerAlt: "Badge officiel OpenAI Select Partner",
         partnerBody:
-          "caraaios fait partie de l’OpenAI Partner Network au niveau Select. Ce programme réunit des organisations qui construisent et déploient des solutions d’IA avec OpenAI. Pour votre projet, nous relions ces capacités à une opération, à des contrôles et à un résultat à mesurer.",
+          "caraaios est OpenAI Select Partner et fait partie de l’OpenAI Partner Network. Nous travaillons avec OpenAI pour aider les organisations à concevoir, déployer et faire évoluer des solutions d’IA de manière responsable et efficace.",
         partnerLink: "Découvrir l’OpenAI Partner Network",
-        certificationLabel: "Certification individuelle",
+        certificationLabel: "Certification technique",
         certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
         certificationBody:
-          "Un membre du collectif a réussi l’examen supervisé d’Anthropic. Cette certification porte sur le développement et l’intégration d’applications et d’agents avec Claude, notamment l’API, les outils, l’évaluation et la sécurité.",
+          "La certification Claude Certified Developer — Foundations atteste, à l’issue d’un examen surveillé, la capacité à concevoir, intégrer et livrer des applications et agents de production avec Claude. Elle couvre l’API Claude, Claude Code, les outils personnalisés, les serveurs MCP, l’ingénierie du contexte, l’évaluation, le débogage et la sécurité. Dans nos prestations, nous appliquons ces compétences pour construire des solutions testées, sécurisées, documentées et maintenables.",
         certificationLink: "Vérifier le badge sur Credly",
         commitmentsTitle: "Ce que nous nous engageons à faire avec vous",
         commitments: [
@@ -973,27 +973,27 @@ const content = {
       ],
       team: "Around that accountability, we mobilize the expertise required — operations, CRM, data, integration, automation, agentic systems, security and change management — when the workflow needs it.",
       credential: {
-        eyebrow: "Certified expertise within the collective",
+        eyebrow: "Technical certification",
         title: `${certificationFr.title} — ${certificationFr.level}`,
-        body: "Individual certification earned by a member of the collective.",
+        body: "Attests to assessed skills in building and shipping applications and agents with Claude.",
         alt: "Claude Certified Developer — Foundations badge",
       },
       recognitions: {
         eyebrow: "Credentials and commitments",
         title: "Recognized expertise, a verifiable way of working.",
         intro:
-          "OpenAI Select Partner is a company-level status held by caraaios. Claude Certified Developer — Foundations is a certification held by a member of our collective. These credentials inform how we work with you.",
+          "caraaios is an OpenAI Select Partner. The Claude Certified Developer — Foundations certification attests to technical skills applied in our work. Here is what these credentials mean for the solutions we deliver.",
         homeLinkLabel: "Explore our credentials and commitments",
-        partnerLabel: "Company-level status",
+        partnerLabel: "OpenAI partnership",
         partnerTitle: openAiPartner.title,
         partnerAlt: "Official OpenAI Select Partner badge",
         partnerBody:
-          "caraaios is part of the OpenAI Partner Network at the Select tier. The program brings together organizations that build and deploy AI solutions with OpenAI. For your project, we connect those capabilities to a real operation, clear controls and an outcome to measure.",
+          "caraaios is an OpenAI Select Partner and part of the OpenAI Partner Network. We work with OpenAI to help organizations build, deploy and scale AI solutions responsibly and effectively.",
         partnerLink: "Explore the OpenAI Partner Network",
-        certificationLabel: "Individual certification",
+        certificationLabel: "Technical certification",
         certificationTitle: `${certificationFr.title} — ${certificationFr.level}`,
         certificationBody:
-          "A member of our collective passed Anthropic’s proctored exam. This certification covers building and integrating applications and agents with Claude, including the API, tools, evaluation and security.",
+          "The Claude Certified Developer — Foundations certification attests, through a proctored exam, to the ability to build, integrate and ship production applications and agents with Claude. It covers the Claude API, Claude Code, custom tools, MCP servers, context engineering, evaluation, debugging and security. We apply these skills in our work to build solutions that are tested, secure, documented and maintainable.",
         certificationLink: "Verify the badge on Credly",
         commitmentsTitle: "What we commit to doing with you",
         commitments: [
@@ -1140,7 +1140,8 @@ const content = {
     partner: openAiPartner,
     certification: {
       ...certificationFr,
-      scope: "Individual certification earned by a member of the collective.",
+      scope:
+        "Attests to assessed skills in building and shipping applications and agents with Claude.",
     },
   },
 } as const;

@@ -220,14 +220,14 @@ test("le collectif remplace le dirigeant dans la présentation commerciale", asy
     assert.doesNotMatch(content, /Dorian|Labry|est dirigé par|brand\.founder/u);
   }
   const credentials = await readFile(path.join(projectRoot, "src/content/credentials.ts"), "utf8");
-  assert.match(credentials, /Certification individuelle obtenue par un membre du collectif/u);
+  assert.match(credentials, /Atteste des compétences évaluées/u);
   const badge = await readFile(
     path.join(projectRoot, "public/images/credentials/claude-certified-developer-foundations.png"),
   );
   assert.equal(badge.subarray(1, 4).toString(), "PNG");
 });
 
-test("les reconnaissances distinguent le partenariat de la certification individuelle", async () => {
+test("les reconnaissances emploient les intitulés officiels sans qualifier de niveau", async () => {
   const credentials = await readFile(path.join(projectRoot, "src/content/credentials.ts"), "utf8");
   const localized = await readLocalizedContent();
   const partnerBadge = await readFile(
@@ -239,13 +239,14 @@ test("les reconnaissances distinguent le partenariat de la certification individ
   assert.match(credentials, /openai\.com\/business\/partners/u);
   assert.match(credentials, /credly\.com\/badges/u);
   assert.match(partnerBadge, /<svg\b/u);
-  assert.match(localized, /statut OpenAI Select Partner concerne caraaios en tant qu’entreprise/u);
-  assert.match(
+  assert.match(localized, /caraaios est OpenAI Select Partner/u);
+  assert.match(localized, /caraaios is an OpenAI Select Partner/u);
+  assert.match(localized, /serveurs MCP/u);
+  assert.match(localized, /MCP servers/u);
+  assert.doesNotMatch(
     localized,
-    /certification Claude Certified Developer — Foundations est détenue par un membre/u,
+    /niveau Select|Select tier|membre du collectif|member of our collective/u,
   );
-  assert.match(localized, /OpenAI Select Partner is a company-level status/u);
-  assert.match(localized, /certification held by a member of our collective/u);
 });
 
 test("chaque bloc de contenu existe dans les deux langues", async () => {
