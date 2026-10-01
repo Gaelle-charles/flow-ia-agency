@@ -68,7 +68,7 @@ export function SiteHeader() {
               alt=""
               width="240"
               height="67"
-              className="hidden h-auto w-60 mix-blend-screen xl:block"
+              className="hidden h-auto w-60 mix-blend-screen contrast-[1.3] xl:block"
             />
           </Link>
 
@@ -141,7 +141,7 @@ export function LegalFooter() {
             alt={brand.name}
             width="240"
             height="67"
-            className="h-auto w-60 mix-blend-screen"
+            className="h-auto w-60 mix-blend-screen contrast-[1.3]"
           />
         </div>
 
