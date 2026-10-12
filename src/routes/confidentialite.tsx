@@ -2,16 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { HeroCover, PageShell } from "@/components/site/PageShell";
 import brand from "@/content/brand.config.json";
-import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
-import { pageMeta } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/confidentialite")({
   loader: async () => ({ locale: await getInitialLocale() }),
-  head: ({ loaderData }) => {
-    const { privacyPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(privacyPage.introTitle, privacyPage.introBody, false) };
-  },
+  head: ({ loaderData }) => pageHead("/confidentialite", loaderData?.locale ?? "fr", false),
   component: PrivacyPage,
 });
 

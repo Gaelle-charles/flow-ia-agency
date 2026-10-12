@@ -1,16 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { HeroCover, PageShell } from "@/components/site/PageShell";
-import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
-import { pageMeta } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/realisations")({
   loader: async () => ({ locale: await getInitialLocale() }),
-  head: ({ loaderData }) => {
-    const { casesPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(casesPage.title.join(" "), casesPage.body) };
-  },
+  head: ({ loaderData }) => pageHead("/realisations", loaderData?.locale ?? "fr"),
   component: CasesPage,
 });
 

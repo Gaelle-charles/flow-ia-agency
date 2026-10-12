@@ -365,8 +365,8 @@
 /* Scroll reveal: blocks fade and rise as they enter the viewport.
    Only active once the inline head script flags <html>, so the page
    never depends on JavaScript to be readable. */
-.reveal-ready main section,
-.reveal-ready main section :is(ul, ol) > li {
+.reveal-ready main > section:not(:first-of-type),
+.reveal-ready main > section:not(:first-of-type) :is(ul, ol) > li {
   opacity: 0;
   transform: translateY(40px) scale(0.98);
   transition:
@@ -375,17 +375,17 @@
   will-change: opacity, transform;
 }
 
-.reveal-ready main section.is-revealed,
-.reveal-ready main section :is(ul, ol) > li.is-revealed,
-.reveal-done main section,
-.reveal-done main section :is(ul, ol) > li {
+.reveal-ready main > section:not(:first-of-type).is-revealed,
+.reveal-ready main > section:not(:first-of-type) :is(ul, ol) > li.is-revealed,
+.reveal-done main > section:not(:first-of-type),
+.reveal-done main > section:not(:first-of-type) :is(ul, ol) > li {
   opacity: 1;
   transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-ready main section,
-  .reveal-ready main section :is(ul, ol) > li {
+  .reveal-ready main > section:not(:first-of-type),
+  .reveal-ready main > section:not(:first-of-type) :is(ul, ol) > li {
     opacity: 1;
     transform: none;
     transition: none;

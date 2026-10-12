@@ -7,7 +7,9 @@ declare global {
   }
 }
 
-const REVEAL_SELECTOR = "main section, main section :is(ul, ol) > li";
+// Keep the first, above-the-fold section visible from the initial HTML paint.
+const REVEAL_SELECTOR =
+  "main > section:not(:first-of-type), main > section:not(:first-of-type) :is(ul, ol) > li";
 const STAGGER_MS = 110;
 const MAX_STAGGER_MS = 660;
 

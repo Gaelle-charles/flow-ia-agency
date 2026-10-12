@@ -48,6 +48,8 @@ export function HeroCover({ title, body, image, children }: HeroCoverProps) {
             <img
               src={image.src}
               alt={image.alt}
+              loading="eager"
+              fetchPriority="high"
               decoding="async"
               className="absolute inset-0 -z-20 h-full w-full object-cover"
             />

@@ -2,16 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { HeroCover, PageShell } from "@/components/site/PageShell";
 import { ProcessIntakeForm } from "@/components/site/ProcessIntakeForm";
-import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
-import { pageMeta } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   loader: async () => ({ locale: await getInitialLocale() }),
-  head: ({ loaderData }) => {
-    const { contactPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(contactPage.introTitle, contactPage.introBody) };
-  },
+  head: ({ loaderData }) => pageHead("/contact", loaderData?.locale ?? "fr"),
   component: ContactPage,
 });
 

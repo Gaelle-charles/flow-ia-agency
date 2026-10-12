@@ -2,17 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { HeroCover, PageShell } from "@/components/site/PageShell";
 import brand from "@/content/brand.config.json";
-import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { useLocalizedContent } from "@/content/localized-content";
 import legal from "@/content/legal.config.json";
 import { getInitialLocale } from "@/lib/locale";
-import { pageMeta } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/mentions-legales")({
   loader: async () => ({ locale: await getInitialLocale() }),
-  head: ({ loaderData }) => {
-    const { legalPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(legalPage.introTitle, legalPage.introBody, false) };
-  },
+  head: ({ loaderData }) => pageHead("/mentions-legales", loaderData?.locale ?? "fr", false),
   component: LegalPage,
 });
 

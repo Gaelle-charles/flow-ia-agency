@@ -2,18 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BarChart3, Database, Zap } from "lucide-react";
 
 import { HeroCover, PageShell } from "@/components/site/PageShell";
-import { getLocalizedContent, useLocalizedContent } from "@/content/localized-content";
+import { useLocalizedContent } from "@/content/localized-content";
 import { getInitialLocale } from "@/lib/locale";
-import { pageMeta } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 const expertiseIcons = { zap: Zap, database: Database, chart: BarChart3 } as const;
 
 export const Route = createFileRoute("/work")({
   loader: async () => ({ locale: await getInitialLocale() }),
-  head: ({ loaderData }) => {
-    const { workPage } = getLocalizedContent(loaderData?.locale ?? "fr");
-    return { meta: pageMeta(workPage.title, workPage.body) };
-  },
+  head: ({ loaderData }) => pageHead("/work", loaderData?.locale ?? "fr"),
   component: WorkPage,
 });
 
