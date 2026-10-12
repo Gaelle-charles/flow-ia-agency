@@ -2,6 +2,22 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/inter-latin-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-variable.woff2") format("woff2");
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
