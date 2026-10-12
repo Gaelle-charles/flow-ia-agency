@@ -60,7 +60,11 @@ def main():
         raise RuntimeError(f"IndexNow rejected the submission (HTTP {error.code})") from error
     if status not in (200, 202):
         raise RuntimeError(f"Unexpected IndexNow response: HTTP {status}")
-    print(json.dumps({"status": status, "submitted": urls}, ensure_ascii=False, indent=2))
+    print(json.dumps({
+        "status": status,
+        "received": urls,
+        "keyValidation": "pending" if status == 202 else "accepted",
+    }, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
