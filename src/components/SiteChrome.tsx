@@ -204,15 +204,19 @@ export function LegalFooter() {
             </ul>
           )}
           <p className="mt-4 text-[0.75rem] leading-6 text-muted-foreground">
-            {brand.name} {common.legalLine} {brand.legalName}, {brand.legalForm} – SIREN{" "}
-            {brand.siren}.
+            <span data-nosnippet="">
+              {brand.name} {common.legalLine} {brand.legalName}, {brand.legalForm} – SIREN{" "}
+              {brand.siren}.
+            </span>
           </p>
         </div>
       </div>
 
       <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-[0.75rem] text-muted-foreground">
         <p>
-          © {new Date().getFullYear()} {brand.name}. {common.rightsReserved}
+          <span data-nosnippet="">
+            © {new Date().getFullYear()} {brand.name}. {common.rightsReserved}
+          </span>
         </p>
         <div className="flex gap-6">
           <Link to="/mentions-legales" className="transition-colors hover:text-foreground">
